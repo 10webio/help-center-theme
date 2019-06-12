@@ -1,10 +1,12 @@
 <section class="section hero community-hero">
   <div class="hero-inner">
-    {{search submit=false class='search search-full' scoped=settings.scoped_community_search}}
+      <h1 class="header_text header_title">10Web Help Center</h1>
+      <p class="header_text header_desc">Hi, how can we help?</p>
+    {{search submit=false instant=settings.instant_search class='search search-full'}}
   </div>
 </section>
 
-<div class="container">
+<div class="container community_topics">
   <nav class="sub-nav">
     {{breadcrumbs}}
   </nav>
@@ -57,7 +59,7 @@
 
   {{pagination}}
 
-  {{#if featured_posts}}
+  <!-- {{#if featured_posts}}
     <section class="section community-featured-posts">
       <h3>{{t 'featured_posts'}}</h3>
       <ul class="promoted-articles">
@@ -70,7 +72,7 @@
         {{/each}}
       </ul>
     </section>
-  {{/if}}
+  {{/if}}-->
 
   <section class="community-activity activity">
     {{#if help_center.community_enabled}}

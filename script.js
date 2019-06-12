@@ -2,6 +2,11 @@
  * jQuery v1.9.1 included
  */
 $(document).ready(function() {
+  if (!$('section.section.hero').length) {
+    $('body').addClass('black_menu');
+    $(".header .logo img").attr("src", $(".header .logo img").data("fixed_img"));
+  }
+  
   $(".blocks-item").has("a[href$='/hc/en-us/categories/360001741252-10Web-Platform-information']").hide();
   $(".section-articles ul").has("a[href$='/hc/en-us/articles/360028017772-Public-roadmap']").parent().parent().hide()
   // social share popups
@@ -125,4 +130,65 @@ $(document).ready(function() {
     var isExpanded = this.getAttribute("aria-expanded") === "true";
     this.setAttribute("aria-expanded", !isExpanded);
   });
+
+scrolled = 0;
+    $(window).scroll(function(e){
+        var scroll = $(window).scrollTop();
+        var breadcrumbs = $("nav.sub-nav").length;
+        var height = breadcrumbs ? ($("nav.sub-nav").position().top + 100) : ( $(".hero").outerHeight(true) - 71);
+        if (!matchMedia('screen and (max-width: 767px)').matches) {
+          if($('section.section.hero').length) {
+              if (scroll > 100) {
+                $(".header").addClass("active");
+              } else {
+                $(".header").removeClass("active");
+              }
+              if (scroll > (height)) {
+                var fixed_img = $(".header .logo img").data("fixed_img");
+                $(".header .logo img").attr("src", fixed_img);
+                $(".header").addClass("fixed_header");
+
+                if (breadcrumbs && scrolled == 0) { 
+                  scrolled = 1;
+                  $(".sub_nav_search .search.search-full").after($("ol.breadcrumbs:not(.search-result-breadcrumbs)")); 
+                  $(".sub_nav_search").css({
+                     'display':'block',
+                  });
+                }
+              } else {
+                  var img = $(".header .logo img").data("img");
+                  $(".header .logo img").attr("src", img);
+                  $(".header").removeClass("fixed_header");
+                  if (breadcrumbs && scrolled == 1) {
+                    scrolled = 0;
+                    $("nav.sub-nav").append($("ol.breadcrumbs:not(.search-result-breadcrumbs)"));
+                   $(".sub_nav_search").css({
+                        'display':'none',
+                    });
+                  }
+              }
+           } else {
+             if (scroll > (height)) {
+              
+
+                if (breadcrumbs && scrolled == 0) { 
+                  scrolled = 1;
+                  $(".sub_nav_search .search.search-full").after($("ol.breadcrumbs:not(.search-result-breadcrumbs)")); 
+                  $(".sub_nav_search").css({
+                     'display':'block',
+                  });
+                }
+              } else {
+                  if (breadcrumbs && scrolled == 1) {
+                    scrolled = 0;
+                    $("nav.sub-nav").prepend($("ol.breadcrumbs:not(.search-result-breadcrumbs)"));
+                   $(".sub_nav_search").css({
+                        'display':'none',
+                    });
+                  }
+              }
+           }
+        }
+    })
+
 });

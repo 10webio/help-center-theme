@@ -2,21 +2,23 @@
 <div class="container">
   <nav class="sub-nav">
     {{breadcrumbs}}
-    {{search submit=false}}
+    {{search submit=false instant=settings.instant_search class='search search-full'}}
   </nav>
+  <div class='form_section'>
+    <div class='form_container'>
+      <h1>
+        {{t 'submit_a_request'}}
+        {{#if follow_up}}
+          <span class="follow-up-hint">
+            {{follow_up}}
+          </span>
+        {{/if}}
+      </h1>
 
-  <h1>
-    {{t 'submit_a_request'}}
-    {{#if follow_up}}
-      <span class="follow-up-hint">
-        {{follow_up}}
-      </span>
-    {{/if}}
-  </h1>
-
-  <div class="form">
-    {{request_form}}
+      <div class="form">
+        {{request_form}}
+      </div>
+    </div>
   </div>
-
   {{chat}}
 </div>

@@ -1,68 +1,53 @@
-<section class="section hero">
-  <div class="hero-inner">
-    {{search submit=false instant=settings.instant_search class='search search-full'}}
+<div class="home-page">
+  <section class="section hero">
+    <div class="hero-inner">
+        <h1 class="header_text header_title">10Web Help Center</h1>
+        <p class="header_text header_desc">Hi, how can we help?</p>
+      {{search submit=false instant=settings.instant_search class='search search-full'}}
+    </div>
+  </section>
+
+  <div class="container">
+      <div class="container_top">
+          <a href="https://help.10web.io/hc/en-us/sections/360004115912-Pre-sales-Questions">Pre-sales</a>
+          <a href="https://help.10web.io/hc/en-us/sections/360002159011-Getting-Started">Getting Started</a>
+          <a href="https://help.10web.io/hc/en-us/sections/360004115952-Billing-and-Payment">Billing and Payment</a>
+      </div>
+      <div class="container_services">
+          <h2 class="services_title section-title">Services</h2>
+          <a class="s_hosting" href="https://help.10web.io/hc/en-us/categories/360000963851-Hosting">Hosting</a>
+          <a class="s_backup" href="https://help.10web.io/hc/en-us/sections/360002169212-Backup-Service">Backup</a>
+          <a class="s_optimizer" href="https://help.10web.io/hc/en-us/sections/360002369692-Image-Optimizer">Image Optimizer</a>
+          <a class="s_security" href="https://help.10web.io/hc/en-us/sections/360002159051-Security-Service">Security</a>
+          <a class="s_seo" href="https://help.10web.io/hc/en-us/sections/360002363691-SEO-by-10Web">SEO</a>
+          <a class="s_performance" href="https://help.10web.io/hc/en-us/sections/360002369712-Performance">Performance</a>
+      </div>
+      <div class="container_plugins">
+          <h2 class="plugins_title section-title">Plugins</h2>
+          <a class="plugin" href="https://help.10web.io/hc/en-us/categories/360001747711-Form-Maker">Form Maker</a>
+          <a class="plugin" href="https://help.10web.io/hc/en-us/categories/360001749552-Photo-Gallery">Photo Gallery</a>
+          <a class="plugin" href="https://help.10web.io/hc/en-us/sections/360002159151-Instagram-Feed">Instagram</a>
+          <a class="plugin" href="https://help.10web.io/hc/en-us/sections/360002159131-Slider">Slider</a>
+          <a class="plugin" href="https://help.10web.io/hc/en-us/sections/360002402952-Event-Calendar">Event Calendar</a>
+          <a class="plugin" href="https://help.10web.io/hc/en-us/sections/360002169272-Google-Maps-WD">Google Maps</a>
+          <div class="see_all_plugins">
+              <a href="https://help.10web.io/hc/en-us/categories/360000887951-Plugins">SEE ALL PLUGINS</a>
+          </div>
+      </div>
+      <!--<div class="container_questions">
+          <h2 class="questions_title section-title">Common questions</h2>
+          <div class="question_section">
+              <a href="" class="q_title">How do I manage security settings in Admin Center?</a>
+              <p class="q_desc">Admin Center lets you manage how you authenticate users. You can use Zendesk's own user authentication (the standard sign-in process) or you can remotely authenticate users using single sign-on (SSO) and then seamlessly sign them in to Zendesk. You can also let users sign in using popular business or social authentication services such as Google, Microsoft, Facebook, or Twitter...</p>
+          </div>
+          <div class="question_section">
+              <a href="" class="q_title">How do I use the 10Web Marketplace?</a>
+              <p class="q_desc">The Marketplace is the hub for apps to customize Zendesk Support and Zendesk Chat. In the Marketplace, you'll find easily installable apps and integrations to enhance analytics and reporting, time tracking, agent productivity, and more.</p>
+          </div>
+          <div class="question_section">
+              <a href="" class="q_title">How can I be GDPR-compliant using 10Web products?</a>
+              <p class="q_desc">The General Data Protection Regulation (GDPR) is a European privacy regulation that aims to strengthen the security and protection of personal data in the European Union (EU). Zendesk customers that collect and store personal data of EU citizens are considered data controllers under the GDPR. Data controllers bear the primary responsibility for ensuring that their processing of personal data is compliant with relevant EU data protection law.</p>
+          </div>
+      </div>-->
   </div>
-</section>
-
-<div class="container">
-  <section class="section knowledge-base">
-    <section class="categories blocks">
-      <ul class="blocks-list">
-        {{#each categories}}
-          {{#if ../has_multiple_categories}}
-            <li class="blocks-item 10web-item-{{id}}">
-              <a href='{{url}}' class="blocks-item-link">
-                <h4 class="blocks-item-title">{{name}}</h4>
-                <p class="blocks-item-description">{{excerpt description}}</p>
-              </a>
-            </li>
-          {{else}}
-            {{#each sections}}
-              <li class="blocks-item {{#if internal}}blocks-item-internal{{/if}}">
-                <a href='{{url}}' class="blocks-item-link">
-                  <h4 class="blocks-item-title">
-                    {{name}}
-                    {{#if internal}}
-                      <span class="icon-lock" title="{{t 'internal'}}"></span>
-                    {{/if}}
-                  </h4>
-                  <p class="blocks-item-description">{{excerpt description}}</p>
-                </a>
-              </li>
-            {{/each}}
-          {{/if}}
-        {{/each}}
-      </ul>
-      {{pagination}}
-    </section>
-
-    {{#if promoted_articles}}
-      <section class="articles">
-        <h3>{{t 'promoted_articles'}}</h3>
-        <ul class="article-list promoted-articles">
-          {{#each promoted_articles}}
-            <li class="promoted-articles-item">
-              <a href="{{url}}">
-                {{title}}
-              </a>
-            </li>
-          {{/each}}
-        </ul>
-      </section>
-    {{/if}}
-  </section>
-  {{#if help_center.community_enabled}}
-    <section class="section community">
-      <h2>Have a cool idea?</h2>
-      {{#link 'community' class='community-link'}}
-        Submit it here
-      {{/link}}
-       <div class="community-image"></div>
-    </section>
-  {{/if}}
-  <section class="section activity">
-    {{#if settings.show_recent_activity}}
-      {{recent_activity}}
-    {{/if}}
-  </section>
 </div>

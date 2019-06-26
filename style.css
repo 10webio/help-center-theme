@@ -171,9 +171,9 @@ ul {
 
 /***** Buttons *****/
 .button, [role="button"] {
-  border: 1px solid $brand_color;
-  border-radius: 4px;
-  color: $brand_color;
+  border-radius: 16px;
+  color: #ffffff;
+  background: $brand_color;
   cursor: pointer;
   display: inline-block;
   font-size: 12px;
@@ -186,6 +186,11 @@ ul {
   white-space: nowrap;
   width: 100%;
   -webkit-touch-callout: none;
+}
+.profile-header .options [data-action="edit-profile"]:hover,
+.button:hover, [role="button"]:hover {
+  text-decoration: none;
+  background-color: #3077FF;
 }
 
 @media (min-width: 768px) {
@@ -205,8 +210,8 @@ ul {
 }
 
 .button[aria-selected="true"]:hover, .button[aria-selected="true"]:focus, .button[aria-selected="true"]:active, [role="button"][aria-selected="true"]:hover, [role="button"][aria-selected="true"]:focus, [role="button"][aria-selected="true"]:active {
-  background-color: darken($brand_color, 20%);
-  border-color: darken($brand_color, 20%);
+  background-color: #3077FF;
+  border-color: #3077FF;
 }
 
 .button[data-disabled], [role="button"][data-disabled] {
@@ -231,9 +236,11 @@ ul {
     width: auto;
   }
 }
-
-.button-large:hover, .button-large:active, .button-large:focus, input[type="submit"]:hover, input[type="submit"]:active, input[type="submit"]:focus {
-  background-color: darken($brand_color, 20%);
+.button-large:hover, .button-large:focus, input[type="submit"]:hover, input[type="submit"]:focus {
+  background-color: #3077FF;
+}
+.button-large:active, input[type="submit"]:active {
+  background-color: $brand_color;
 }
 
 .button-large[disabled], input[type="submit"][disabled] {
@@ -263,7 +270,9 @@ ul {
     table-layout: auto;
   }
 }
-
+div#user [role="button"] {
+    background: transparent;
+}
 .table th,
 .table th a {
   color: lighten($text_color, 20%);
@@ -795,7 +804,7 @@ background: #f3f3f3;
   background-image: url($homepage_background_image);
   background-position: center;
   background-size: cover;
-  height: 516px;
+  height: 400px;
   padding: 0 20px;
   text-align: center;
   width: 100%;
@@ -808,6 +817,7 @@ background: #f3f3f3;
   max-width: 100%;
   width: 1620px;
   margin: 0 auto;
+  padding-top: 20px;
 }
 
 .page-header {
@@ -876,7 +886,7 @@ h3.search-results-subheading {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 .black_menu .sub-nav {
     margin-bottom: 50px;
@@ -1089,10 +1099,10 @@ box-shadow: 0 0px 20px rgba(50, 58, 69, 0.2) !important;
 
 /***** Homepage *****/
 .section {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .categories-page .section-tree .section {
-    margin-bottom: 100px;
+    margin: 0 1% 100px;
 }
 @media (min-width: 768px) {
   .home-page .section {
@@ -1319,7 +1329,7 @@ box-shadow: 0 0px 20px rgba(50, 58, 69, 0.2) !important;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 @media (min-width: 768px) {
@@ -1381,12 +1391,6 @@ box-shadow: 0 0px 20px rgba(50, 58, 69, 0.2) !important;
   flex: 1;
 }
 
-@media (min-width: 1024px) {
-  .section-content {
-    flex: 0 0 80%;
-  }
-}
-
 .section-subscribe .dropdown-toggle::after {
   display: none;
 }
@@ -1403,10 +1407,10 @@ box-shadow: 0 0px 20px rgba(50, 58, 69, 0.2) !important;
 
 @media (min-width: 1024px) {
   .article {
-    flex: 1 0 66%;
-    max-width: 66%;
+flex: 1 0 65%;
+    max-width: 65%;
     min-width: 640px;
-    padding: 0 30px;
+    padding: 0;
   }
 }
 
@@ -1427,7 +1431,7 @@ box-shadow: 0 0px 20px rgba(50, 58, 69, 0.2) !important;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   margin-top: 20px;
 }
 .article-body {
@@ -1457,7 +1461,7 @@ box-shadow: 0 0px 20px rgba(50, 58, 69, 0.2) !important;
 }
 
 .article-author {
-    margin-top: 14px;
+    margin-top: 6px;
 }
 
 @media (min-width: 768px) {
@@ -1594,10 +1598,10 @@ box-shadow: 0 0px 20px rgba(50, 58, 69, 0.2) !important;
 
 @media (min-width: 1024px) {
   .article-sidebar {
-    border: 0;
+border: 0;
     flex: 0 0 33%;
     height: auto;
-        padding-top: 100px;
+    margin-right: 2%;
   }
 }
 
@@ -1722,8 +1726,8 @@ background: #4B7EFC;
 }
 
 .article-unsubscribe:hover {
-  background-color: darken($brand_color, 20%);
-  border-color: darken($brand_color, 20%);
+  background-color: #3077FF;
+  border-color: #3077FF;
 }
 
 .sidenav-title {
@@ -1836,7 +1840,13 @@ background: #4B7EFC;
   overflow: hidden;
   width: 25px;
 }
-
+.post-footer .share a {
+    height: 30px;
+    line-height: 25px;
+    width: 30px;
+    position: relative;
+    text-indent: -300px;
+}
 .share a::before {
   width: 22px;
   height: 22px;
@@ -2299,6 +2309,7 @@ background: #4B7EFC;
   padding: 0 10px 0 15px;
   position: relative;
   width: 100%;
+  border-radius: 15px;
 }
 
 @media (min-width: 768px) {
@@ -2315,22 +2326,22 @@ background: #4B7EFC;
   border-color: $brand_text_color;
   color: $brand_text_color;
 }
-
+.community-follow [role="button"][data-follower-count="0"],
 .community-follow [role="button"][aria-selected="true"] {
   background-color: $brand_color;
   color: $brand_text_color;
 }
-
+.community-follow [role="button"][data-follower-count="0"]::after,
 .community-follow [role="button"][aria-selected="true"]::after {
   border-left: 1px solid $brand_text_color;
   color: $brand_text_color;
 }
 
-.community-follow [role="button"][aria-selected="true"]:hover {
-  background-color: darken($brand_color, 20%);
-  border-color: darken($brand_color, 20%);
+.community-follow [role="button"]:hover {
+  background-color: #3077FF;
+  border-color: #3077FF;
+  text-decoration: none;
 }
-
 .community-follow [role="button"]::after {
   border-left: 1px solid $brand_color;
   content: attr(data-follower-count);
@@ -2899,9 +2910,9 @@ background: #4B7EFC;
 
 .collapsible-sidebar-title {
 margin-top: 0;
-    font-size: 30px;
+    font-size: 28px;
     line-height: 40px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .collapsible-sidebar-title::after {
@@ -4297,7 +4308,7 @@ margin-top: 0;
 
 @media (min-width: 1024px) {
   .search-results-column {
-    flex: 0 0 45%;
+    flex: 0 0 47%;
   }
 }
 
@@ -4423,13 +4434,14 @@ background: rgba(255, 255, 255, 0.2);
   margin: 0px;
 }
 .header_title{
-  font-size: 55px;
-  font-weight: 800;
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 70px;
 }
 .header_desc{
-  font-size: 30px;
-  font-weight: 200;
-  margin-bottom: 30px;
+     font-size: 26px;
+    font-weight: 200;
+    margin-bottom: 25px;
 }
 ::placeholder {
   color: #fff;
@@ -4463,6 +4475,7 @@ background: rgba(255, 255, 255, 0.2);
 .container_services, .container_plugins{
   margin-top: 150px;
 }
+.featured_plugin .plugin,
 .container_services a, .container_plugins .plugin{
     font-size: 26px;
     color: #323A45;
@@ -4481,12 +4494,20 @@ background: rgba(255, 255, 255, 0.2);
     -moz-transition: -moz-transform .2s ease-in;
     transition: transform .2s ease-in;
 }
-
+.featured_plugin .plugin{
+    margin-top: 0;
+}
+.featured_plugin {
+    margin-bottom: 70px;
+    margin-top: 70px;
+  text-align: center;
+}
+.featured_plugin .plugin:hover,
 .container_services a:hover, .container_plugins .plugin:hover{
       box-shadow: 0 5px 20px rgba(229,230,232,.7);
-    -webkit-transform: translateY(-1px);
-    -moz-transform: translateY(-1px);
-    transform: translateY(-1px);
+    -webkit-transform: translateY(-3px);
+    -moz-transform: translateY(-3px);
+    transform: translateY(-3px);
 }
 
 .container_services a:before{
@@ -4522,17 +4543,18 @@ background: rgba(255, 255, 255, 0.2);
 .container_services a:nth-of-type(1), .container_services a:nth-of-type(2), .container_services a:nth-of-type(4), .container_services a:nth-of-type(5){
   margin-right: 14px;
 }
+.featured_plugin .plugin:nth-of-type(1),.featured_plugin .plugin:nth-of-type(2),
 .container_plugins .plugin:nth-of-type(1), .container_plugins .plugin:nth-of-type(2), .container_plugins .plugin:nth-of-type(4), .container_plugins .plugin:nth-of-type(5){
   margin-right: 14px;
 }
 .article-header .article-title,
 .container .section-title{
-  font-size: 55px;
-  font-weight: bold;
-  color: #323A45;
-  margin: 0;
-  text-align: left;
-  line-height: 72px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #323A45;
+    margin: 0;
+    text-align: left;
+    line-height: 40px;
 }
 .article-header .article-title{
     font-weight: 700;
@@ -4557,6 +4579,11 @@ a.article-subscribe[role="button"],
     line-height: 25px;
       width: 250px;
 }
+.form_container input[type="submit"]:hover,
+a.article-subscribe[role="button"]:hover,
+.see_all_plugins a:hover{
+    background-color: #3077FF;
+}
 .form_container input[type="submit"]{
   text-transform:uppercase;
 }
@@ -4580,6 +4607,16 @@ a.article-subscribe[role="button"],
   font-weight: 200;
   margin: 0;
 }
+.container_questions .q_desc ul{
+    list-style: initial;
+    padding-left: 25px;
+}
+.container_questions .q_desc img {
+    border: 0;
+    width: 600px;
+    height: auto;
+    max-width: 100%;
+}
 .user-nav {
   font-size: 0;
 }
@@ -4600,6 +4637,11 @@ a.article-subscribe[role="button"],
 .header{
   width: 100%;
   padding: 0 20px;
+}
+@media (max-width: 1700px) {
+  .header, .hero {
+    padding: 0 40px;
+  }
 }
 .black_menu .header,
 .fixed_header{
@@ -4627,7 +4669,7 @@ a.article-subscribe[role="button"],
   color: #323A45;
 }
 body.black_menu > main {
-    padding-top: 127px;
+    padding-top: 107px;
 }
 .user-nav a{
   text-decoration: none;
@@ -4679,11 +4721,13 @@ body.black_menu > main {
       margin-bottom: 0;
 }
 .page-header{
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 .section-tree-title{
-  font-size: 30px;
-  margin-bottom: 55px;
+    font-size: 30px;
+    margin-bottom: 15px;
+    line-height: 40px;
+    min-height: 80px;
 }
 .topics-item{
   box-shadow: 0 5px 20px rgba(229, 230, 232, 0.8);
@@ -4782,20 +4826,26 @@ body.black_menu > main {
   padding: 17px 74px;
   line-height: 1;
 }
+.section-container [role="button"],
+.form_container input[type="submit"],
 .comment-form-controls input[type="submit"],
 a.article-subscribe[role="button"],
 .community_topics a.button-large,
 .post-to-community a.button-large {
-    font-size: 20px;
-    padding: 16px 0;
-    line-height: 26px;
-    width: 250px;
-  text-transform: uppercase;
-  border-radius: 30px;
+    font-size: 14px;
+    padding: 14px 0;
+    line-height: 12px;
+    width: 155px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    min-width: 155px;
 }
 a.article-unsubscribe[role="button"] {
     border-radius: 15px;
   text-decoration: none !important;
+}
+a.article-unsubscribe {
+    margin-top: 6px;
 }
 .sub-nav .search input[type="search"],
 .sub_nav_search .search input[type="search"]{
@@ -4861,6 +4911,7 @@ a.article-unsubscribe[role="button"] {
     background-color: #ffffff;
     color: #323A45 !important;
 }
+  .featured_plugin .plugin,
   .container_top a{
     width: 310px;
   }
@@ -4942,6 +4993,7 @@ a.article-unsubscribe[role="button"] {
     background-color: transparent;
         font-size: 13px !important;
   }
+  .featured_plugin .plugin,
   .container_top a{
     width: 218px;
     font-size: 20px;
@@ -4977,6 +5029,10 @@ a.article-unsubscribe[role="button"] {
     max-height: 62px;
     padding: 15px 0;
 }
+  .section-articles.collapsible-sidebar > ul {
+    top: 22px;
+    position: relative;
+}
   .article-sidebar {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -4997,6 +5053,9 @@ a.article-unsubscribe[role="button"] {
 }
 
 @media (max-width: 767px) {
+  .header, .hero {
+     padding: 0 20px;
+}
   .section-tree-title{
     font-size: 26px;
     margin-bottom: 30px;
@@ -5018,6 +5077,7 @@ a.article-unsubscribe[role="button"] {
     padding: 0 !important;
     background-color: transparent;
   }
+  
   .container_top a{
     display: block;
     margin: 0 auto 15px auto !important;
@@ -5030,6 +5090,7 @@ a.article-unsubscribe[role="button"] {
   .container_services, .container_plugins {
     margin-top: 80px;
   }
+  .featured_plugin .plugin,
   .container_services a, .container_plugins .plugin{
     display: block;
     margin: 0 auto 15px auto !important;
@@ -5069,6 +5130,7 @@ a.article-unsubscribe[role="button"] {
   .container_questions {
     margin-top: 80px;
   }
+  .featured_plugin .plugin,
   .container_services a, .container_plugins .plugin{
     padding: 37px 0;
   }
@@ -5169,7 +5231,7 @@ a.article-unsubscribe[role="button"] {
   .header {
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 5%;
+    padding: 0 20px;
     position: relative;
     align-items: center;
     display: flex;

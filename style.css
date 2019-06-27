@@ -2323,7 +2323,7 @@ background: #4B7EFC;
   background-color: $brand_color;
 }
 
-.community-follow [role="button"]:hover::after, .community-follow [role="button"]:focus::after {
+.community-follow [role="button"]::after, .community-follow [role="button"]:focus::after {
   border-color: $brand_text_color;
   color: $brand_text_color;
 }

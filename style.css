@@ -4498,9 +4498,9 @@ background: rgba(255, 255, 255, 0.2);
     margin-top: 0;
 }
 .featured_plugin {
-    margin-bottom: 70px;
-    margin-top: 70px;
-  text-align: center;
+        margin-bottom: 70px;
+    text-align: center;
+    display: none;
 }
 .featured_plugin .plugin:hover,
 .container_services a:hover, .container_plugins .plugin:hover{
@@ -4721,11 +4721,11 @@ body.black_menu > main {
       margin-bottom: 0;
 }
 .page-header{
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 .section-tree-title{
     font-size: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     line-height: 40px;
     min-height: 80px;
 }

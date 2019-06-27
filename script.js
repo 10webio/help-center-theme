@@ -2,6 +2,12 @@
  * jQuery v1.9.1 included
  */
 $(document).ready(function() {
+  if ($('.category-container').length) {
+    if ($('.category-container .page-header h1').text() == 'Plugins') {
+      $('.featured_plugin').show();
+    }
+  }
+  
   if (!$('section.section.hero').length) {
     $('body').addClass('black_menu');
     $(".header .logo img").attr("src", $(".header .logo img").data("fixed_img"));

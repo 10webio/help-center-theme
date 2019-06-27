@@ -1385,6 +1385,7 @@ box-shadow: 0 0px 20px rgba(50, 58, 69, 0.2) !important;
 .section-container {
   display: flex;
   justify-content: flex-end;
+      min-height: 272px;
 }
 
 .section-content {

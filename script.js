@@ -2,6 +2,13 @@
  * jQuery v1.9.1 included
  */
 $(document).ready(function() {
+  if (matchMedia('screen and (max-width: 767px)').matches) {
+    $(".container_questions .q_title").click(function(e) {
+       $(this).toggleClass("active");
+       $(this).closest(".question_section").find(".q_desc").toggle();
+    });
+  }
+  
   if ($('.category-container').length) {
     if ($('.category-container .page-header h1').text() == 'Plugins') {
       $('.featured_plugin').show();

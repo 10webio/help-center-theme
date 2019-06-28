@@ -2344,9 +2344,9 @@ background: #4B7EFC;
   text-decoration: none;
 }
 .community-follow [role="button"]::after {
-  border-left: 1px solid $brand_color;
+  border-left: 1px solid #ffffff;
   content: attr(data-follower-count);
-  color: $brand_color;
+  color: #ffffff;
   display: inline-block;
   font-family: $heading_font;
   margin-left: 15px;
@@ -4464,7 +4464,7 @@ background: rgba(255, 255, 255, 0.2);
   padding: 34px 0px;
   width: 374px;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(229, 230, 232, 0.8);
+  box-shadow: 0 5px 20px rgba(229, 230, 232, 0.4);
   border-radius: 15px;
   text-decoration: none;
   line-height: 32px;
@@ -4483,7 +4483,7 @@ background: rgba(255, 255, 255, 0.2);
     padding: 50px 0 48px;
     width: 374px;
     text-align: center;
-    box-shadow: 0 5px 20px rgba(229, 230, 232, 0.8);
+    box-shadow: 0 5px 20px rgba(229, 230, 232, 0.4);
     border-radius: 15px;
     text-decoration: none;
     display: inline-block;
@@ -5118,6 +5118,27 @@ a.article-unsubscribe {
   .container_questions .q_title{
     font-size: 16px;
     font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    width: calc(100% - 20px);
+  }
+  .container_questions .q_title:after{
+    content: "\A0\A0\E75C";
+    display: inline-block;
+    font-family: "entypo";
+    vertical-align: middle;
+    font-size: 14px;
+    position: absolute;
+    line-height: 28px;
+    right: -15px;
+    top: 50%;
+    margin-top: -14px;
+  }
+ .container_questions .q_title.active:after{
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    right: -22px;
   }
   .q_desc{
     display: none;

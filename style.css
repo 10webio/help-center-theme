@@ -4455,8 +4455,9 @@ background: rgba(255, 255, 255, 0.2);
 .sub-nav .search input[type="search"]::placeholder {
   color: rgba(50, 58, 69, 0.7);
 }
-.container_top , .container_services, .container_plugins{
-  text-align: center;
+
+.container_top, .container_services, .container_plugins {
+    text-align: left;
 }
 .container_top a:nth-child(1){
   margin-right: 14px;

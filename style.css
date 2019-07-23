@@ -4457,13 +4457,20 @@ background: rgba(255, 255, 255, 0.2);
 }
 
 .container_top, .container_services, .container_plugins {
-    text-align: left;
+    text-align: center;
 }
-.container_top a:nth-child(1){
+
+.container_top a{
   margin-right: 14px;
+  margin-top: 50px;
 }
-.container_top a:nth-child(2){
-  margin-right: 14px;
+.container_top a:nth-child(1),
+.container_top a:nth-child(2),
+.container_top a:nth-child(3){
+  margin-top: 0;
+}
+.container_top a:nth-child(3n + 3){
+  margin-right: 0;
 }
 .container_top a{
   font-size: 24px;

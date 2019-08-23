@@ -16,6 +16,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="https://help.10web.io/hc/en-us/articles/360028017772-Public-roadmap">Roadmap</a>
                 {{#link 'community'}}Submit Your Idea{{/link}}
                 {{#link 'new_request' class='submit-a-request'}}Contact Us{{/link}}
+               <a class="fb_community" href="https://www.facebook.com/groups/356970164992808/">Facebook Community</a>
             </nav>
         </div>
         <div class="logo mobile ">
@@ -23,8 +24,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="{{settings.logo}}" data-fixed_img="{{asset 'Gradient.png'}}" data-img="{{settings.logo}}" alt="{{t 'home_page' name=help_center.name}}">
             {{/link}}
         </div>
-        {{user_info}}
-    </div>
+      	<div class="user_nifo_section">
+           <a class="fb_community" href="https://www.facebook.com/groups/356970164992808/">Facebook Community</a>
+        	{{user_info}}
+      </div>
+      </div>
     <div class="sub_nav_search">
       <div class="container">
       {{search submit=false instant=settings.instant_search class='search search-full'}}

@@ -477,8 +477,8 @@ div#user [role="button"] {
   position: absolute;
   white-space: nowrap;
 }
-
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {*/
+@media (min-width: 1180px) {
   .user-nav {
     position: relative;
   }
@@ -522,7 +522,7 @@ background: #f3f3f3;
     margin-right: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1180px) {
   .nav-wrapper a {
     display: inline-block;
   }
@@ -556,7 +556,8 @@ background: #f3f3f3;
     line-height: 0;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 767px) {*/
+  @media (min-width: 1180px) {
   .nav-wrapper .icon-menu {
     display: none;
   }
@@ -5070,7 +5071,8 @@ border: 1px solid rgba(0, 0, 0, 0.05);
   }
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {*/
+  @media (max-width: 1179px) {
   .header, .hero {
      padding: 0 20px;
 }
@@ -5265,7 +5267,7 @@ border: 1px solid rgba(0, 0, 0, 0.05);
     line-height: 21px;
 }
   .logo img {
-    max-height: 23px;
+    max-height: 37px;
 }
   .header {
     max-width: 100%;
@@ -5402,4 +5404,77 @@ margin-top: -60px;
     margin-left: 0;
     display: block;
 }
+}
+
+/*.fb_community{
+  margin-left:220px;
+}
+@media only screen and (max-width: 1620px) {
+  .fb_community{
+  	margin-left:120px;
+	}
+}
+@media only screen and (max-width: 1540px){
+  .fb_community {
+      margin-left: 54px;
+  }
+}
+@media only screen and (max-width: 1450px){
+  .fb_community {
+      margin-left: 70px;
+  }
+  .nav-wrapper a{
+    margin-right: 30px;
+  }
+}
+@media only screen and (max-width: 1250px){
+  .fb_community {
+      margin-left: 10px;
+  }
+  .nav-wrapper a{
+    margin-right: 30px;
+  }
+}*/
+.user_nifo_section .fb_community{
+  margin-right:60px;
+}
+
+
+
+@media only screen and (max-width: 1496px){
+ .user_nifo_section .fb_community{
+    margin-right:30px;
+	}
+  .nav-wrapper a {
+    margin-right: 30px;
+	}
+}
+
+@media only screen and (min-width: 1180px){
+  .nav-wrapper .fb_community {
+    display:none !important;
+  }
+}
+@media only screen and (max-width: 1179px){
+.user_nifo_section .fb_community {
+    display:none !important;
+  }
+}
+.user_nifo_section .fb_community{
+  text-decoration: none;
+    font-size: 16px !important;
+    font-weight: 600;
+    line-height: 21px;
+  color: #FFFFFF;
+   border: 0;
+    padding: 0 0 0 0;
+    width: auto;
+}
+.nav-wrapper a:nth-last-child(2){
+    margin-right:0px;
+}
+@media (max-width: 767px){
+  .logo img {
+      max-height: 23px;
+  }
 }

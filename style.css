@@ -3542,7 +3542,7 @@ margin-top: 0;
     float: right;
     margin-left: 11px;
 }
-.meta-data:not(:last-child)::after {
+/*.meta-data:not(:last-child)::after {
   content: "";
   position: absolute;
   width: 6px;
@@ -3551,7 +3551,7 @@ margin-top: 0;
   background-color:rgba(109, 120, 130, 0.2);
   right: 0;
   top: 13px;
-}
+}*/
 .search-result-container .meta-data:not(:last-child)::after {
     content: "";
     width: 3px;

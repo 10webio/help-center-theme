@@ -8,6 +8,9 @@
     margin: 0 auto;
       max-width: 100%;
 }
+.header_container .my-tickets-link{
+  display:none;
+}
 .form_section {
     box-shadow: 0 5px 20px rgba(50, 58, 69, 0.1);
     border-radius: 15px;
@@ -3542,7 +3545,7 @@ margin-top: 0;
     float: right;
     margin-left: 11px;
 }
-/*.meta-data:not(:last-child)::after {
+.meta-data:not(:last-child)::after {
   content: "";
   position: absolute;
   width: 6px;
@@ -3551,7 +3554,7 @@ margin-top: 0;
   background-color:rgba(109, 120, 130, 0.2);
   right: 0;
   top: 13px;
-}*/
+}
 .search-result-container .meta-data:not(:last-child)::after {
     content: "";
     width: 3px;

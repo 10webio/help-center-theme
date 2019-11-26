@@ -2,6 +2,11 @@
  * jQuery v1.9.1 included
  */
 $(document).ready(function() {
+  if ($('.header_container #user').length) {
+    $('.header_container .back-to-tenweb, div#user-menu .my-activities').hide();
+    $('.header_container .my-tickets-link').show();
+  }
+  
   if (matchMedia('screen and (max-width: 767px)').matches) {
     $(".container_questions .q_title").click(function(e) {
        $(this).toggleClass("active");

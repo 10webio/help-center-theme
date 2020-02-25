@@ -33,7 +33,7 @@
                  var section_url="{{section.url}}";
                  var section_id = parseInt(section_url.split("/sections/")[1]);
 
-                 $.getJSON("/api/v2/help_center/sections/" + section_id + "/articles.json", function(data) { 
+                 $.getJSON("/api/v2/help_center/sections/" + section_id + "/articles.json?page=1&per_page=100", function(data) { 
                  var output = "";
 
                  for (var i in data.articles) {

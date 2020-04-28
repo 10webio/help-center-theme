@@ -4679,7 +4679,7 @@ a.article-subscribe[role="button"]:hover,
   transition:transform .2s;
 }
 .fixed_header.active{
-    transform:translateY(0);
+    /*transform:translateY(0);*/
 }
 .fixed_header a,
 .black_menu .header a{

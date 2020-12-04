@@ -5,6 +5,8 @@ $(document).ready(function() {
   if ($('.header_container #user').length) {
     $('.header_container .back-to-tenweb, div#user-menu .my-activities').hide();
     $('.header_container .my-tickets-link').show();
+  } else {
+    $('.trial-button').removeClass("hidden");
   }
   
   if (matchMedia('screen and (max-width: 767px)').matches) {

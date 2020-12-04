@@ -19,7 +19,7 @@
   background-color: rgba(186,195,207,.22);
 }
 .trial-button.hidden {
-  display:none;
+  display:none !important;
 }
 .form_container {
     width: 650px;

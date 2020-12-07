@@ -2,12 +2,14 @@
  * jQuery v1.9.1 included
  */
 $(document).ready(function() {
+  if(typeof getCookie('db-user-id') === "undefined") {
+    $('.trial-button').removeClass("hidden");
+  }
+  
   if ($('.header_container #user').length) {
     $('.header_container .back-to-tenweb, div#user-menu .my-activities').hide();
     $('.header_container .my-tickets-link').show();
-  } else {
-    $('.trial-button').removeClass("hidden");
-  }
+  } 
   
   if (matchMedia('screen and (max-width: 767px)').matches) {
     $(".container_questions .q_title").click(function(e) {
@@ -99,6 +101,13 @@ $(document).ready(function() {
       search();
     }
   });
+  
+  function getCookie(name) {
+    var matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ))
+    return matches ? decodeURIComponent(matches[1]) : undefined
+}
 
   function search() {
     window.location.search = $.param({

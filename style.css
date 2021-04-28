@@ -3,6 +3,19 @@
 * {
   box-sizing: border-box;
 }
+.tenweb-video {
+    position: relative;
+  padding-bottom: 56.25%;
+}
+.tenweb-video video {
+    position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   width: 100%;
+   height: 100%;
+}
 .trial-button{
   color: #fff;
     display: inline-block;

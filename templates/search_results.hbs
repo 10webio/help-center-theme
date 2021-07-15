@@ -1,29 +1,20 @@
 <div class="search-result-container">
   <div class="container-divider"></div>
     <section class="section hero">
-      <div class="hero-inner">
-          <p class="header_text header_title">10Web Help Center</p>
-          <p class="header_text header_desc">Hi, how can we help?</p>
-       {{search submit=false instant=settings.instant_search class='search search-full'}}
+      <div class="hero-container container">
+        <div class="hero-inner">
+          <h2 class="header_search_result"><b>{{results_count}} results</b> found for <b>"{{query}}"</b></h2>
+           {{search submit=false instant=settings.instant_search class='search search-full'}}
+        </div>
+         <div id="categories-menu">
+        </div>
       </div>
     </section>
   <div class="container">
-    <nav class="sub-nav">
-      {{breadcrumbs}}
-    </nav>
-
-    <header class="page-header">
-      <h1 class="section-title">{{t 'search_results'}}</h1>
-      <p class="page-header-description">{{t 'results' query=query count=results_count}}</p>
-    </header>
-
     <div class="search-results">
       <section class="search-results-column">
-        <h3 class="search-results-subheading">
-          {{t 'knowledge_base'}}
-        </h3>
-        {{#if article_results}}
-          <ul class="search-results-list">
+         <ul class="search-results-list">
+       		 {{#if article_results}}
             {{#each article_results}}
               <li class="search-result">
                 <div class="clear">
@@ -32,82 +23,58 @@
                     <span class="search-result-votes meta-count">-{{vote_sum}}</span>
                   {{/if}}
                 </div>  
+                <div class="search-result-description">{{text}}</div>
                 <ul class="meta-group">
                   <li>
                     <ol class="breadcrumbs search-result-breadcrumbs">
-                      {{#each path_steps}}
+                      {{#each path_steps}}<br class="mobile">
                         <li title="{{name}}"><a href="{{url}}">{{name}}</a></li>
                       {{/each}}
                     </ol>
                   </li>
-                  <li class="meta-data">{{date created_at timeago=true}}</li>
-                  <li class="meta-data">
-                    {{#link 'user_profile' id=author.id}}
-                      {{author.name}}
-                    {{/link}}
-                  </li>
                 </ul>
-                <div class="search-result-description">{{text}}</div>
               </li>
             {{/each}}
-          </ul>
-        {{else}}
-          <p>
-            {{t 'no_results' query=query}}
-            {{#link 'help_center'}}
-              {{t 'browse_knowledge_base'}}
-            {{/link}}
-          </p>
-        {{/if}}
-      </section>
-
-      {{#if help_center.community_enabled}}
-        <section class="search-results-column">
-          <h3 class="search-results-subheading">
-            {{t 'community'}}
-          </h3>
-          {{#if post_results}}
-            <ul class="search-results-list">
+       		{{/if}}
+          {{#if help_center.community_enabled}}
+            {{#if post_results}}
               {{#each post_results}}
-                <li class="search-result">
-                  <a href="{{url}}" class="search-result-link">{{title}}</a>
-                  <span class="search-result-meta-count">
-                    {{comment_count}}
-                  </span>
-                  <ul class="meta-group">
-                    <li>
-                      <ol class="breadcrumbs search-result-breadcrumbs">
-                        {{#each path_steps}}
-                          <li title="{{name}}"><a href="{{url}}">{{name}}</a></li>
-                        {{/each}}
-                      </ol>
-                    </li>
-                    <li class="meta-data">{{date created_at timeago=true}}</li> 
-                    <li class="meta-data">
-                      {{#link 'user_profile' id=author.id}}
-                        {{author.name}}
-                      {{/link}}
-                    </li>
-                  </ul>
-                  <div class="search-result-description">
-                    {{text}}
-                  </div>
-                </li>
-              {{/each}}
-            </ul>
-          {{else}}
-            <p>
-              {{t 'no_results' query=query}}
-              {{#link 'topics'}}
-                {{t 'browse_community'}}
-              {{/link}}
-            </p>
-          {{/if}}
-        </section>
-      {{/if}}
+                  <li class="search-result">
+                    <div class="clear">
+                      <a href="{{url}}" class="search-result-link">{{title}}</a>
+                    </div>
+                    <div class="search-result-description">{{text}}</div>
+                    <ul class="meta-group">
+                      <li>
+                        <ol class="breadcrumbs search-result-breadcrumbs">
+                          {{#each path_steps}}<br class="mobile">
+                            <li title="{{name}}"><a href="{{url}}">{{name}}</a></li>
+                          {{/each}}
+                        </ol>
+                      </li>
+                    </ul>
+                  </li>
+                {{/each}}
+              {{/if}}
+           {{/if}}
+          </ul>
+          <div class="result-not-found">
+            <h3>
+              Sorry! We looked everywhere, but could not find <b>{{query}}</b>.
+            </h3>
+            <h4> 
+              Try a different search, or browse our help topics instead.
+            </h4>
+          </div>
+      </section>
 
     </div>
 
     {{pagination}}
   </div>
 </div>
+<script>
+  if ( $(".search-results-list li").length) {
+     $('.result-not-found').css('display','none');
+  }
+</script>

@@ -1,22 +1,154 @@
 <footer class="footer">
   <div class="footer-inner">
-    {{#link 'help_center'}}{{help_center.name}}{{/link}}
-
-    <div class="footer-language-selector">
-      {{#if alternative_locales}}
-        <div class="dropdown language-selector" aria-haspopup="true">
-          <a class="dropdown-toggle">
-            {{current_locale.name}}
-          </a>
-          <span class="dropdown-menu dropdown-menu-end" role="menu">
-            {{#each alternative_locales}}
-              <a href="{{url}}" dir="{{direction}}" rel="nofollow" role="menuitem">
-                {{name}}
-              </a>
-            {{/each}}
-          </span>
+  	<div class="footer-menu-container">
+      <div class="footer-top">
+        <div class="content-left">
+          <div class="footer-logo">
+            <a href="https://10web.io" target="_blank">
+              <img src="{{asset 'logo.svg'}}" alt="10Web logo"/>
+            </a>
+          </div>
+          <p class="footer_location">TenWeb, Inc.<br> 40 E Main St, Suite 721<br> Newark, DE 19711<br> United States</p>
         </div>
-      {{/if}}
+        <div class="content-right">
+          <div class="footer-menu">
+            <aside class="footer_widget_nav_menu">
+              <h3 class="footer_titles">Company</h3>
+              <div class="footer-right-menu-container">
+                <ul>
+                  <li class="menu-items">
+                    <a href="https://10web.io/about-us/">About Us</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/customer-care-support/">Contact Us</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/security-statement/">Security Statement</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/affiliates/">Affiliates</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/affiliate-terms-and-conditions/">Affiliate Terms</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/referral-terms-and-conditions/">Referral Terms</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/pricing/">Pricing</a>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+            <aside class="footer_widget_nav_menu">
+              <h3 class="footer_titles">Product</h3>
+              <div class="footer-right-menu-container">
+                <ul>
+                  <li class="menu-items">
+                    <a href="https://10web.io/automated-wordpress-hosting/">Hosting</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/ai-website-builder/">AI Builder</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/drag-and-drop-editor/">Editor</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/widgets/">Widgets</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/website-templates/">Designer-made Templates</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/wordpress-plugins/">Plugins</a>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+            <aside class="footer_widget_nav_menu">
+              <h3 class="footer_titles">Features</h3>
+              <div class="footer-right-menu-container">
+                <ul>
+                  <li class="menu-items">
+                    <a href="https://10web.io/automated-wordpress-migration/">1 Click Migration</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/automated-wordpress-pagespeed-optimization/">90+ PageSpeed Optimization</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/automated-website-management/">Website Management</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/wordpress-backup-service/">Real-Time Backup</a>
+                  </li>
+                  <li class="menu-items">
+                    <a href="https://10web.io/wordpress-security-service/">Security Service</a>
+                </ul>
+              </div>
+            </aside>
+            <aside class="footer_widget_nav_menu last_column">
+              <h3 class="footer_titles">Resources</h3>
+              <div class="footer-right-menu-container">
+              <ul>
+                <li class="menu-items">
+                  <a href="https://help.10web.io/">Help Center</a>
+                </li>
+                <li class="menu-items">
+                  <a href="https://10web.io/blog/">Blog</a>
+                </li>
+                <li class="menu-items">
+                  <a href="https://10web.io/press-kit/">Press Kit</a>
+                </li>
+                <li class="menu-items">
+                  <a href="https://help.10web.io/hc/en-us/articles/360028017772-Public-roadmap/">Roadmap</a>
+                </li>
+                <li class="menu-items">
+                  <a href="https://help.10web.io/hc/en-us/community/topics/">Submit Your Idea</a>
+                </li>
+                <li class="menu-items">
+                  <a href="https://www.facebook.com/groups/356970164992808/">Facebook Community</a>
+                </li>
+                <li class="menu-items">
+                  <a href="https://10web.io/technology/">AI Technology</a>
+                </li>
+              </ul>
+            </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-container">
+      <div class="footer-bottom-content-right">
+        <div class="footer_copyright_title">Follow us</div>
+        <ul class="social_icons">
+          <li>
+            <a href="https://www.instagram.com/10web.io/" target="_blank" class="instagram"></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/10Web_io" target="_blank" class="tw"></a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/c/10Web" target="_blank" class="yt"></a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/10Web.io/" target="_blank" class="fb"></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/10web/" target="_blank" class="in"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-bottom-content-left">
+        <p class="copyright_info">Copyright © <span class="full_year"></span> TenWeb. All rights reserved.<br>
+          <a href="https://10web.io/privacy-policy/" id="privacy-policy">Privacy</a>
+          <a href="https://10web.io/terms-of-service/" id="terms-of-services">Terms of Service</a>
+          <a href="https://10web.io/service-level-agreement/" id="sla">SLA</a>
+          <a href="https://10web.io/abuse/" id="report-abuse">Report Abuse</a>
+        </p>
+      </div>
     </div>
   </div>
 </footer>

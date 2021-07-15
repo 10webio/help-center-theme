@@ -1,22 +1,21 @@
 /*
  * jQuery v1.9.1 included
  */
-const helpCenterEndpoint = "https://tenweb.zendesk.com/api/v2/help_center/";
-const helpCenterLink = "https://tenweb.zendesk.com/hc/en-us/";
+const helpCenterEndpoint = "https://help.10web.io/api/v2/help_center/";
+const helpCenterLink = "https://help.10web.io/hc/en-us/";
 const mainSections = {
 	"4403735323410" : {
 		"name" : "Getting Started",
 		"custom" : 
 		[ 		
 			{
-			 "id":"4402145512593",
-			 "type":"article",
-			 "name":"Videos"
+			 "id":"4403773285138",
+			 "type":"article"
 		    }
 		]
 	},	
 	"4403729393554":{
-		"name" : "Automated WordPress Platform",
+		"name" : "Automated WP Platform",
 		"custom" :
 		[ 
 			{
@@ -80,7 +79,7 @@ const helpAPI = {
      getSections : function() {
        let results = {};
 			 $.ajax({
-        url: `${helpCenterEndpoint}sections`,
+        url: `${helpCenterEndpoint}sections?per_page=200&sort_by=created_at&sort_order=asc`,
         type: 'get',
         async: false,
         success: function (data) {
@@ -143,7 +142,9 @@ $(document).ready(function() {
   }
   $('#categories-menu > ul > li ul a').click(function () {
     let id = $(this).attr("href");
-  	$("html, body").animate({scrollTop: ($(id).offset().top - 120)}, 500);
+    let sectionIndex = $(id).index();
+    
+  	$("html, body").animate({scrollTop: ($('.section-tree-with-article > ul > li').eq(sectionIndex).offset().top - 120)}, 500);
     return false;
   });
   
@@ -827,7 +828,7 @@ const categoryPage = {
         }
     },
 
-    setCategoryPageCustomSections : function(categories, parent) {
+    setCategoryPageCustomSections : function(categories, index) {
         let html = "";
         if (categories.length) {
             html += "<ul class='article-list category-list'>";
@@ -837,11 +838,8 @@ const categoryPage = {
             }
             html += "</ul>";
         }
-        if (parent.find('.section-empty').length) {
-        	parent.find('.section-empty').replaceWith(html);
-        }
-        else if (parent.find('ul.article-list').length) {
-          parent.find('ul.article-list').replaceWith(html);
+        if ($('.section-tree-with-article > ul > li').eq(index).length) {
+          $('.section-tree-with-article > ul > li').eq(index).find('.article-list').replaceWith(html);
         }
     },
   
@@ -878,7 +876,7 @@ const categoryPage = {
         }
 
         /*Custom section with categories*/
-        $(".section-tree .section").each(function(_section, index){
+         $(".sections-ids .section-id").each(function(index, _section){
            let sectionId = $(this).data("id");
            custom = statiSection.custom.find(function(el, i) {
                 if(el.id == sectionId)
@@ -888,13 +886,16 @@ const categoryPage = {
                customSection = helpAPI.getSection(sectionId);
                if (customSection.section) { 
                  let categories = JSON.parse(customSection.section.description);
-                 _this.setCategoryPageCustomSections(categories, $(this));
+                 _this.setCategoryPageCustomSections(categories, index);
                }
             }
         });
       }
       else {
         $('.categories-page').addClass("other-categories");
+        if($('.section-tree-with-article > ul > .section').length > 1){
+          $('.section-tree-with-article > ul > .section > h2').show();
+        }
       }
     }
 }
@@ -918,7 +919,7 @@ function setMenu() {
        }
     }
     let currentName = (mainSections.hasOwnProperty(currentId)) ? mainSections[currentId].name : mainSections[Object.keys(mainSections)[0]].name;
-  
+  console.log(allSections);
     html += "<div class='container'><div class='categories-menu_current'>" + currentName + "</div><ul>";
   	for (const property in menu) {
         let currentItem = property === currentId ? "class='current-item'" : "";

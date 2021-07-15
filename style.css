@@ -968,7 +968,7 @@ div#user [role="button"] {
 .help-center-logo{
   width:227px;
   height: 30px;
-  background-image:url($assets-logo_w-png);
+  background-image:url($assets-logo_white-svg);
       background-size: contain;
     background-repeat: no-repeat;
   }
@@ -1128,7 +1128,7 @@ div#user [role="button"] {
 }
 
 .black_menu .header .help-center-logo {
-    background-image: url($assets-logo_b-png);
+    background-image: url($assets-logo_white-svg);
 }
 
 .black_menu .logo{
@@ -7547,4 +7547,23 @@ display: none;
     z-index: 2;
     opacity: 0;
     pointer-events: auto;
+  }
+
+  zd-autocomplete-header {
+    display: none;
+  }
+  zd-autocomplete {
+    border-radius: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  zd-autocomplete-option {
+    padding: 9px 6px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12px;
+    color: #323A45;
+  }
+  zd-autocomplete-option:hover {
+    border-radius: 6px;
   }

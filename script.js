@@ -199,7 +199,7 @@ $(document).ready(function() {
     }
     else {
       $(".chats-chat-name").toggleClass('chats-chat-name-opened');
-  		$(".chats").toggleClass('chats-opened')
+  		$(".chats").toggleClass('chats-opened');
       tenweb_openZEChat( chat_department );
       // Check to preload chat only on first click.
       if ( $( '#ze-snippet' ).length == 0 ) {

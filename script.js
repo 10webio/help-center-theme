@@ -140,11 +140,24 @@ $(document).ready(function() {
   if ($('.user_info_section .login').length) {
   	$('.user_info_section .login').text('Sign Up');
   }
-  $('#categories-menu > ul > li ul a').click(function () {
+  
+  /*
+  * Go To Section
+  */
+  let pageInfo = getPageInfo(window.location.href);
+  if ( pageInfo.type === "categories" && pageInfo.sectionId !== 0) {
+    goToSection('#' + pageInfo.sectionId);
+    removeHashFromUrl(); 
+  }
+  $('#categories-menu .container > ul > li ul a').click(function () {
     let id = $(this).attr("href");
-    let sectionIndex = $(id).index();
-    
-  	$("html, body").animate({scrollTop: ($('.section-tree-with-article > ul > li').eq(sectionIndex).offset().top - 120)}, 500);
+    goToSection(id);
+    return false;
+  });
+   $('.article-list:not(.category-list) > li a').click(function () {
+    if ($(this).attr('href') != "") {
+      window.location.href = $(this).attr('href');
+    }
     return false;
   });
   
@@ -778,7 +791,12 @@ function showPopup(e, type) {
 function getPageInfo(link) {
   let t = link.split('/hc/');
   t = t[1].split('-')[1].split('/');
-  return {type:t[1], id:t[2]};
+  t[3] = 0;
+  if (t[2] && t[2].indexOf('#') != -1) {
+    t[3] = t[2].split('#')[1];
+    t[2] = t[2].split('#')[0];
+  }
+  return {type:t[1], id:t[2], sectionId:t[3]};
 }
 
 
@@ -928,10 +946,10 @@ function setMenu() {
           html += "<ul>";
  					for (let i = 0; i < menu[property]["sections"].length; i++) {
             if (property !== currentId) {
-                link = helpCenterLink + "categories/" + property + "#section-" + menu[property]["sections"][i]["id"];
+                link = helpCenterLink + "categories/" + property + "#section_" + menu[property]["sections"][i]["id"];
             }
             else {
-              	link = "#section-" + menu[property]["sections"][i]["id"];
+              	link = "#section_" + menu[property]["sections"][i]["id"];
             }
             html += "<li><a href='" + link + "'>" + menu[property]["sections"][i]["name"] + "</a></li>";
           }
@@ -979,4 +997,18 @@ function  isCurrentCategory(allSections) {
           }
       }
    }
+}
+
+function goToSection(id) {
+  let sectionIndex = $(id).index();
+  $("html, body").animate({scrollTop: ($('.section-tree-with-article > ul > li').eq(sectionIndex).offset().top - 120)}, 500);
+}
+
+function removeHashFromUrl()
+{
+    let uri = window.location.toString();
+    if (uri.indexOf("#") > 0) {
+        let clean_uri = uri.substring(0, uri.indexOf("#"));
+        window.history.replaceState({}, document.title, clean_uri);
+    }
 }

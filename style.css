@@ -669,7 +669,7 @@ h4 {
 
 a {
   color: $link_color;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 input,
@@ -997,7 +997,7 @@ div#user [role="button"] {
 .help-center-logo{
   width:227px;
   height: 30px;
-  background-image:url($assets-logo_w-png);
+  background-image:url($assets-logo_white-svg);
       background-size: contain;
     background-repeat: no-repeat;
   }
@@ -1157,7 +1157,7 @@ div#user [role="button"] {
 }
 
 .black_menu .header .help-center-logo {
-    background-image: url($assets-logo_b-png);
+    background-image: url($assets-logo_white-svg);
 }
 
 .black_menu .logo{
@@ -7079,7 +7079,7 @@ display: none;
 /*note section*/
 .note-main-container {
   background: #008A6208 0% 0% no-repeat padding-box;
-  border: 1px solid #008A62;
+  border: 1px solid #008A624D;
   border-radius: 12px;
   opacity: 1;
   margin: 42px 0;
@@ -7111,7 +7111,7 @@ display: none;
 /*tip container*/
 .tip-main-container {
   background: #008A6208 0% 0% no-repeat padding-box;
-  border: 1px solid #008A62;
+  border: 1px solid #008A624D;
   border-radius: 12px;
   opacity: 1;
   margin: 25px 0;
@@ -7605,4 +7605,23 @@ display: none;
     z-index: 2;
     opacity: 0;
     pointer-events: auto;
+  }
+
+  zd-autocomplete-header {
+    display: none;
+  }
+  zd-autocomplete {
+    border-radius: 12px;
+    padding: 7px 10px;
+  }
+  zd-autocomplete-option {
+    padding: 9px 6px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12px;
+    color: #323A45;
+    border-radius: 6px;
+  }
+  zd-autocomplete-option:hover {
+    border-radius: 6px;
   }

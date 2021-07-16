@@ -3,7 +3,7 @@
     <section class="section hero">
       <div class="hero-container container">
         <div class="hero-inner">
-          <h2 class="header_search_result"><b>{{results_count}} results</b> found for <b>"{{query}}"</b></h2>
+          <h2 class="header_search_result"><b>{{results_count}} results</b> found for "{{query}}"</h2>
            {{search submit=false instant=settings.instant_search class='search search-full'}}
         </div>
          <div id="categories-menu">
@@ -27,7 +27,7 @@
                 <ul class="meta-group">
                   <li>
                     <ol class="breadcrumbs search-result-breadcrumbs">
-                      {{#each path_steps}}<br class="mobile">
+                      {{#each path_steps}}
                         <li title="{{name}}"><a href="{{url}}">{{name}}</a></li>
                       {{/each}}
                     </ol>

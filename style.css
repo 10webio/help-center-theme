@@ -113,6 +113,9 @@ body {
 .menu-items a:hover {
   text-decoration: none;
 }
+li.article-promoted [data-title="Promoted article"] {
+    display: none;
+}
 .footer-bottom {
     border-top: 1px solid rgba(50, 58, 69, 0.05);
   	padding: 5px 0 51px;
@@ -506,17 +509,21 @@ opacity:1;
   text-align:center;
 }
 .home-page .container_featured_articles .featured_articles{
-      display: grid;
-    grid-template-columns: repeat(3, 345px);
     text-align: center;
-    grid-gap: 72px;
 }
 .home-page .container_featured_articles .featured_articles a{
-  font-size: 14px;
-  line-height: 20px;
-  text-align:left;
-  position: relative;
-  padding-left: 17px;
+      font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    position: relative;
+    padding-left: 17px;
+    width: 345px;
+    display: inline-block;
+  padding-bottom: 20px;
+  vertical-align: top;
+}
+.home-page .container_featured_articles .featured_articles a:nth-child(3n + 2) {
+    margin: 0 68px 20px;
 }
 .home-page .container_featured_articles .featured_articles a:before{
     content: "";
@@ -613,20 +620,28 @@ opacity:1;
     content: "";
     transform: rotate(180deg);
   }
-  #categories-menu .container > ul > li:hover ul{
-  display:block;
-  }
   #categories-menu .container > ul > li ul{
   width: 245px;
     border-radius: 0 0 6px 6px;
     background: #ffffff;
     padding: 12.5px 0;
+        display: block;
+  }
+#categories-menu .container > ul > li .submenu-overflow{
     position: absolute;
     display: none;
-    z-index: 1;
+    z-index: 6;
     box-shadow: 0 10px 20px rgb(0 0 0 / 7%);
     left: 0;
     top: 40px;
+    width: 245px;
+    border-radius: 0 0 6px 6px;
+    overflow-y: auto;
+    max-height: 285px;
+    background: #ffffff;
+  }
+  #categories-menu .container > ul > li:hover .submenu-overflow{
+  display:flex;
   }
   #categories-menu .container > ul > li ul a{
   color:#323A45;
@@ -669,7 +684,7 @@ h4 {
 
 a {
   color: $link_color;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 input,
@@ -1072,13 +1087,13 @@ div#user [role="button"] {
     border-radius: 25px;
 }
 #user #user-dropdown {
-    background: #F4F5F5;
+background: #ffffff;
     min-width: 182px;
     right: -12px;
-    box-shadow: 0 5px 20px rgb(229 230 232 / 80%);
+    box-shadow: 0 5px 20px rgb(50 58 69 / 15%);
     border: 1px solid rgba(50, 58, 69, 0.2);
-  padding:0;
-      margin-top: 13px;
+    padding: 0;
+    margin-top: 13px;
 }
 .dropdown-menu [role=menuitem]:hover, 
 .dropdown-menu [role=menuitem]:focus {
@@ -1157,7 +1172,7 @@ div#user [role="button"] {
 }
 
 .black_menu .header .help-center-logo {
-    background-image: url($assets-logo_white-svg);
+    background-image: url($assets-logo_black-svg);
 }
 
 .black_menu .logo{
@@ -1461,8 +1476,7 @@ background: #f3f3f3;
 }
 .sub-nav .search input[type="search"]:focus,
 .search input[type="search"]:focus {
-  border: 1px solid $brand_color;
-  color: #555;
+  color:rgba(50, 58, 69, 1);
 }
 
 .search::before {
@@ -1638,6 +1652,9 @@ box-shadow: 0 0px 20px rgba(50, 58, 69, 0.2) !important;
 
 /***** Blocks *****/
 /* Used in Homepage#categories and Community#topics */
+.page-header.community-header {
+    margin-bottom: 20px;
+}
 .blocks-list {
   display: flex;
   flex-wrap: wrap;
@@ -4382,23 +4399,12 @@ margin-top: 0;
 }
 .breadcrumbs.search-result-breadcrumbs li a {
   letter-spacing: 0.13px;
-	color: #323A4580;
+	color:#323A4580 !important;
 }
-.breadcrumbs.search-result-breadcrumbs li::after {
-    content: "\A0\A0\E75C";
-    display: inline-block;
-    font-family: "entypo";
-    vertical-align: middle;
-    font-weight: lighter;
-    transform: rotate(-90deg);
-    position: relative;
-   	top: 2px;
-    font-size: 12px;
-    color: #323A4580;
-  	font-weight: 600;
-}
+
 .search-results-column {
   flex: 1;
+      max-width: 100%;
 }
 
 .search-results-column h3 {
@@ -4410,6 +4416,7 @@ margin-top: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   padding: 40px 0;
   width: 720px;
+      max-width: 100%;
 }
 .search-results-list > li:last-child {
   border-bottom: none;
@@ -4648,7 +4655,6 @@ a.article-subscribe[role="button"]:hover{
 font-size: 22px;
     line-height: 30px;
     font-weight: 800;
-    text-transform: capitalize;
 }
 .topics-item{
   box-shadow: 0 5px 20px rgba(229, 230, 232, 0.8);
@@ -4847,7 +4853,7 @@ a.article-unsubscribe {
   height: auto;
 }
 
-@media screen and (min-width: 1800px) {
+@media screen and (min-width: 1600px) {
    #embed_container .iframe-container-latest iframe, #embed_container .iframe-container-latest{
     width: 1400px !important;
     height: 786px !important;
@@ -5028,7 +5034,7 @@ border: 0;
  	 padding-top: 30px;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
    .fixed_header #categories-menu{
   position:fixed;
   bottom:auto;
@@ -5059,8 +5065,8 @@ border: 0;
   .fixed_header #categories-menu .container > ul > li:hover > a{
         background: transparent;
   }
-   .fixed_header #categories-menu .container > ul > li ul {
-    top: 45px;
+   .fixed_header #categories-menu .container > ul > li .submenu-overflow {
+    top: 47px;
 }
   
   .categories-menu_current{
@@ -5444,14 +5450,17 @@ border: 0;
   }
 }
 @media screen and (max-width: 1260px) {
+    .see_more:hover {
+    background-color: rgba(186, 195, 207, 0.12);
+}
 .article-list:not(.category-list) > li a:hover {
     text-decoration: none;
 }
 .section-tree .article-list {
     margin-top: 20px;
 }
-  #categories-menu .container > ul > li ul{
-    top: 39px;
+  #categories-menu .container > ul > li .submenu-overflow{
+    top: 34px;
   }
   .hero{
   background-color:  #1B5198;
@@ -5537,7 +5546,7 @@ border: 0;
     transform: scale(1);
 }
 }
-@media screen and (max-width: 1260px) and (min-width: 768px) {
+@media screen and (max-width: 1260px) and (min-width: 767px) {
   .hero-inner .search {
  	  width: 690px;
 	}
@@ -5551,6 +5560,9 @@ border: 0;
 }
   .fixed_header #categories-menu .container > ul > li > a {
     padding: 8px 16px 8px 6px;
+}
+  .fixed_header #categories-menu .container > ul > li .submenu-overflow {
+    top: 34px;
 }
   .fixed_header #categories-menu .container > ul > li > a:after {
     content: "";
@@ -5573,7 +5585,6 @@ border: 0;
   }
  .section.hero .hero-container {
     max-width:720px;
-    margin: 0;
   }
 .tablet{
   display: block;
@@ -5853,6 +5864,7 @@ border: 0;
     content: "\25BE";
     font-size: 14px;
 }
+
   .article-sidebar .section-articles ul {
     position: relative;
     top: 17px;
@@ -5935,10 +5947,6 @@ border: 0;
     margin-left: 0;
     display: block;
 	}
-  .search-result-container .container {
-    margin: 0;
-    padding: 0 24px;
-  }
   .footer {
     margin-top: 120px;
 }
@@ -6133,10 +6141,13 @@ border: 0;
     display: grid;
     grid-template-columns: repeat(2, 345px);
     text-align: center;
-    grid-gap: 30px;
+    grid-gap: 20px 47px;
 }
 }
 @media screen and (max-width: 767px) {
+  body:not(.black_menu ) .icon-search::before {
+  color:#ffffff;
+}
   .breadcrumbs li a, .breadcrumbs li {
     font-size: 14px;
     line-height: 19px;
@@ -6568,7 +6579,7 @@ display: none;
 }
 
       .hero-inner {
-    padding: 128px 0 80px;
+    padding: 128px 0 120px;
 }
   .header_desc {
     font-size: 14px;
@@ -6713,20 +6724,18 @@ display: none;
     font-size: 14px;
   }
   .section.hero .hero-container .hero-inner {
-    width: 280px;
     margin: 158px auto 68px;
   }
+  .search-result-container .section.hero .hero-container .hero-inner {
+    margin: 64px auto 28px;
+}
   .section.hero .hero-container .hero-inner .header_search_result {
     font-size: 18px;
-    text-align: center;
     letter-spacing: 0.15px;
   }
   .search-results {
     padding-top: 10px;
     padding-bottom: 40px;
-  }
-  .search-results-list > li {
-    width: 280px;
   }
 }
  .accordion-section .dropdown-article:after {
@@ -7538,16 +7547,19 @@ display: none;
     pointer-events: auto;
 }
 /* hide scrollbar for Chrome, Safari, Opera*/
-  .article-sidebar.desktop-sidebar .sticky-sidebar::-webkit-scrollbar {
+  .article-sidebar.desktop-sidebar .sticky-sidebar::-webkit-scrollbar,
+   #categories-menu .container > ul > li .submenu-overflow::-webkit-scrollbar{
     width: 11px;
   }
-  .article-sidebar.desktop-sidebar .sticky-sidebar::-webkit-scrollbar-thumb {
+  .article-sidebar.desktop-sidebar .sticky-sidebar::-webkit-scrollbar-thumb,
+   #categories-menu .container > ul > li .submenu-overflow::-webkit-scrollbar-thumb {
     border: 4px solid rgba(0, 0, 0, 0);
     background-color: #bfbfbf;
     border-radius: 20px;
     background-clip: padding-box;
   }
-  .article-sidebar.desktop-sidebar .sticky-sidebar::-webkit-scrollbar-track {
+  .article-sidebar.desktop-sidebar .sticky-sidebar::-webkit-scrollbar-track,
+   #categories-menu .container > ul > li .submenu-overflow::-webkit-scrollbar-track {
     background: #f2f2f;
   }
   /* hide scrollbar for IE, Edge, Firefox*/

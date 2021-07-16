@@ -79,7 +79,7 @@ const helpAPI = {
      getSections : function() {
        let results = {};
 			 $.ajax({
-        url: `${helpCenterEndpoint}sections?per_page=200&sort_by=created_at&sort_order=asc`,
+        url: `${helpCenterEndpoint}sections?per_page=200`,
         type: 'get',
         async: false,
         success: function (data) {
@@ -124,6 +124,21 @@ const helpAPI = {
 $(document).ready(function() {
   
   article_titles();
+  let pageInfo = getPageInfo(window.location.href);
+  
+  /*Remove same title from breadcrumbs*/
+  if (pageInfo.type && pageInfo.type == "articles") {
+    let same = [];
+    $('.breadcrumbs li').each(function(i, e){
+      let text = $(this).text();
+      if( $.inArray(text, same) > -1 ) {
+         $(this).remove();
+      } else {
+          same.push( text );
+      }
+    });
+  }
+  
   // Add vote up and down message
   $(".article-vote-up").on('click', function() {
     $(this).addClass("active").removeClass("deactive");
@@ -144,10 +159,10 @@ $(document).ready(function() {
   /*
   * Go To Section
   */
-  let pageInfo = getPageInfo(window.location.href);
+  
   if ( pageInfo.type === "categories" && pageInfo.sectionId !== 0) {
     goToSection('#' + pageInfo.sectionId);
-    removeHashFromUrl(); 
+    removeHashFromUrl();
   }
   $('#categories-menu .container > ul > li ul a').click(function () {
     let id = $(this).attr("href");
@@ -288,7 +303,10 @@ $(document).ready(function() {
     }
 
     if (!$('.hero-inner .search').length) {
-        $('body').addClass('black_menu').addClass('with_search');
+        if(matchMedia('screen and (min-width: 768px)').matches){
+          $('body').addClass('black_menu');
+        }
+        $('body').addClass('with_search');
     }
 
     $(".blocks-item").has("a[href$='/hc/en-us/categories/360001741252-10Web-Platform-information']").hide();
@@ -382,7 +400,7 @@ $(document).ready(function() {
     $(".header .menu-icon").on("click", function(e) {
       if ($(this).hasClass('active')) {
         $(this).removeClass('active');
-        if ($('.hero-inner .search').length && !$('.header').hasClass('fixed_header')) {
+        if (($('.hero-inner .search').length || matchMedia('screen and (max-width:767px)').matches) && !$('body').hasClass('fixed_header') )  {
           $("body").removeClass("black_menu");
         }
           $("body").removeClass("menu_opened");
@@ -827,7 +845,7 @@ function setFixedMenu() {
         $("body").addClass("black_menu").addClass("fixed_header");
     } else {
         $("body").removeClass("fixed_header");
-        if ($('.hero-inner .search').length) {
+        if ($('.hero-inner .search').length || matchMedia('screen and (max-width: 767px)').matches) {
           $("body").removeClass("black_menu");
         }
     }
@@ -943,7 +961,7 @@ function setMenu() {
         let currentItem = property === currentId ? "class='current-item'" : "";
         html += "<li " + currentItem + " data-id='" + property + "'><a href='" + helpCenterLink + "categories/" + property + "'>" + menu[property]["name"] + "</a>";
   			if (menu[property]["sections"].length) {
-          html += "<ul>";
+          html += "<div class='submenu-overflow'><ul>";
  					for (let i = 0; i < menu[property]["sections"].length; i++) {
             if (property !== currentId) {
                 link = helpCenterLink + "categories/" + property + "#section_" + menu[property]["sections"][i]["id"];
@@ -953,7 +971,7 @@ function setMenu() {
             }
             html += "<li><a href='" + link + "'>" + menu[property]["sections"][i]["name"] + "</a></li>";
           }
-          html += "</ul>";  
+          html += "</ul></div>";  
   			}
    			html += "</li>";                                
      }

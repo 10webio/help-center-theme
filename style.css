@@ -7554,8 +7554,7 @@ display: none;
   }
   zd-autocomplete {
     border-radius: 12px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 7px 10px;
   }
   zd-autocomplete-option {
     padding: 9px 6px;
@@ -7563,6 +7562,7 @@ display: none;
     font-weight: 600;
     letter-spacing: 0.12px;
     color: #323A45;
+    border-radius: 6px;
   }
   zd-autocomplete-option:hover {
     border-radius: 6px;

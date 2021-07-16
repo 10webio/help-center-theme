@@ -640,7 +640,7 @@ h4 {
 
 a {
   color: $link_color;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 input,
@@ -7022,7 +7022,7 @@ display: none;
 /*note section*/
 .note-main-container {
   background: #008A6208 0% 0% no-repeat padding-box;
-  border: 1px solid #008A62;
+  border: 1px solid #008A624D;
   border-radius: 12px;
   opacity: 1;
   margin: 42px 0;
@@ -7054,7 +7054,7 @@ display: none;
 /*tip container*/
 .tip-main-container {
   background: #008A6208 0% 0% no-repeat padding-box;
-  border: 1px solid #008A62;
+  border: 1px solid #008A624D;
   border-radius: 12px;
   opacity: 1;
   margin: 25px 0;

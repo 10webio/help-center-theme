@@ -34,7 +34,7 @@
           "type": "color",
           "description": "link_color_description",
           "label": "link_color_label",
-          "value": "rgba(33, 96, 181, 1);"
+          "value": "rgba(33, 96, 181, 1)"
         },
         {
           "identifier": "background_color",

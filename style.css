@@ -1923,7 +1923,9 @@ h3.search-results-subheading {
 .specific-category-content{
     flex: 1;
 }
-
+.section-page .section-name.section-tree-title {
+    margin-bottom: 0;
+}
 .section-tree {
     display: flex;
     flex-direction: column;
@@ -5742,11 +5744,6 @@ a.article-unsubscribe {
     .sub-nav form.search {
         width: 320px;
     }
-    .section-tree-title,
-    .categories-page .section-tree .section >h2{
-        font-size: 26px;
-        margin-bottom: 30px;
-    }
     .category-content .page-header h1{
         font-size: 26px;
         line-height: 34px;
@@ -5879,6 +5876,9 @@ a.article-unsubscribe {
     .categories-page .section-tree .section {
         margin-bottom: 50px;
         padding-bottom: 50px;
+    }
+    .section-page .section-name.section-tree-title {
+        margin-bottom: 0;
     }
     .section-tree .article-list {
         grid-template-columns: repeat(2,350px);
@@ -7479,6 +7479,9 @@ a.article-unsubscribe {
     .section-tree-title,
     .categories-page .section-tree .section >h2{
         margin-bottom: 20px;
+    }
+    .section-page .section-name.section-tree-title {
+        margin-bottom: 0;
     }
 }
 

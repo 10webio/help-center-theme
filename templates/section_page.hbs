@@ -1,53 +1,52 @@
-<div class="container-divider"></div>
-<section class="section hero">
-     <div class="container">
-        <div class="hero-inner">
-            <p class="header_text header_title">10Web Help Center</p>
-            <p class="header_text header_desc">Hi, how can we help?</p>
+<div class="section-page">
+  <div class="container-divider"></div>
+  <section class="section hero">
+       <div class="container">
+          <div class="hero-inner">
+              <p class="header_text header_title">10Web Help Center</p>
+              <p class="header_text header_desc">Hi, how can we help?</p>
+          </div>
+          <div id="categories-menu">
+          </div>
         </div>
-        <div id="categories-menu">
-        </div>
-      </div> 
-  </section>
-<div class="container">
-  <nav class="breadcrumbs-nav">
-    {{breadcrumbs}}
-  </nav>
-
-  <div class="section-container">
-    <section class="section-content">
-      <header class="page-header">
-        <h1>
-          {{section.name}}
-          {{#if section.internal}}
-            <span class="icon-lock" title="{{t 'internal'}}"></span>
-          {{/if}}
-        </h1>
-        {{#if section.description}}
-          <div class="section-subscribe" style="margin: 10px;position: relative;top: 1px;"><a role="button" href="{{section.description}}" target="_blank">See All Features</a></div>
-        {{/if}}
-      
-      </header>
-
-
-      {{#if section.articles}}
-        <ul class="article-list">
-          {{#each section.articles}}
-            <li class="article-list-item {{#if promoted}} article-promoted{{/if}}">
-              {{#if promoted}}
-                <span data-title="{{t 'promoted'}}" class="icon-star"></span>
-              {{/if}}
-              <a href="{{url}}" class="article-list-link">{{title}}</a>
-            </li>
-          {{/each}}
-        </ul>
-      {{else}}
-        <i class="section-empty">
-          <a href="{{section.url}}">{{t 'empty'}}</a>
-        </i>
-      {{/if}}
-
-      {{pagination}}
     </section>
+  <div class="container">
+    <nav class="breadcrumbs-nav">
+      {{breadcrumbs}}
+    </nav>
+
+    <div class="section-container">
+      <section class="section-content section-tree">
+          <h2 class="section-name section-tree-title">
+            {{section.name}}
+            {{#if section.internal}}
+              <span class="icon-lock" title="{{t 'internal'}}"></span>
+            {{/if}}
+          </h2>
+          {{#if section.description}}
+            <div class="section-subscribe" style="margin: 10px;position: relative;top: 1px;"><a role="button" href="{{section.description}}" target="_blank">See All Features</a></div>
+          {{/if}}
+
+
+        {{#if section.articles}}
+          <ul class="article-list">
+            {{#each section.articles}}
+              <li class="article-list-item {{#if promoted}} article-promoted{{/if}}">
+                {{#if promoted}}
+                  <span data-title="{{t 'promoted'}}" class="icon-star"></span>
+                {{/if}}
+                <a href="{{url}}" class="article-list-link">{{title}}</a>
+              </li>
+            {{/each}}
+          </ul>
+        {{else}}
+          <i class="section-empty">
+            <a href="{{section.url}}">{{t 'empty'}}</a>
+          </i>
+        {{/if}}
+
+        {{pagination}}
+      </section>
+    </div>
   </div>
 </div>

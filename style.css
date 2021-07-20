@@ -7205,7 +7205,7 @@ a.article-unsubscribe {
     line-height: 30px;
     color: #292929;
     font-family: Literata, Regular Roman;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 .accordion-section.active .note-main-container .note-title {
     font-weight: bold;
@@ -7594,7 +7594,7 @@ a.article-unsubscribe {
     opacity: 1;
     text-align: left;
     cursor: pointer;
-    padding: 9px 15px 9px 25px;
+    padding: 9px 10px 9px 25px;
     margin: 1px 10px 1px 0;
 }
 .article-sidebar.desktop-sidebar .sticky-sidebar li span {
@@ -7605,6 +7605,7 @@ a.article-unsubscribe {
     border-radius: 6px;
     margin: 1px 0 1px 10px;
     padding-left: 15px;
+    padding-right: 10px;
 }
 .article-sidebar li.active {
     background: #2160B5 0% 0% no-repeat padding-box;
@@ -7612,6 +7613,7 @@ a.article-unsubscribe {
     color: #FFFFFF;
     margin: 1px 0 1px 10px;
     padding-left: 15px;
+    padding-right: 10px;
 }
 @media screen and (max-width: 1260px) and (min-width: 767px) {
     .home-page .container_featured_articles .featured_articles a:nth-child(3n + 2) {

@@ -989,7 +989,6 @@ function setMenu() {
         }
     }
     let currentName = (mainSections.hasOwnProperty(currentId)) ? mainSections[currentId].name : mainSections[Object.keys(mainSections)[0]].name;
-    console.log(allSections);
     html += "<div class='container'><div class='categories-menu_current'>" + currentName + "</div><ul>";
     for (const property in menu) {
         let currentItem = property === currentId ? "class='current-item'" : "";

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="cancel" transform="translate(-1814 -38)">
+    <circle id="Ellipse_17607" data-name="Ellipse 17607" cx="16" cy="16" r="16" transform="translate(1814 38)" fill="#fff" opacity="0.3"/>
+    <g id="cancel-2" data-name="cancel" transform="translate(1801.607 18.358)">
+      <rect id="Rectangle_47303" data-name="Rectangle 47303" width="16.491" height="2.29" rx="0.5" transform="translate(21.752 40.663) rotate(-45)" fill="#fff"/>
+      <rect id="Rectangle_47304" data-name="Rectangle 47304" width="16.491" height="2.29" rx="0.5" transform="translate(23.372 29.002) rotate(45)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

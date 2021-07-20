@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #323a45;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="FB" transform="translate(-4625 -2399)">
+    <rect id="Rectangle_18694" data-name="Rectangle 18694" class="cls-1" width="30" height="30" transform="translate(4625 2399)"/>
+    <path id="Path_111002" data-name="Path 111002" class="cls-2" d="M15,30c14.884,0,15-6.716,15-15S29.884,0,15,0,0,6.716,0,15,.116,30,15,30Z" transform="translate(4625 2399)"/>
+    <g id="facebook-logo" transform="translate(4612.873 2406)">
+      <path id="Path_111000" data-name="Path 111000" class="cls-3" d="M32.127,2.656H30.5c-1.279,0-1.527.561-1.527,1.385V5.857h3.05V8.7H28.969V16H25.787V8.7h-2.66V5.857h2.66V3.76C25.787,1.326,27.4,0,29.75,0l2.377,0V2.656Z"/>
+    </g>
+  </g>
+</svg>

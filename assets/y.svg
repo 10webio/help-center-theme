@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #323a45;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Y" transform="translate(-4790 -2399)">
+    <g id="Group_58256" data-name="Group 58256">
+      <rect id="Rectangle_18697" data-name="Rectangle 18697" class="cls-1" width="30" height="30" transform="translate(4790 2399)"/>
+      <path id="Path_111005" data-name="Path 111005" class="cls-2" d="M15,30c14.884,0,15-6.716,15-15S29.884,0,15,0,0,6.716,0,15,.116,30,15,30Z" transform="translate(4790 2399)"/>
+      <g id="youtube-symbol" transform="translate(4797 2393.824)">
+        <path id="Path_111001" data-name="Path 111001" class="cls-3" d="M15.724,16.446a2.012,2.012,0,0,0-1.73-1.551A54.5,54.5,0,0,0,8,14.676a54.509,54.509,0,0,0-5.992.218A2.011,2.011,0,0,0,.282,16.446,16.676,16.676,0,0,0,0,20.176a16.671,16.671,0,0,0,.279,3.73,2.011,2.011,0,0,0,1.729,1.551A54.462,54.462,0,0,0,8,25.676a54.452,54.452,0,0,0,5.991-.219,2.012,2.012,0,0,0,1.729-1.551,16.663,16.663,0,0,0,.28-3.73A16.674,16.674,0,0,0,15.724,16.446Zm-9.788,6.18V17.407l5.087,2.618Z" transform="translate(0 0)"/>
+      </g>
+    </g>
+  </g>
+</svg>

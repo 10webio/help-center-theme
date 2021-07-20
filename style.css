@@ -1923,7 +1923,9 @@ h3.search-results-subheading {
 .specific-category-content{
     flex: 1;
 }
-
+.section-page .section-name.section-tree-title {
+    margin-bottom: 0;
+}
 .section-tree {
     display: flex;
     flex-direction: column;
@@ -5742,11 +5744,6 @@ a.article-unsubscribe {
     .sub-nav form.search {
         width: 320px;
     }
-    .section-tree-title,
-    .categories-page .section-tree .section >h2{
-        font-size: 26px;
-        margin-bottom: 30px;
-    }
     .category-content .page-header h1{
         font-size: 26px;
         line-height: 34px;
@@ -5879,6 +5876,9 @@ a.article-unsubscribe {
     .categories-page .section-tree .section {
         margin-bottom: 50px;
         padding-bottom: 50px;
+    }
+    .section-page .section-name.section-tree-title {
+        margin-bottom: 0;
     }
     .section-tree .article-list {
         grid-template-columns: repeat(2,350px);
@@ -7150,6 +7150,17 @@ a.article-unsubscribe {
     padding-top: 20px;
 }
 
+/*important notes*/
+.note-main-container.important-notes {
+    background: #2160B508  0% 0% no-repeat padding-box;
+    border: 1px solid #2160B5;
+    border-radius: 12px;
+    opacity: 1;
+    margin: 42px 0;
+    width: 720px;
+    padding: 20px;
+}
+
 /*note section*/
 .note-main-container {
     background: #008A6208 0% 0% no-repeat padding-box;
@@ -7179,7 +7190,7 @@ a.article-unsubscribe {
     margin: 0;
 }
 .note-main-container p:last-child {
-    margin: 0 0 0 49px;
+    margin: -7px 0 0 49px;
 }
 
 /*tip container*/
@@ -7222,7 +7233,7 @@ a.article-unsubscribe {
     margin: 0;
 }
 .tip-main-container .tip-container p:last-child {
-    margin: 0 0 0 49px;
+    margin: -7px 0 0 49px;
 }
 
 /* tip container with button*/
@@ -7418,7 +7429,8 @@ a.article-unsubscribe {
         padding: 0px 20px 0 20px;
     }
     .note-main-container,
-    .tip-main-container {
+    .tip-main-container,
+    .note-main-container.important-notes {
         width: auto;
         flex-direction: column;
     }
@@ -7430,7 +7442,8 @@ a.article-unsubscribe {
         line-height: 28px;
     }
     .note-main-container .note-title:before,
-    .tip-main-container .tip-container .tip-title:before {
+    .tip-main-container .tip-container .tip-title:before,
+    .note-main-container.important-notes .note-title:before {
         display: block;
         margin-bottom: 10px;
     }
@@ -7466,6 +7479,9 @@ a.article-unsubscribe {
     .section-tree-title,
     .categories-page .section-tree .section >h2{
         margin-bottom: 20px;
+    }
+    .section-page .section-name.section-tree-title {
+        margin-bottom: 0;
     }
 }
 
@@ -7545,6 +7561,9 @@ a.article-unsubscribe {
     cursor: pointer;
     padding: 9px 15px 9px 25px;
     margin: 1px 10px 1px 0;
+}
+.article-sidebar.desktop-sidebar .sticky-sidebar li span {
+    font-weight: 600 !important;
 }
 .article-sidebar li:hover {
     background: #323A450D 0% 0% no-repeat padding-box;

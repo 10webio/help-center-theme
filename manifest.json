@@ -1,7 +1,7 @@
 {
   "name": "10Web HC New Theme",
   "author": "10Web",
-  "version": "1.7.5",
+  "version": "1.7.6",
   "api_version": 1,
   "default_locale": "en-us",
   "settings": [
@@ -34,7 +34,7 @@
           "type": "color",
           "description": "link_color_description",
           "label": "link_color_label",
-          "value": "rgba(75, 126, 252, 1)"
+          "value": "rgba(33, 96, 181, 1);"
         },
         {
           "identifier": "background_color",

@@ -6991,7 +6991,7 @@ a.article-unsubscribe {
     opacity: 1;
     position: relative;
     overflow: hidden;
-    margin-bottom: 15px;
+    margin-bottom: 50px;
     cursor: pointer;
 }
 .accordion-section.active h3.dropdown-article {
@@ -7099,6 +7099,9 @@ a.article-unsubscribe {
     margin: 0;
     font-weight: 400;
 }
+.accordion-section.active p:last-child {
+    margin-bottom: 20px;
+}
 .accordion-section.active h4.dropdown-article {
     display: block;
     border-radius: 12px;
@@ -7192,6 +7195,27 @@ a.article-unsubscribe {
 .note-main-container p:last-child {
     margin: -7px 0 0 49px;
 }
+/*notes in accordion section*/
+.accordion-section.active .note-main-container {
+    width: 100%;
+}
+.accordion-section.active .note-main-container p {
+    font-size: 16px;
+    letter-spacing: 0.13px;
+    line-height: 30px;
+    color: #292929;
+    font-family: Literata, Regular Roman;
+    margin-bottom: 20px;
+}
+.accordion-section.active .note-main-container .note-title {
+    font-weight: bold;
+    text-align: left;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    margin: 0
+}
+
 
 /*tip container*/
 .tip-main-container {
@@ -7337,6 +7361,15 @@ a.article-unsubscribe {
     .article-body .tenweb-video {
         border-radius: 0;
     }
+    .article-body .accordion-container .tenweb-video,
+    .article-body .accordion-container img {
+        border-radius: 12px;
+        width: 100%;
+        margin-left: 0;
+    }
+    .article-body .accordion-container .tenweb-video video {
+        border-radius: 12px;
+    }
     .tenweb-video video {
         border-radius: 0;
     }
@@ -7365,7 +7398,6 @@ a.article-unsubscribe {
         border-left: none;
         border-radius: 0;
         border-bottom: 1px solid #0000000D;
-        margin-bottom: 0px;
     }
     .accordion-section h2.dropdown-article {
         font-size: 26px;
@@ -7509,7 +7541,10 @@ a.article-unsubscribe {
     cursor: pointer;
 }
 .article-body p + .accordion-section {
-    margin-top: 76px;
+    margin-top: 50px;
+}
+.accordion-section p + .accordion-section {
+    margin-top: 30px;
 }
 .article-body ol + .note-main-container {
     margin-top: 50px;

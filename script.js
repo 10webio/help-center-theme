@@ -403,11 +403,12 @@ $(document).ready(function() {
             if (($('.hero-inner .search').length || matchMedia('screen and (max-width:767px)').matches) && !$('body').hasClass('fixed_header') )  {
                 $("body").removeClass("black_menu");
             }
-            $("body").removeClass("menu_opened");
+            $("body, html").removeClass("menu_opened");
         }
         else {
             $(this).addClass('active');
             $('body').addClass('black_menu').addClass("menu_opened");
+            $('html').addClass("menu_opened");
         }
     });
 

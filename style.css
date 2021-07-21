@@ -4441,6 +4441,10 @@ footer p.sign-up-link a {
     color: #292929;
 }
 
+.search-results-column .result-not-found h3 {
+    margin-bottom: 10px;
+}
+
 .search-results-list > li {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     padding: 40px 0;
@@ -6257,6 +6261,10 @@ a.article-unsubscribe {
         color: #fff;
         display: block;
     }
+    .dropdown-menu-caret::before,
+    .dropdown-menu-caret::after{
+        content:none;
+    }
     .mobile-menu-logged-in   .dropdown-menu [role=menuitem] {
         color: #ffffff !important;
         padding: 0;
@@ -7155,13 +7163,13 @@ a.article-unsubscribe {
 
 /*important notes*/
 .note-main-container.important-notes {
-  background: #2160B508  0% 0% no-repeat padding-box;
-  border: 1px solid #2160B5;
-  border-radius: 12px;
-  opacity: 1;
-  margin: 42px 0;
-  width: 720px;
-  padding: 20px;
+    background: #2160B508  0% 0% no-repeat padding-box;
+    border: 1px solid #2160B5;
+    border-radius: 12px;
+    opacity: 1;
+    margin: 42px 0;
+    width: 720px;
+    padding: 20px;
 }
 
 /*note section*/
@@ -7205,7 +7213,7 @@ a.article-unsubscribe {
     line-height: 30px;
     color: #292929;
     font-family: Literata, Regular Roman;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 .accordion-section.active .note-main-container .note-title {
     font-weight: bold;
@@ -7381,6 +7389,9 @@ a.article-unsubscribe {
         margin: 50px 0 50px -20px;
         width: calc(100% + 40px);
         max-width: calc(100% + 40px);
+    }
+    .article-body p + p img{
+        margin: 30px 0 30px -20px;
     }
     .article-body {
         width: auto;
@@ -7594,17 +7605,18 @@ a.article-unsubscribe {
     opacity: 1;
     text-align: left;
     cursor: pointer;
-    padding: 9px 15px 9px 25px;
+    padding: 9px 10px 9px 25px;
     margin: 1px 10px 1px 0;
 }
 .article-sidebar.desktop-sidebar .sticky-sidebar li span {
-  font-weight: 600 !important;
+    font-weight: 600 !important;
 }
 .article-sidebar li:hover {
     background: #323A450D 0% 0% no-repeat padding-box;
     border-radius: 6px;
     margin: 1px 0 1px 10px;
     padding-left: 15px;
+    padding-right: 10px;
 }
 .article-sidebar li.active {
     background: #2160B5 0% 0% no-repeat padding-box;
@@ -7612,6 +7624,7 @@ a.article-unsubscribe {
     color: #FFFFFF;
     margin: 1px 0 1px 10px;
     padding-left: 15px;
+    padding-right: 10px;
 }
 @media screen and (max-width: 1260px) and (min-width: 767px) {
     .home-page .container_featured_articles .featured_articles a:nth-child(3n + 2) {
@@ -7790,3 +7803,4 @@ zd-autocomplete-option {
 zd-autocomplete-option:hover {
     border-radius: 6px;
 }
+{"mode":"full","isActive":false}

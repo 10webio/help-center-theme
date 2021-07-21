@@ -2149,6 +2149,9 @@ h3.search-results-subheading {
 .article-body h4 span {
     font-weight: bold !important;
 }
+.article-body p + p span img {
+    margin: 0;
+}
 .article-body p + h2,
 .article-body p + h3,
 .article-body p + h4 {

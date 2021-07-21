@@ -2405,6 +2405,7 @@ footer p.sign-up-link a {
     text-align: left;
     cursor: pointer;
     right: 8px;
+    width: 340px;
 }
 .article-more-questions .help_community:hover {
     box-shadow: 0 5px 20px rgb(229 230 232);
@@ -2439,6 +2440,7 @@ footer p.sign-up-link a {
     text-align: left;
     cursor: pointer;
     left: 8px;
+    width: 340px;
 }
 .article-more-questions .contact_us:hover {
     box-shadow: 0 5px 20px rgb(229 230 232);

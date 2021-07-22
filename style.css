@@ -2122,7 +2122,10 @@ h3.search-results-subheading {
 .article-body p + ol {
     margin-top: 20px;
 }
-
+.article-body ul + p,
+.article-body ol + p {
+    margin-top: 20px;
+}
 .article-body h2 + h3,
 .article-body h2 + h4,
 .article-body h3 + h4 {
@@ -2135,11 +2138,26 @@ h3.search-results-subheading {
     margin-top: 12px;
 }
 .article-body h2 + ul,
-.article-body h3 + ul {
+.article-body h3 + ul,
+.article-body h2 + ol,
+.article-body h3 + ol {
     margin-top: 29px;
     margin-bottom: 29px;
 }
-.article-body h4 + ul {
+.article-body ul + h2,
+.article-body ul + h3,
+.article-body ol + h2,
+.article-body ol + h3 {
+    margin-top: 29px;
+    margin-bottom: 29px;
+}
+.article-body h4 + ul,
+.article-body h4 + ol {
+    margin-top: 20px;
+    margin-bottom: 29px;
+}
+.article-body ul + h4,
+.article-body ol + h4 {
     margin-top: 20px;
     margin-bottom: 29px;
 }
@@ -7012,7 +7030,7 @@ a.article-unsubscribe {
     opacity: 1;
     position: relative;
     overflow: hidden;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
     cursor: pointer;
 }
 .accordion-section.active h3.dropdown-article {
@@ -7569,6 +7587,10 @@ a.article-unsubscribe {
 }
 .accordion-section p + .accordion-section {
     margin-top: 30px;
+}
+.article-body .accordion-section + h2,
+.article-body .accordion-section + p {
+    margin-top: 50px;
 }
 .article-body ol + .note-main-container {
     margin-top: 50px;

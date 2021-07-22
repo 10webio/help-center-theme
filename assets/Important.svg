@@ -4,21 +4,21 @@
       <stop offset="0" stop-color="#f8f8f8"/>
       <stop offset="1" stop-color="#f0f0f0"/>
     </linearGradient>
-    <filter id="Path_168587" x="0" y="2.849" width="27.789" height="33.906" filterUnits="userSpaceOnUse">
+    <filter id="Path_168587" x="0" y="2.849" width="27.79" height="33.906" filterUnits="userSpaceOnUse">
       <feOffset dy="1" input="SourceAlpha"/>
       <feGaussianBlur stdDeviation="0.5" result="blur"/>
       <feFlood flood-color="#323a45" flood-opacity="0.2"/>
       <feComposite operator="in" in2="blur"/>
       <feComposite in="SourceGraphic"/>
     </filter>
-    <filter id="Union_695" x="4.224" y="8.425" width="19.36" height="20.76" filterUnits="userSpaceOnUse">
+    <filter id="Union_695" x="4.224" y="8.425" width="19.361" height="20.761" filterUnits="userSpaceOnUse">
       <feOffset dy="1" input="SourceAlpha"/>
       <feGaussianBlur stdDeviation="0.5" result="blur-2"/>
       <feFlood flood-color="#323a45" flood-opacity="0.2"/>
       <feComposite operator="in" in2="blur-2"/>
       <feComposite in="SourceGraphic"/>
     </filter>
-    <filter id="Subtraction_1" x="0" y="30.433" width="27.789" height="6.323" filterUnits="userSpaceOnUse">
+    <filter id="Subtraction_1" x="0" y="30.433" width="27.789" height="6.322" filterUnits="userSpaceOnUse">
       <feOffset dy="1" input="SourceAlpha"/>
       <feGaussianBlur stdDeviation="0.5" result="blur-3"/>
       <feFlood flood-color="#323a45" flood-opacity="0.2"/>
@@ -29,10 +29,10 @@
       <rect id="Rectangle_47417" data-name="Rectangle 47417" width="20.136" height="24.375" fill="red"/>
     </clipPath>
     <linearGradient id="linear-gradient-2" x1="0.831" x2="0.772" y2="1" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#23b536"/>
-      <stop offset="1" stop-color="#008a62"/>
+      <stop offset="0" stop-color="#4086e5"/>
+      <stop offset="1" stop-color="#2160b5"/>
     </linearGradient>
-    <filter id="Path_169248" x="15.559" y="20.265" width="15.002" height="14.354" filterUnits="userSpaceOnUse">
+    <filter id="Path_169248" x="15.558" y="20.265" width="15.003" height="14.354" filterUnits="userSpaceOnUse">
       <feOffset dy="1" input="SourceAlpha"/>
       <feGaussianBlur stdDeviation="0.5" result="blur-4"/>
       <feFlood flood-opacity="0.2"/>

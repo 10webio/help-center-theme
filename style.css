@@ -7401,10 +7401,14 @@ a.article-unsubscribe {
         border-radius: 0;
     }
     .article-body .accordion-container .tenweb-video,
-    .article-body .accordion-container img {
+    .article-body .accordion-container img,
+    .article-body .accordion-container iframe {
         border-radius: 12px;
         width: 100%;
         margin-left: 0;
+    }
+    .article-body .accordion-container iframe {
+        margin: 0;
     }
     .article-body .accordion-container .tenweb-video video {
         border-radius: 12px;
@@ -7509,7 +7513,9 @@ a.article-unsubscribe {
         flex-direction: column;
     }
     .note-main-container .note-title,
-    .tip-main-container .tip-container .tip-title {
+    .tip-main-container .tip-container .tip-title,
+    .accordion-section.active .note-main-container .note-title,
+    .accordion-section.active .tip-container .tip-title {
         display: block;
         font-size: 14px;
         letter-spacing: 0.12px;
@@ -7522,7 +7528,9 @@ a.article-unsubscribe {
         margin-bottom: 10px;
     }
     .note-main-container p:last-child,
-    .tip-main-container .tip-container p:last-child {
+    .tip-main-container .tip-container p:last-child,
+    .accordion-section.active .note-main-container p:last-child,
+    .accordion-section.active .tip-main-container .tip-container p:last-child {
         margin: 0;
         font-size: 14px;
         letter-spacing: 0.12px;

@@ -2149,6 +2149,9 @@ h3.search-results-subheading {
 .article-body h4 span {
     font-weight: bold !important;
 }
+.article-body p + p span img {
+    margin: 0;
+}
 .article-body p + h2,
 .article-body p + h3,
 .article-body p + h4 {
@@ -2409,6 +2412,7 @@ footer p.sign-up-link a {
     cursor: pointer;
     right: 8px;
     width: 340px;
+    max-width: 100%;
 }
 .article-more-questions .help_community:hover {
     box-shadow: 0 5px 20px rgb(229 230 232);
@@ -2444,6 +2448,7 @@ footer p.sign-up-link a {
     cursor: pointer;
     left: 8px;
     width: 340px;
+    max-width: 100%;
 }
 .article-more-questions .contact_us:hover {
     box-shadow: 0 5px 20px rgb(229 230 232);
@@ -4911,6 +4916,9 @@ a.article-unsubscribe {
     }
     body > main {
         min-height: 65vh;
+    }
+    .breadcrumbs li a:hover{
+        text-decoration: underline;
     }
     #embed_container .iframe-container-latest iframe, #embed_container .iframe-container-latest{
         width: 800px;

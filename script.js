@@ -127,7 +127,7 @@ $(document).ready(function() {
     let pageInfo = getPageInfo(window.location.href);
 
     /*Remove same title from breadcrumbs*/
-    if (pageInfo.type && pageInfo.type === "articles") {
+    if (pageInfo.type && (pageInfo.type === "articles" || pageInfo.type.includes("search?"))) {
         let same = [];
         $('.breadcrumbs li').each(function(i, e){
             let text = $(this).text().toLowerCase();

@@ -127,10 +127,10 @@ $(document).ready(function() {
     let pageInfo = getPageInfo(window.location.href);
 
     /*Remove same title from breadcrumbs*/
-    if (pageInfo.type && pageInfo.type == "articles") {
+    if (pageInfo.type && pageInfo.type === "articles") {
         let same = [];
         $('.breadcrumbs li').each(function(i, e){
-            let text = $(this).text();
+            let text = $(this).text().toLowerCase();
             if( $.inArray(text, same) > -1 ) {
                 $(this).remove();
             } else {

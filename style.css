@@ -7846,3 +7846,6 @@ zd-autocomplete-option {
 zd-autocomplete-option:hover {
     border-radius: 6px;
 }
+.zEWidget-automaticAnswers.zEWidget-automaticAnswers--active {
+    display: none;
+}

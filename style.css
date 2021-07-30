@@ -4494,6 +4494,9 @@ footer p.sign-up-link a {
     letter-spacing: 0.13px;
     color: #323A45;
 }
+.search-result-description em {
+    font-style: normal;
+}
 a.search-result-link {
     font-size: 18px;
     float: left;

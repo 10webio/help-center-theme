@@ -926,7 +926,7 @@ const categoryPage = {
         this.setSection(id);
         let _this = this,
             statiSection = _this.section;
-
+        $('.section-tree-with-article').removeAttr('data-asynchtml');
         /*Main Categories*/
         if (statiSection && Object.keys(statiSection).length !== 0) {
             $('.categories-page').addClass("main-categories");

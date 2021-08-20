@@ -102,6 +102,19 @@ const helpAPI = {
         return results;
     },
 
+    getArticlesBySectionId : function(sectionId) {
+        let results = {};
+        $.ajax({
+            url: `${helpCenterEndpoint}/sections/${sectionId}/articles?per_page=100`,
+            type: 'get',
+            async: false,
+            success: function (data) {
+                results = data;
+            }
+        });
+        return results;
+    },
+  
     getArticleById : function(articleId) {
         let results = {};
         $.ajax({
@@ -899,20 +912,22 @@ const categoryPage = {
         }
     },
 
-    setCategoryPageCustomSections : function(categories, index) {
-        let html = "";
-        if (categories.length) {
-            html += "<ul class='article-list category-list'>";
-            for (let i = 0; i < categories.length; i++) {
-                let link = helpCenterLink + "categories/" + categories[i].id ;
-                html += "<li><a href='" + link + "'>" + categories[i].name + "</a></li>";
-            }
-            html += "</ul>";
-        }
-        if ($('.section-tree-with-article > ul > li').eq(index).length) {
-            $('.section-tree-with-article > ul > li').eq(index).find('.article-list').replaceWith(html);
-        }
+    setCategoryPageSections : function(type, list, section) {
+      /*Set all articles in sections*/
+      
+      let html = "";
+      if ( list.length) {
+        let ulClass = type == "categories" ? " category-list" : "";
+        html += "<ul class='article-list " + ulClass + "'>";
+          for (let i = 0; i < list.length; i++) {
+			        let link = type == "categories" ? helpCenterLink + "categories/" + list[i].id : list[i].html_url;
+              html += "<li><a href='" + link + "'>" + list[i].name + "</a></li>";
+          }
+        html += "</ul>";
+      }
+      $(section).find('.article-list').replaceWith(html);
     },
+
 
     setCategoryPageCustomArticle : function(article) {
         let html = "<section class='section article'>" +
@@ -922,7 +937,7 @@ const categoryPage = {
         $(".section-tree").prepend(html);
     },
 
-    getCategorySections : function(id) {
+   getCategorySections : function(id) {
         this.setSection(id);
         let _this = this,
             statiSection = _this.section;
@@ -947,7 +962,7 @@ const categoryPage = {
             }
 
             /*Custom section with categories*/
-            $(".sections-ids .section-id").each(function(index, _section){
+            $(".categories-page .section-tree .section").each(function(index, _section){
                 let sectionId = $(this).data("id");
                 custom = statiSection.custom.find(function(el, i) {
                     if(el.id == sectionId)
@@ -957,16 +972,29 @@ const categoryPage = {
                     customSection = helpAPI.getSection(sectionId);
                     if (customSection.section) {
                         let categories = JSON.parse(customSection.section.description);
-                        _this.setCategoryPageCustomSections(categories, index);
+                        _this.setCategoryPageSections("categories", categories, _section);
                     }
+                }
+                else {
+				  let articles = helpAPI.getArticlesBySectionId(sectionId);
+                  if ( articles && articles.articles.length ) {
+                    _this.setCategoryPageSections("articles", articles.articles, _section)
+                  }
                 }
             });
         }
         else {
             $('.categories-page').addClass("other-categories");
-            if($('.section-tree-with-article > ul > .section').length > 1){
-                $('.section-tree-with-article > ul > .section > h2').show();
+            if($('.categories-page .section-tree .section').length > 1){
+                $('.categories-page .section-tree .section > h2').show();
             }
+            $(".categories-page .section-tree .section").each(function(index, _section){
+                let sectionId = $(this).data("id");
+				let articles = helpAPI.getArticlesBySectionId(sectionId);
+				if ( articles && articles.articles.length ) {
+					_this.setCategoryPageSections("articles", articles.articles, _section)
+				}
+            });
         }
     }
 }
@@ -1053,7 +1081,7 @@ function  isCurrentCategory(allSections) {
 
 function goToSection(id) {
     let sectionIndex = $(id).index();
-    $("html, body").animate({scrollTop: ($('.section-tree-with-article > ul > li').eq(sectionIndex).offset().top - 120)}, 500);
+    $("html, body").animate({scrollTop: ($(id).offset().top - 120)}, 500);
 }
 
 function removeHashFromUrl()

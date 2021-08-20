@@ -21,12 +21,14 @@
       <div class="category-content">
         <h2 class="category-name">{{category.name}}</h2>
         <div class="section-tree">
-          {{section_tree_with_article}} 
-          <div class="sections-ids">
-            {{#each sections}}
-              <input type="hidden" class="section-id" data-id="{{id}}" id="section_{{id}}">
-            {{/each}}
-          </div>
+          {{#each sections}}
+            <section class="section" data-id="{{id}}"  id="section_{{id}}">
+              <h2 class="section-tree-title">
+                <a href="{{url}}">{{name}}</a>
+              </h2>
+                <ul class="article-list"> </ul>
+            </section>
+          {{/each}}
         </div>
       </div>
     </div>

@@ -962,7 +962,7 @@ const categoryPage = {
             }
 
             /*Custom section with categories*/
-            $(".categories-page .section-tree .section").each(function(index, _section){
+            $(".categories-page .section-tree .section[data-id]").each(function(index, _section){
                 let sectionId = $(this).data("id");
                 custom = statiSection.custom.find(function(el, i) {
                     if(el.id == sectionId)
@@ -988,7 +988,7 @@ const categoryPage = {
             if($('.categories-page .section-tree .section').length > 1){
                 $('.categories-page .section-tree .section > h2').show();
             }
-            $(".categories-page .section-tree .section").each(function(index, _section){
+            $(".categories-page .section-tree .section[data-id]").each(function(index, _section){
                 let sectionId = $(this).data("id");
 				let articles = helpAPI.getArticlesBySectionId(sectionId);
 				if ( articles && articles.articles.length ) {

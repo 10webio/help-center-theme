@@ -2108,6 +2108,9 @@ h3.search-results-subheading {
     max-width: 100%;
     margin: 50px 0 30px;
 }
+.article-body li img {
+    margin: 0 0 -5px 0;
+}
 .article-body p + p img {
     margin: 30px 0 30px;
 }

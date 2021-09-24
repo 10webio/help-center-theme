@@ -7431,12 +7431,20 @@ a.article-unsubscribe {
         width: calc(100% + 40px);
         max-width: calc(100% + 40px);
     }
+    .article-body li img {
+        border-radius: 12px;
+        width: auto;
+        height: 100%;
+    }
     .article-body p + p img{
         margin: 30px 0 30px -20px;
     }
     .article-body {
         width: auto;
         line-height: 10px;
+    }
+    .article-body blockquote {
+        line-height: 26px;
     }
     .article-body .accordion-section:first-child {
         border-top: 1px solid #0000000D;

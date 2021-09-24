@@ -2110,6 +2110,7 @@ h3.search-results-subheading {
 }
 .article-body li img {
     margin: 0 0 -5px 0;
+    pointer-events: none;
 }
 .article-body p + p img {
     margin: 30px 0 30px;
@@ -2229,7 +2230,9 @@ h3.search-results-subheading {
 .article-body video:hover{
     cursor:url($assets-zoom-svg), auto;
 }
-
+.article-body li img:hover {
+    cursor: none;
+}
 .article-content {
     line-height: 1.6;
     margin: 40px 0 50px;

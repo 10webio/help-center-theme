@@ -6987,7 +6987,7 @@ a.article-unsubscribe {
     margin: 0;
     position: absolute;
     margin-left: -12px;
-    margin-top: 17px;
+    margin-top: 16px;
 }
 .article-body ul li {
     text-align: left;
@@ -7100,7 +7100,7 @@ a.article-unsubscribe {
     padding-left: 38px;
     margin-bottom: 27px;
 }
-.article-body ol li {
+.article-body ol > li {
     display: block;
     text-align: left;
     font-family: 'Literata', serif;
@@ -7112,7 +7112,7 @@ a.article-unsubscribe {
     position: relative;
     margin-bottom: 15px;
 }
-.article-body ol li:before {
+.article-body ol > li:before {
     display: inline-block;
     content: counter(item);
     counter-increment: item;
@@ -7128,6 +7128,10 @@ a.article-unsubscribe {
     text-align: center;
     position: absolute;
     left: -38px;
+}
+.article-body ol >li > ul {
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 .article-info .article-content .article-body a {
     text-decoration: underline;

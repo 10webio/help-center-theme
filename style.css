@@ -401,12 +401,13 @@ iframe#launcher {
 /*Videos article*/
 .container_tutorials.in_article .videos_container {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     row-gap: 60px;
+  column-gap: 15px;
 }
 .container_tutorials.in_article .videos_container .video_container {
     width: calc((100% - 45px)/4);
+  margin:0;
 }
 /*Article id must be changed*/
 .id_4403773285138 .article {

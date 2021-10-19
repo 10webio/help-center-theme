@@ -412,27 +412,27 @@ iframe#launcher {
   margin:0;
 }
 /*Article id must be changed*/
-.id_4403773285138 .article {
+.id_4408397419538 .article {
     max-width: 100%;
 }
-.id_4403773285138 .article-body {
+.id_4408397419538 .article-body {
     width: 100%;
 }
-.id_4403773285138 .clipboard-link,
-.id_4403773285138 footer{
+.id_4408397419538 .clipboard-link,
+.id_4408397419538 footer{
   display: none;
 }
-.id_4403773285138 .article .article-info {
+.id_4408397419538 .article .article-info {
     margin-bottom: 0;
 }
-.id_4403773285138 .article-header .article-title {
+.id_4408397419538 .article-header .article-title {
     font-family: 'Open Sans', sans-serif;
     font-size: 26px;
     line-height: 36px;
     letter-spacing: 0.21px;
     margin-bottom: 0;
 }
-.id_4403773285138 .article-header {
+.id_4408397419538 .article-header {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -440,7 +440,7 @@ iframe#launcher {
     justify-content: space-between;
     margin-bottom: 20px;
 }
-.id_4403773285138 .article-content {
+.id_4408397419538 .article-content {
     margin: 20px 0 0;
 }
 
@@ -6279,7 +6279,7 @@ a.article-unsubscribe {
     width: 284px;
         margin: 0;
 }
-.article-container.id_4403773285138 .article-header {
+.article-container.id_4408397419538 .article-header {
     margin-bottom: 20px;
 }
 }
@@ -6905,7 +6905,7 @@ a.article-unsubscribe {
   .container_tutorials.in_article .videos_container {
     row-gap: 40px;
 }
-  .id_4403773285138 .article-header .article-title {
+  .id_4408397419538 .article-header .article-title {
     font-size: 22px;
     line-height: 30px;
   }

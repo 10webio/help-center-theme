@@ -397,7 +397,9 @@ iframe#launcher {
     margin-top:14px;
 }
 
-
+.categories-page .section-tree .section.article h3 {
+    display: none;
+}
 /*Videos article*/
 .container_tutorials.in_article .videos_container {
     display: flex;

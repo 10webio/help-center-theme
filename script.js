@@ -3,13 +3,14 @@
  */
 const helpCenterEndpoint = "https://help.10web.io/api/v2/help_center/";
 const helpCenterLink = "https://help.10web.io/hc/en-us/";
+const myDomain = "https://my.10web.io/";
 const mainSections = {
     "4403735323410" : {
         "name" : "Getting Started",
         "custom" :
             [
                 {
-                    "id":"4403773285138",
+                    "id":"4408397419538",
                     "type":"article"
                 }
             ]
@@ -135,9 +136,22 @@ var bot_disabled = false;
 var chat_mode = 'hidden';
 
 $(document).ready(function() {
+  let pageInfo = getPageInfo(window.location.href);
+  
+  /*
+  * Video Tutorial Page(article)
+  */
+   let currentId = pageInfo.id; console.log(currentId,currentId === '4408397419538')
+   if ( currentId === '4408397419538') {
+     $('.hero-inner .header_title').text('Video Tutorials').show();
+     $('.hero-inner .header_desc').text('Visual guides to help you every step of the way.').show();
+     $('.breadcrumbs li[title="Video Tutorials"]').css('pointer-events','none');
+   } else {
+     $('.hero-inner .header_title,.hero-inner .header_desc').show();
+   }
+
 
     article_titles();
-    let pageInfo = getPageInfo(window.location.href);
 
     /*Remove same title from breadcrumbs*/
     if (pageInfo.type && (pageInfo.type === "articles" || pageInfo.type.includes("search?"))) {
@@ -572,6 +586,7 @@ function tenweb_openZEChat( chatDepartment ) {
             if ( $( '#dashboardFrame' ).length == 0 ) {
                 let dashboardFrame = $( '<iframe id="dashboardFrame" style="display: none;" src= "' + myDomain + '/chat-page"></iframe>' ).appendTo( 'body' );
                 window.addEventListener( "message", ( event ) => {
+                  
                     if ( event.origin !== myDomain && event.origin !== myDomain )
                         return;
 

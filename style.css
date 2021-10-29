@@ -350,17 +350,16 @@ iframe#launcher {
 }
 .container_tutorials .videos_container{
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    row-gap: 60px;
+    column-gap: 15px;
 }
 .container_tutorials .videos_container .video_container {
     width: 284px;
     display: inline-block;
-    margin: 0 5px;
-}
-.container_tutorials .videos_container .video_container:first-child {
-    margin-left: 0;
-}
-.container_tutorials .videos_container .video_container:last-child {
-    margin-right: 0;
 }
 .container_tutorials .videos_container .video_img{
     border-radius: 12px;
@@ -372,6 +371,7 @@ iframe#launcher {
 .container_tutorials .videos_container .video_img img{
     max-width:100%;
       margin: 0;
+  border:0;
 }
 .container_tutorials .video_container .video_img .overlay {
     position: absolute;
@@ -404,35 +404,34 @@ iframe#launcher {
 .container_tutorials.in_article .videos_container {
     display: flex;
     flex-wrap: wrap;
-    row-gap: 60px;
-  column-gap: 15px;
 }
 .container_tutorials.in_article .videos_container .video_container {
     width: calc((100% - 45px)/4);
   margin:0;
 }
 /*Article id must be changed*/
-.id_4403773285138 .article {
+.id_4408397419538 .article {
     max-width: 100%;
 }
-.id_4403773285138 .article-body {
+.id_4408397419538 .article-body {
     width: 100%;
 }
-.id_4403773285138 .clipboard-link,
-.id_4403773285138 footer{
+.id_4408397419538 .clipboard-link,
+.id_4408397419538 .see_more.show-in-category-page,
+.id_4408397419538 footer{
   display: none;
 }
-.id_4403773285138 .article .article-info {
+.id_4408397419538 .article .article-info {
     margin-bottom: 0;
 }
-.id_4403773285138 .article-header .article-title {
+.id_4408397419538 .article-header .article-title {
     font-family: 'Open Sans', sans-serif;
     font-size: 26px;
     line-height: 36px;
     letter-spacing: 0.21px;
     margin-bottom: 0;
 }
-.id_4403773285138 .article-header {
+.id_4408397419538 .article-header {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -440,7 +439,7 @@ iframe#launcher {
     justify-content: space-between;
     margin-bottom: 20px;
 }
-.id_4403773285138 .article-content {
+.id_4408397419538 .article-content {
     margin: 20px 0 0;
 }
 
@@ -1581,6 +1580,10 @@ div#user [role="button"] {
     justify-content: space-between;
     margin: 10px 0;
 }
+.hero-inner .header_title 
+.hero-inner .header_desc{
+    display:none;
+}
 .hero-inner .header_title {
     font-size: 36px;
     margin-bottom: 20px;
@@ -1961,11 +1964,21 @@ h3.search-results-subheading {
 }
 
 /***** Category pages *****/
+.categories-page .section-tree .section.article .see_more,
+.categories-page .section-tree .section.article .video_container{
+  display: none;
+}
+.categories-page .section-tree .section.article .show-in-category-page{
+  display: block;
+}
 .categories-page .section-tree .section {
     margin: 0 0 60px 0;
     padding-bottom: 60px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     max-width: 100%;
+}
+.categories-page .section-tree .section.article > h3 {
+    display: none;
 }
 .categories-page .section-tree .section:last-child {
     margin: 0;
@@ -6226,11 +6239,12 @@ a.article-unsubscribe {
         margin-bottom: 40px;
     }
     .container_tutorials .videos_container {
-        grid-template-columns: repeat(2, 284px);
-        grid-gap: 30px;
-        width: 598px;
-        margin: 0 auto;
+    width: 598px;
+    margin: 0 auto;
+    column-gap: 30px;
+    row-gap: 30px;
     }
+
     .category-content  .container_tutorials .videos_container {
         width: 100%;
     }
@@ -6279,7 +6293,7 @@ a.article-unsubscribe {
     width: 284px;
         margin: 0;
 }
-.article-container.id_4403773285138 .article-header {
+.article-container.id_4408397419538 .article-header {
     margin-bottom: 20px;
 }
 }
@@ -6902,10 +6916,10 @@ a.article-unsubscribe {
     width: 100%;
         margin-bottom: 0;
 }
-  .container_tutorials.in_article .videos_container {
+  .container_tutorials .videos_container {
     row-gap: 40px;
 }
-  .id_4403773285138 .article-header .article-title {
+  .id_4408397419538 .article-header .article-title {
     font-size: 22px;
     line-height: 30px;
   }

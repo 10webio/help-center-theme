@@ -7090,6 +7090,9 @@ a.article-unsubscribe {
 .article-body ul li:last-child {
     margin-bottom: 0;
 }
+.article-body ol ul li:last-child {
+    margin-bottom: 16px;
+}
 .video-included {
     margin: 50px 0;
     position: relative;

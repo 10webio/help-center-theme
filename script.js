@@ -131,10 +131,6 @@ const helpAPI = {
 };
 
 
-var tenweb_jwt = 'NULL';
-var bot_disabled = false;
-var chat_mode = 'hidden';
-
 $(document).ready(function() {
   let pageInfo = getPageInfo(window.location.href);
   
@@ -146,7 +142,8 @@ $(document).ready(function() {
      $('.hero-inner .header_title').text('Video Tutorials').show();
      $('.hero-inner .header_desc').text('Visual guides to help you every step of the way.').show();
      $('.breadcrumbs li[title="Video Tutorials"]').css('pointer-events','none');
-   } else {
+   }
+   else {
      $('.hero-inner .header_title,.hero-inner .header_desc').show();
    }
 
@@ -203,54 +200,88 @@ $(document).ready(function() {
         return false;
     });
 
-    var ask_question = jQuery('.advanced_chat-bubble');
-    var no_plugins = ask_question.hasClass('no_plugins');
-    var chat_department = tenweb_get_chat_department( no_plugins );
-    var user_id = getCookie("db-user-id");
 
+    /*Zendesk chat*/
     setTimeout(function () {
         $("#advanced_chat").fadeIn('slow');
         $(".chats-container, #advanced_chat").removeAttr("style");
-        if ( typeof zE == 'undefined' ) {
-            tenweb_openZEChat( chat_department );
-        }
     }, 100);
 
-    $(".resource_item.contact_us").on('click', function(){
+    $(".resource_item.contact_us, .advanced_chat-bubble").on('click', function(){
         if( typeof zE != 'undefined' && zE('webWidget:get', 'chat:isChatting') ) {
             zE('webWidget', 'show');
             zE('webWidget', 'open');
         }
         else {
             $(".chats-chat-name").toggleClass('chats-chat-name-opened');
-            tenweb_openZEChat( chat_department );
-            // Check to preload chat only on first click.
-            if ( $( '#ze-snippet' ).length == 0 ) {
-                tenweb_openZEChat( chat_department );
-            }
+            tenweb_openZEChat();
         }
-        zE('webWidget', 'setLocale', 'en');
+       
         return false;
     });
+	
+	
+	function tenweb_openZEChat() {
+	  if ( jQuery( '#ze-snippet' ).length === 0 ) {
+		  tenweb_init_ZE();
+	  }
+	  else {
+		if ( typeof zE != 'undefined' ) {
+		  zE('webWidget', 'show');
+		  zE('webWidget', 'open');
+		}
+	  }
+	}
+
+	function openZEChatCallback() {
+		$("#advanced_chat-bubble").removeClass( 'hidden' );
+		zE('webWidget:on', 'chat:unreadMessages', function(number) {
+			if (number > 0) {
+				zE('webWidget', 'show');
+				zE('webWidget', 'open');
+			}
+		});
+		zE('webWidget:on', 'open', function() {
+			$('#advanced_chat').hide();
+		});
+		zE('webWidget:on', 'close', function() {
+			zE('webWidget', 'hide');
+			$('#advanced_chat').show();
+		});
+		zE('webWidget:on', 'chat:connected', function() {
+			zE('webWidget', 'show');
+			zE('webWidget', 'open');
+		});
+		zE('webWidget', 'setLocale', 'en');
+	}
+	
+	function tenweb_init_ZE() {
+	  if ( jQuery( '#ze-snippet' ).length === 0) {
+		tenweb_loadScript( 'https://static.zdassets.com/ekr/snippet.js?key=1b7006ee-2237-41f9-a143-958f11bc68b5', 'ze-snippet', function () {
+		  window.zESettings = {
+			webWidget: {
+			  chat: {
+				suppress: false,
+				tags: ['generic_support']
+			  }
+			}
+		  };
+		  openZEChatCallback();
+		} );
+	  }
+	}
+	
+	function tenweb_loadScript( src, id, callback ) {
+		if ( $( '#' + id ).length == 0 ) {
+			var script = document.createElement( 'script' );
+			script.setAttribute( 'src', src );
+			script.setAttribute( 'id', id );
+			script.addEventListener( 'load', callback );
+			document.head.appendChild( script );
+		}
+	}
 
 
-    ask_question.on('click', function (a) {
-        if( typeof zE != 'undefined' && zE('webWidget:get', 'chat:isChatting') ) {
-            zE('webWidget', 'show');
-            zE('webWidget', 'open');
-        }
-        else {
-            $(".chats-chat-name").toggleClass('chats-chat-name-opened');
-            $(".chats").toggleClass('chats-opened');
-            tenweb_openZEChat( chat_department );
-            // Check to preload chat only on first click.
-            if ( $( '#ze-snippet' ).length == 0 ) {
-                tenweb_openZEChat( chat_department );
-            }
-        }
-        zE('webWidget', 'setLocale', 'en');
-        return false;
-    });
 
     /*Video*/
     $(".play_button").click(function (e) {
@@ -290,11 +321,6 @@ $(document).ready(function() {
         e.preventDefault();
         showPopup(e, 'popup');
     });
-
-    /* for trial button
-    if(typeof getCookie('db-user-id') === "undefined") {
-         $('.sign-up').removeClass("hidden");
-     }*/
 
     if ($('.user_info_section #user').length) {
         $('body').addClass("logged-in");
@@ -409,13 +435,6 @@ $(document).ready(function() {
         }
     });
 
-    function getCookie(name) {
-        var matches = document.cookie.match(new RegExp(
-            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-        ))
-        return matches ? decodeURIComponent(matches[1]) : undefined
-    }
-
     function search() {
         window.location.search = $.param({
             query: $("#quick-search").val(),
@@ -446,10 +465,6 @@ $(document).ready(function() {
             $(".header .icon-menu").attr("aria-expanded", false);
         }
     });
-
-    /* if ($("#user-nav").children().length === 0) {
-         $(".header .icon-menu").hide();
-     }*/
 
     // Submit organization form in the request page
     $("#request-organization select").on("change", function() {
@@ -576,249 +591,6 @@ function article_titles(){
         ul += "</ul>";
         $(".sticky-sidebar").html(ul);
     }
-}
-
-function tenweb_openZEChat( chatDepartment ) {
-    if ( $( '#ze-snippet' ).length == 0 ) {
-        var user_id = getCookie("db-user-id");
-        if ( user_id ) {
-
-            if ( $( '#dashboardFrame' ).length == 0 ) {
-                let dashboardFrame = $( '<iframe id="dashboardFrame" style="display: none;" src= "' + myDomain + '/chat-page"></iframe>' ).appendTo( 'body' );
-                window.addEventListener( "message", ( event ) => {
-                  
-                    if ( event.origin !== myDomain && event.origin !== myDomain )
-                        return;
-
-                    if (typeof event.data == 'string') {
-                        const validJsonString = /^[\],:{}\s]*$/.test(event.data.replace(/\\["\\\/bfnrtu]/g, '@').
-                        replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']').
-                        replace(/(?:^|:|,)(?:\s*\[)+/g, ''));
-                        if ($('#ze-snippet').length == 0 && event.data && !validJsonString && event.data.startsWith('JWT_') && event.data != 'JWT_NULL' ) {
-                            tenweb_jwt = event.data.substring(4);
-                            tenweb_init_ZE(chatDepartment);
-                        }
-                    }
-                } );
-                /* Open the chat after a period of time in case if no token received. */
-            }
-        }
-        else {
-            tenweb_init_ZE( chatDepartment );
-        }
-    }
-    else {
-        //Additional check to avoid error if open chat is clicked too fast.
-        //No need for else as chat will open itself after load.
-        if ( typeof zE != 'undefined' ) {
-            zE('webWidget', 'show');
-            zE('webWidget', 'open');
-        }
-    }
-}
-function setDepartment( chat_department ) {
-    if( 'Sales' == chat_department ) {
-        var chat_department = 'Sales';
-        var chat_department_tag = 'department_sales';
-        var chat_suppress = false;
-
-        zE('webWidget', 'updateSettings', {
-            webWidget: {
-                chat: {
-                    concierge: {
-                        avatarPath: myDomain + '/assets/images/araks2x.png',
-                        name: 'Araks',
-                        title: { '*': 'Support Team' }
-                    }
-                }
-            }
-        });
-        zE('webWidget:on', 'userEvent', function(event) {
-            if( event.action == 'Web Widget Opened' ) {
-                webWidgetIframe = document.getElementById('webWidget');
-                wibWigetDocument = webWidgetIframe.contentWindow.document;
-                H2elmnt = wibWigetDocument.getElementsByTagName("h2")[0];
-                if( typeof H2elmnt !=='undefined' ) {
-                    if ( wibWigetDocument.getElementById("book_a_demo") ) {
-                        wibWigetDocument.getElementById("book_a_demo").remove();
-                    }
-                    aHrefNode = document.createElement("a");
-                    textnode = document.createTextNode("Book Your Demo Now");
-                    aHrefNode.appendChild(textnode);
-                    aHrefNode.href = "https://calendly.com/araks/10web-demo-call";
-                    aHrefNode.target = "_blank";
-                    aHrefNode.id = "book_a_demo";
-                    H2elmnt.parentElement.appendChild(aHrefNode);
-                }
-            }
-        });
-    }
-    else {
-        var chat_department = 'Support';
-        var chat_department_tag = 'department_support';
-        var chat_department_object = zE('webWidget:get', 'chat:department', chat_department);
-        var chat_suppress = ( chat_department_object.status=='offline' );
-    }
-    var bot_suppress = ( ( chat_department == 'Sales' && chat_suppress == false ) || bot_disabled == true );
-    zE('webWidget', 'updateSettings', {
-        webWidget: {
-            chat: {
-                suppress: chat_suppress,
-                tags: [chat_department_tag],
-                departments: {
-                    select: chat_department
-                }
-            },
-            answerBot: {
-                suppress: bot_suppress
-            },
-            helpCenter: {
-                suppress: bot_suppress
-            },
-            contactOptions: {
-                enabled: !(bot_suppress)
-            },
-            contactForm: {
-                tags: [chat_department_tag]
-            }
-        }
-    });
-}
-function getCookie( cname ) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-function openZEChatCallback( chatDepartment ) {
-    $("#advanced_chat-bubble").removeClass( 'hidden' );
-    zE('webWidget:on', 'chat:unreadMessages', function(number) {
-        if (number > 0) {
-            $('#advanced_chat-bubble_notification').addClass('bubble_notification');
-            $('#chats-chat-live').addClass('bubble_notification-live');
-            zE('webWidget', 'show');
-            zE('webWidget', 'open');
-        }
-    });
-    zE('webWidget:on', 'open', function() {
-        $('#advanced_chat').hide();
-    });
-    zE('webWidget:on', 'close', function() {
-        zE('webWidget', 'hide');
-        $('#advanced_chat').show();
-    });
-    zE('webWidget:on', 'chat:connected', function() {
-        if( 'hidden' == chat_mode ) {
-            zE( 'webWidget', 'hide' );
-        }
-        else {
-            zE('webWidget', 'show');
-            zE('webWidget', 'open');
-        }
-    });
-
-    if( typeof zE('webWidget:get', 'display') !== 'undefined' ) {
-        setDepartment( chatDepartment, bot_disabled );
-        setTimeout(function(){ zE('webWidget', 'updatePath'); }, 3000);
-    }
-    else {
-        zE('webWidget:on', 'chat:connected', function() {
-            setDepartment( chatDepartment, bot_disabled );
-        });
-    }
-    zE('webWidget:on', 'chat:start', function() {
-        setDepartment( chatDepartment, bot_disabled );
-    });
-}
-function tenweb_loadScript( src, id, callback ) {
-    if ( $( '#' + id ).length == 0 ) {
-        var script = document.createElement( 'script' );
-        script.setAttribute( 'src', src );
-        script.setAttribute( 'id', id );
-        script.addEventListener( 'load', callback );
-        document.head.appendChild( script );
-    }
-}
-function tenweb_init_ZE( chatDepartment ) {
-    const isTesting = getCookie('db-testing');
-    if ( $( '#ze-snippet' ).length == 0) {
-        tenweb_loadScript( 'https://static.zdassets.com/ekr/snippet.js?key=1b7006ee-2237-41f9-a143-958f11bc68b5', 'ze-snippet', function () {
-            window.zESettings = {
-                webWidget: {
-                    launcher: {
-                        label: {
-                            '*': 'Ask a Question',
-                        },
-                        chatLabel: {
-                            '*': 'Ask a Question'
-                        }
-                    },
-                    answerBot: {
-                        suppress: false,
-                        title: {
-                            '*': 'Chat with us!'
-                        },
-                        contactOnlyAfterQuery: true,
-                    },
-                    helpCenter: {
-                        suppress: false,
-                    },
-                    chat: {
-                        suppress: true,
-                        title: {
-                            '*': 'Chat with us!'
-                        },
-                        departments: {
-                            select: 'Support'
-                        }
-                    },
-                    contactOptions: {
-                        enabled: true,
-                        chatLabelOnline: { '*': 'Chat with an agent' },
-                        contactFormLabel: { '*': 'Create a ticket' }
-                    }
-                }
-            };
-            if ( 'NULL' != tenweb_jwt && !isTesting) {
-                window.zESettings.webWidget.authenticate = {
-                    chat: {
-                        jwtFn: ( callback ) => {
-                            callback( tenweb_jwt );
-                        }
-                    }
-                }
-            }
-            openZEChatCallback( chatDepartment );
-        } );
-    }
-}
-function tenweb_get_chat_department( no_plugins ) {
-    var d = new Date();
-    var UTCHours = d.getUTCHours();
-    var get_bundle_value = 0;
-    if( localStorage.getItem('get_bundle') != null ) {
-        var local_get_bundle = JSON.parse(localStorage.getItem('get_bundle'));
-        get_bundle_value = local_get_bundle.value;
-    }
-    var chat_department = 'Support';
-    if ( no_plugins ) {
-        if ('Sales' != chat_department ) {
-            chat_department = 'Support';
-        }
-    }
-    else {
-        chat_department = 'Support';
-    }
-    return chat_department;
 }
 
 $(window).on("resize", function () {

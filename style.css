@@ -7371,6 +7371,7 @@ a.article-unsubscribe {
     width: 720px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .tip-main-container .tip-container {
     padding: 20px;

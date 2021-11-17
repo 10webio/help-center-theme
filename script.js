@@ -115,7 +115,7 @@ const helpAPI = {
         });
         return results;
     },
-  
+
     getArticleById : function(articleId) {
         let results = {};
         $.ajax({
@@ -132,23 +132,38 @@ const helpAPI = {
 
 
 $(document).ready(function() {
-  let pageInfo = getPageInfo(window.location.href);
-  
-  /*
-  * Video Tutorial Page(article)
-  */
-   let currentId = pageInfo.id; console.log(currentId,currentId === '4408397419538')
-   if ( currentId === '4408397419538') {
-     $('.hero-inner .header_title').text('Video Tutorials').show();
-     $('.hero-inner .header_desc').text('Visual guides to help you every step of the way.').show();
-     $('.breadcrumbs li[title="Video Tutorials"]').css('pointer-events','none');
-   }
-   else {
-     $('.hero-inner .header_title,.hero-inner .header_desc').show();
-   }
+    let pageInfo = getPageInfo(window.location.href);
+
+    /*
+    * Video Tutorial Page(article)
+    */
+    let currentId = pageInfo.id; console.log(currentId,currentId === '4408397419538')
+    if ( currentId === '4408397419538') {
+        $('.hero-inner .header_title').text('Video Tutorials').show();
+        $('.hero-inner .header_desc').text('Visual guides to help you every step of the way.').show();
+        $('.breadcrumbs li[title="Video Tutorials"]').css('pointer-events','none');
+    }
+    else {
+        $('.hero-inner .header_title,.hero-inner .header_desc').show();
+    }
 
 
     article_titles();
+
+    /*Glossary article*/
+    let html = '';
+    let letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    for (let i =  0; i < letters.length; i++) {
+        html += '<li><a href="#' + letters[i] + '">' + letters[i] + '</a><span>|</span></li>';
+    }
+    jQuery('.glossary-letters').html(html);
+
+    jQuery('.glossary-letters a').on("click",function (a) {
+        let el = jQuery(jQuery(this).attr('href'));
+        if( el.length ) {
+            jQuery('html, body').animate({scrollTop: (jQuery(el).offset().top - 125)}, 500);
+        }
+    });
 
     /*Remove same title from breadcrumbs*/
     if (pageInfo.type && (pageInfo.type === "articles" || pageInfo.type.includes("search?"))) {
@@ -216,70 +231,70 @@ $(document).ready(function() {
             $(".chats-chat-name").toggleClass('chats-chat-name-opened');
             tenweb_openZEChat();
         }
-       
+
         return false;
     });
-	
-	
-	function tenweb_openZEChat() {
-	  if ( jQuery( '#ze-snippet' ).length === 0 ) {
-		  tenweb_init_ZE();
-	  }
-	  else {
-		if ( typeof zE != 'undefined' ) {
-		  zE('webWidget', 'show');
-		  zE('webWidget', 'open');
-		}
-	  }
-	}
 
-	function openZEChatCallback() {
-		$("#advanced_chat-bubble").removeClass( 'hidden' );
-		zE('webWidget:on', 'chat:unreadMessages', function(number) {
-			if (number > 0) {
-				zE('webWidget', 'show');
-				zE('webWidget', 'open');
-			}
-		});
-		zE('webWidget:on', 'open', function() {
-			$('#advanced_chat').hide();
-		});
-		zE('webWidget:on', 'close', function() {
-			zE('webWidget', 'hide');
-			$('#advanced_chat').show();
-		});
-		zE('webWidget:on', 'chat:connected', function() {
-			zE('webWidget', 'show');
-			zE('webWidget', 'open');
-		});
-		zE('webWidget', 'setLocale', 'en');
-	}
-	
-	function tenweb_init_ZE() {
-	  if ( jQuery( '#ze-snippet' ).length === 0) {
-		tenweb_loadScript( 'https://static.zdassets.com/ekr/snippet.js?key=1b7006ee-2237-41f9-a143-958f11bc68b5', 'ze-snippet', function () {
-		  window.zESettings = {
-			webWidget: {
-			  chat: {
-				suppress: false,
-				tags: ['generic_support']
-			  }
-			}
-		  };
-		  openZEChatCallback();
-		} );
-	  }
-	}
-	
-	function tenweb_loadScript( src, id, callback ) {
-		if ( $( '#' + id ).length == 0 ) {
-			var script = document.createElement( 'script' );
-			script.setAttribute( 'src', src );
-			script.setAttribute( 'id', id );
-			script.addEventListener( 'load', callback );
-			document.head.appendChild( script );
-		}
-	}
+
+    function tenweb_openZEChat() {
+        if ( jQuery( '#ze-snippet' ).length === 0 ) {
+            tenweb_init_ZE();
+        }
+        else {
+            if ( typeof zE != 'undefined' ) {
+                zE('webWidget', 'show');
+                zE('webWidget', 'open');
+            }
+        }
+    }
+
+    function openZEChatCallback() {
+        $("#advanced_chat-bubble").removeClass( 'hidden' );
+        zE('webWidget:on', 'chat:unreadMessages', function(number) {
+            if (number > 0) {
+                zE('webWidget', 'show');
+                zE('webWidget', 'open');
+            }
+        });
+        zE('webWidget:on', 'open', function() {
+            $('#advanced_chat').hide();
+        });
+        zE('webWidget:on', 'close', function() {
+            zE('webWidget', 'hide');
+            $('#advanced_chat').show();
+        });
+        zE('webWidget:on', 'chat:connected', function() {
+            zE('webWidget', 'show');
+            zE('webWidget', 'open');
+        });
+        zE('webWidget', 'setLocale', 'en');
+    }
+
+    function tenweb_init_ZE() {
+        if ( jQuery( '#ze-snippet' ).length === 0) {
+            tenweb_loadScript( 'https://static.zdassets.com/ekr/snippet.js?key=1b7006ee-2237-41f9-a143-958f11bc68b5', 'ze-snippet', function () {
+                window.zESettings = {
+                    webWidget: {
+                        chat: {
+                            suppress: false,
+                            tags: ['generic_support']
+                        }
+                    }
+                };
+                openZEChatCallback();
+            } );
+        }
+    }
+
+    function tenweb_loadScript( src, id, callback ) {
+        if ( $( '#' + id ).length == 0 ) {
+            var script = document.createElement( 'script' );
+            script.setAttribute( 'src', src );
+            script.setAttribute( 'id', id );
+            script.addEventListener( 'load', callback );
+            document.head.appendChild( script );
+        }
+    }
 
 
 
@@ -700,19 +715,19 @@ const categoryPage = {
     },
 
     setCategoryPageSections : function(type, list, section) {
-      /*Set all articles in sections*/
-      
-      let html = "";
-      if ( list.length) {
-        let ulClass = type == "categories" ? " category-list" : "";
-        html += "<ul class='article-list " + ulClass + "'>";
-          for (let i = 0; i < list.length; i++) {
-			        let link = type == "categories" ? helpCenterLink + "categories/" + list[i].id : list[i].html_url;
-              html += "<li><a href='" + link + "'>" + list[i].name + "</a></li>";
-          }
-        html += "</ul>";
-      }
-      $(section).find('.article-list').replaceWith(html);
+        /*Set all articles in sections*/
+
+        let html = "";
+        if ( list.length) {
+            let ulClass = type == "categories" ? " category-list" : "";
+            html += "<ul class='article-list " + ulClass + "'>";
+            for (let i = 0; i < list.length; i++) {
+                let link = type == "categories" ? helpCenterLink + "categories/" + list[i].id : list[i].html_url;
+                html += "<li><a href='" + link + "'>" + list[i].name + "</a></li>";
+            }
+            html += "</ul>";
+        }
+        $(section).find('.article-list').replaceWith(html);
     },
 
 
@@ -724,7 +739,7 @@ const categoryPage = {
         $(".section-tree").prepend(html);
     },
 
-   getCategorySections : function(id) {
+    getCategorySections : function(id) {
         this.setSection(id);
         let _this = this,
             statiSection = _this.section;
@@ -763,10 +778,10 @@ const categoryPage = {
                     }
                 }
                 else {
-				  let articles = helpAPI.getArticlesBySectionId(sectionId);
-                  if ( articles && articles.articles.length ) {
-                    _this.setCategoryPageSections("articles", articles.articles, _section)
-                  }
+                    let articles = helpAPI.getArticlesBySectionId(sectionId);
+                    if ( articles && articles.articles.length ) {
+                        _this.setCategoryPageSections("articles", articles.articles, _section)
+                    }
                 }
             });
         }
@@ -777,10 +792,10 @@ const categoryPage = {
             }
             $(".categories-page .section-tree .section[data-id]").each(function(index, _section){
                 let sectionId = $(this).data("id");
-				let articles = helpAPI.getArticlesBySectionId(sectionId);
-				if ( articles && articles.articles.length ) {
-					_this.setCategoryPageSections("articles", articles.articles, _section)
-				}
+                let articles = helpAPI.getArticlesBySectionId(sectionId);
+                if ( articles && articles.articles.length ) {
+                    _this.setCategoryPageSections("articles", articles.articles, _section)
+                }
             });
         }
     }

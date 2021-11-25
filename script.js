@@ -132,6 +132,34 @@ const helpAPI = {
 
 
 $(document).ready(function() {
+    /*black friday*/
+    if ( !sessionStorage.getItem('closeTopBar') ) {
+        jQuery('body').addClass('with-topbar');
+        jQuery('.top-bar-container').removeClass('hidden');
+    }
+
+    /*Remove topbar*/
+    jQuery(".top-bar-container__close").on('click', function () {
+        jQuery('body,html').removeClass('with-topbar');
+        jQuery('.top-bar-container').remove();
+        sessionStorage.setItem('closeTopBar', '1');
+    });
+
+    jQuery('.copy_container').on('click', function () {
+        if (!jQuery(this).hasClass('copied')) {
+            const el = this;
+            setTimeout(function() {
+                jQuery('.copy_container').removeClass('copied');
+                jQuery('.copy_container span').html('Copy');
+            }, 700);
+            copyToClipboard(jQuery('#coupon_code'));
+            jQuery(this).addClass('copied');
+            jQuery('.copy_container span').html('Copied');
+        }
+    });
+    /*black friday end*/
+
+
     let pageInfo = getPageInfo(window.location.href);
 
     /*
@@ -893,4 +921,9 @@ function removeHashFromUrl()
         let clean_uri = uri.substring(0, uri.indexOf("#"));
         window.history.replaceState({}, document.title, clean_uri);
     }
+}
+
+function copyToClipboard(element) {
+    element.select();
+    navigator.clipboard.writeText(element.val());
 }

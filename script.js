@@ -130,6 +130,11 @@ const helpAPI = {
     }
 };
 
+Object.keys(redirection_list).map( function(key) {
+    if ( redirection_list[key].includes(window.location.href) ) {
+        window.location.replace( key );
+    }
+});
 
 $(document).ready(function() {
 

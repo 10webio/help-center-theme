@@ -132,18 +132,7 @@ const helpAPI = {
 
 
 $(document).ready(function() {
-    /*black friday*/
-    if ( !sessionStorage.getItem('closeTopBar') ) {
-        jQuery('body').addClass('with-topbar');
-        jQuery('.top-bar-container').removeClass('hidden');
-    }
 
-    /*Remove topbar*/
-    jQuery(".top-bar-container__close").on('click', function () {
-        jQuery('body,html').removeClass('with-topbar');
-        jQuery('.top-bar-container').remove();
-        sessionStorage.setItem('closeTopBar', '1');
-    });
 
     jQuery('.copy_container').on('click', function () {
         if (!jQuery(this).hasClass('copied')) {

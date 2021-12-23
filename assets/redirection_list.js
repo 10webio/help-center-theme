@@ -5,4 +5,6 @@ redirection_list = {
   'https://help.10web.io/hc/en-us/articles/360021395000-How-to-automatically-migrate-your-website-to-10Web':['https://help.10web.io/hc/en-us/articles/360027492952-How-Can-I-Move-to-the-10Web-Platform-and-Avoid-Downtime-', 'https://help.10web.io/hc/en-us/articles/360027493232-How-Can-I-Move-My-Site-s-Content-to-10Web-', 'https://help.10web.io/hc/en-us/articles/360027493132-Can-I-Host-Multiple-Domains-Sites-Under-One-Account-'],
   'https://help.10web.io/hc/en-us/articles/360027855951-How-to-point-your-domain-to-10Web':['https://help.10web.io/hc/en-us/articles/360027856051-How-to-Change-Namecheap-Nameservers', 'https://help.10web.io/hc/en-us/articles/360027578432-How-to-Change-GoDaddy-Nameservers' ],
   'https://help.10web.io/hc/en-us/articles/360027773591-Managing-your-invoices':['https://help.10web.io/hc/en-us/articles/360027492852-How-can-I-download-a-payment-invoice-'],
+  'https://help.10web.io/hc/en-us/articles/4413380403090':['https://help.10web.io/hc/en-us/articles/360020858339-10Web-Account-Information-and-Settings'],
+  'https://help.10web.io/hc/en-us/articles/4413393256210':['https://help.10web.io/hc/en-us/articles/360018854440-How-the-AI-Builder-Works'],
 };

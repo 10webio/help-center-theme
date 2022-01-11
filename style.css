@@ -4960,6 +4960,10 @@ a.article-unsubscribe {
     top: -28px;
     cursor: pointer;
     background: url($assets-close-svg);
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: center;
+
 }
 #embed_container>div {
     padding: 24px;

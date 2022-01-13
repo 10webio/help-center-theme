@@ -61,6 +61,7 @@ body {
 }
 .footer-top {
     display: flex;
+    justify-content: space-between;
 }
 .content-left {
     width: 173px;
@@ -83,6 +84,7 @@ body {
 }
 .content-right {
     float: left;
+    width: 800px;
 }
 .footer-menu .footer_widget_nav_menu {
     vertical-align: top;
@@ -105,6 +107,7 @@ body {
 }
 .footer-menu-container {
     margin-bottom: 35px;
+    width: 1180px;
 }
 .footer-right-menu-container .menu-items a {
     font-size: 16px;
@@ -4963,6 +4966,7 @@ a.article-unsubscribe {
     background-repeat: no-repeat;
     background-size: 18px;
     background-position: center;
+
 }
 #embed_container>div {
     padding: 24px;
@@ -6092,6 +6096,7 @@ a.article-unsubscribe {
     }
     .footer-menu-container {
         margin: 0;
+        width: auto;
     }
     .footer-menu-container .footer-top {
         border-bottom: 0;
@@ -6806,6 +6811,7 @@ a.article-unsubscribe {
     }
     .footer-menu-container {
         margin: 0;
+        width: auto;
     }
     .footer-menu-container .footer-top {
         border-bottom: 0;

@@ -65,7 +65,7 @@ body {
 }
 .content-left {
     width: 173px;
-    margin-right: 195px;
+    margin-right: 140px;
     font-size: 16px;
     line-height: 26px;
     letter-spacing: .13px;
@@ -84,7 +84,6 @@ body {
 }
 .content-right {
     float: left;
-    width: 800px;
 }
 .footer-menu .footer_widget_nav_menu {
     vertical-align: top;

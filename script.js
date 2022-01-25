@@ -137,7 +137,17 @@ Object.keys(redirection_list).map( function(key) {
 });
 
 $(document).ready(function() {
-
+    /**
+     * Add tracking to hire an expert link
+     */
+    jQuery(".hire_an_expert").on("click",function () {
+        dataLayer.push({
+            event: '10web-event',
+            'eventCategory': 'Experts',
+            'eventAction': "Hire an Expert - Help Center footer",
+            'eventLabel' : window.location.href
+        });
+    });
     jQuery('.copy_container').on('click', function () {
         if (!jQuery(this).hasClass('copied')) {
             const el = this;

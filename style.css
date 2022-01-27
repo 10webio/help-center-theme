@@ -84,14 +84,15 @@ body {
 }
 .content-right {
     float: left;
+    width: calc(100% - 280px);
 }
 .content-right .footer-menu{
     display: flex;
+    justify-content: space-between;
 }
 .footer-menu .footer_widget_nav_menu {
     vertical-align: top;
     display: inline-block;
-    margin-right: 71px;
 }
 .footer-menu .footer_widget_nav_menu.last_column{
     margin-right: 0;

@@ -84,7 +84,7 @@ body {
 }
 .content-right {
     float: left;
-    width: calc(100% - 280px);
+    width: calc(100% - 273px);
 }
 .content-right .footer-menu{
     display: flex;
@@ -7916,10 +7916,10 @@ ul.glossary-letters li:last-child span{
 }
 @media screen and (max-width: 1500px) and (min-width: 1261px) {
     .footer-menu .footer_widget_nav_menu {
-        margin-right: 50px;
+        margin-right: 39px;
     }
     .footer-top .content-left {
-        margin-right: 125px;
+        margin-right: 100px;
     }
     .footer-bottom {
         width: 1180px;

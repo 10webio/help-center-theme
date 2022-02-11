@@ -77,4 +77,7 @@
   if ( $(".search-results-list li").length) {
      $('.result-not-found').css('display','none');
   }
+  if ($('li[title="Archive Category"]').length){
+    $('li[title="Archive Category"]').closest('li.search-result').hide();
+  }
 </script>

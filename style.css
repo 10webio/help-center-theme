@@ -128,7 +128,7 @@ li.article-promoted [data-title="Promoted article"] {
 }
 .footer-bottom {
     border-top: 1px solid rgba(50, 58, 69, 0.05);
-    padding: 5px 0 51px;
+    padding: 6px 0 60px;
     max-width: 1400px;
     width: 100%;
     margin: 0 auto;
@@ -1450,7 +1450,7 @@ div#user [role="button"] {
 .footer {
     border-top: 1px solid rgba(50, 58, 69, 0.05);
     margin-top: 150px;
-    padding: 50px 0;
+    padding: 50px 0 0;
 }
 
 .footer a {
@@ -6916,7 +6916,7 @@ a.article-unsubscribe {
         float: none;
         display: block;
         width: auto;
-        margin-bottom: 33px;
+        margin-bottom: 20px;
         font-size: 14px;
     }
     .section.hero .hero-container .hero-inner {

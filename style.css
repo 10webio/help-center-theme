@@ -37,10 +37,9 @@ span[class^="tw-icons-"] {
 }
 .content-icon {
     width: 223px;
-    font-size: 16px;
+    font-size: 20px;
 }
 .content-icon span[class^="tw-icons-"]{
-    font-size: 17px;
     margin-right: 5px;
 }
 /***** Base *****/

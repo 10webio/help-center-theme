@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Literata&display=swap');
 
-in-top-of-article
+
 @font-face {
     font-family: 'tw-icons';
     src:  url($assets-tw-icons-eot);
@@ -15,7 +15,7 @@ in-top-of-article
     font-display: block;
 }
 
-i[class^="tw-icons-"] {
+span[class^="tw-icons-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'tw-icons' !important;
     speak: never;
@@ -28,6 +28,20 @@ i[class^="tw-icons-"] {
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+.content-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+.content-icon {
+    width: 223px;
+    font-size: 16px;
+}
+.content-icon span[class^="tw-icons-"]{
+    font-size: 17px;
+    margin-right: 5px;
 }
 /***** Base *****/
 * {

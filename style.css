@@ -28,6 +28,11 @@ span[class^="tw-icons-"] {
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    font-size: 22px;
+    position: relative;
+    top: 3px;
+    left: 6px;
 }
 .content-icons {
     display: flex;

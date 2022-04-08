@@ -11,12 +11,15 @@ redirection_list = {
   'https://help.10web.io/hc/en-us/articles/4413645644306-Affiliate-program':['https://help.10web.io/hc/en-us/articles/360031213571-Do-You-Have-an-Affiliate-Program-'],
   'https://help.10web.io/hc/en-us/categories/4403729836562':['https://help.10web.io/hc/en-us/articles/360012511819', 'https://help.10web.io/hc/en-us/articles/360012427640'],
   'https://10web.io/referral-terms-and-conditions/':['https://help.10web.io/hc/en-us/articles/360030648952', 'https://help.10web.io/hc/en-us/articles/360030994071', 'https://help.10web.io/hc/en-us/articles/360030994051', 'https://help.10web.io/hc/en-us/articles/360030649052', 'https://help.10web.io/hc/en-us/articles/360030649032', 'https://help.10web.io/hc/en-us/articles/360030648972'],
-  'https://help.10web.io/hc/en-us/categories/4403729393554':['https://help.10web.io/hc/en-us/articles/360017053860', 'https://help.10web.io/hc/en-us/articles/360031213571-Do-You-Have-an-Affiliate-Program-'],
+  'https://help.10web.io/hc/en-us/categories/4403729393554':['https://help.10web.io/hc/en-us/articles/360017053860'],
   'https://help.10web.io/hc/en-us/categories/4403735812882':['https://help.10web.io/hc/en-us/articles/360016177212'],
   'https://help.10web.io/hc/en-us/categories/4403735323410':['https://help.10web.io/hc/en-us/articles/360027773471', 'https://help.10web.io/hc/en-us/articles/360029795372'],
   'https://help.10web.io/hc/en-us/articles/360010489200-How-to-Set-up-G-Suite-for-Your-Business':['https://help.10web.io/hc/en-us/articles/360031239511'],
   'https://help.10web.io/hc/en-us/articles/360016176552-Setting-Up-10Web-SEO-Service':['https://help.10web.io/hc/en-us/articles/360028059792'],
   'https://10web.io/pricing/':['https://help.10web.io/hc/en-us/articles/360027773691'],
   'https://help.10web.io/hc/en-us/categories/4403729943442':['https://help.10web.io/hc/en-us/articles/360019611479', 'https://help.10web.io/hc/en-us/articles/360016749879'],
-  'https://help.10web.io/hc/en-us/articles/4413926722450-Billing-details':['https://help.10web.io/hc/en-us/articles/360016392011']
+  'https://help.10web.io/hc/en-us/articles/4413926722450-Billing-details':['https://help.10web.io/hc/en-us/articles/360016392011'],
+  'https://help.10web.io/hc/en-us/articles/4439083201938-How-to-point-a-subdomain-to-10Web-':['https://help.10web.io/hc/en-us/articles/360011849000-How-to-Point-a-Subdomain-to-My-Website-on-10Web'],
+  'https://help.10web.io/hc/en-us/articles/360011966960-How-to-customize-the-advanced-settings-of-the-Image-Optimizer-':['https://help.10web.io/hc/en-us/articles/360012085639-How-to-Optimize-Images-in-Other-Directories-', 'https://help.10web.io/hc/en-us/articles/360012085839-How-to-Optimize-Images-Without-Reducing-Image-Quality'],
+  'https://help.10web.io/hc/en-us/articles/360027773851-10Web-s-Refund-Policy-and-Money-Back-Guarantee':['https://help.10web.io/hc/en-us/articles/360027492732-10Web-Refund-Policy'],
 };

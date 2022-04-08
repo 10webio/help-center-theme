@@ -32,7 +32,7 @@ span[class^="tw-icons-"] {
     font-size: 22px;
     position: relative;
     top: 3px;
-    left: 6px;
+    margin: 0 6px;
 }
 .content-icons {
     display: flex;

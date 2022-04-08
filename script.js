@@ -750,10 +750,10 @@ const categoryPage = {
 
         let html = "";
         if ( list.length) {
-            let ulClass = type == "categories" ? " category-list" : "";
+            let ulClass = type === "categories" ? " category-list" : "";
             html += "<ul class='article-list " + ulClass + "'>";
             for (let i = 0; i < list.length; i++) {
-                let link = type == "categories" ? helpCenterLink + "categories/" + list[i].id : list[i].html_url;
+                let link = type === "categories" ? helpCenterLink + "categories/" + list[i].id : list[i].html_url;
                 html += "<li><a href='" + link + "'>" + list[i].name + "</a></li>";
             }
             html += "</ul>";

@@ -753,8 +753,19 @@ const categoryPage = {
             let ulClass = type === "categories" ? " category-list" : "";
             html += "<ul class='article-list " + ulClass + "'>";
             for (let i = 0; i < list.length; i++) {
-                let link = type === "categories" ? helpCenterLink + "categories/" + list[i].id : list[i].html_url;
-                html += "<li><a href='" + link + "'>" + list[i].name + "</a></li>";
+                if (type === "categories") {
+                    html += "<li><a href='" + helpCenterLink + "categories/" + list[i].id + "'>" + list[i].name + "</a></li>";
+                } else {
+                    let existsInRedirectionList = false;
+                    for (const property in redirection_list) {
+                        if (redirection_list[property].includes(list[i].html_url)) {
+                            existsInRedirectionList = true;
+                            break;
+                        }
+                    }
+                    html += "<li><a href='" + list[i].html_url + "'>" + list[i].name + "</a></li>";
+                }
+
             }
             html += "</ul>";
         }

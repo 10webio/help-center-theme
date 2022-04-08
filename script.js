@@ -763,7 +763,9 @@ const categoryPage = {
                             break;
                         }
                     }
-                    html += "<li><a href='" + list[i].html_url + "'>" + list[i].name + "</a></li>";
+                    if (!existsInRedirectionList) {
+                        html += "<li><a href='" + list[i].html_url + "'>" + list[i].name + "</a></li>";
+                    }
                 }
 
             }

@@ -130,16 +130,6 @@ const helpAPI = {
     }
 };
 
-
-let oldIds = ["5099839432210"];
-let newIds = ["5099841306770"];
-
-for (let i = 0; i < oldIds.length; i++){
-    if (window.location.href.indexOf(oldIds[i]) > -1) {
-        window.location.href = helpCenterLink + 'articles/' + newIds[i];
-    }
-}
-
 Object.keys(redirection_list).map( function(key) {
     if ( redirection_list[key].includes(window.location.href) ) {
         window.location.replace( key );

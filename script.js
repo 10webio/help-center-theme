@@ -104,15 +104,35 @@ const helpAPI = {
     },
 
     getArticlesBySectionId : function(sectionId) {
-        let results = {};
+        let result = {},
+            results = [],
+            articles = [];
         $.ajax({
             url: `${helpCenterEndpoint}/sections/${sectionId}/articles?per_page=100`,
             type: 'get',
             async: false,
             success: function (data) {
-                results = data;
+                result = data;
             }
         });
+        results = result.articles;
+
+        /**
+         * Add to section another article which used in another section
+         */
+        let section = helpAPI.getSection(sectionId);
+        if (section.section && section.section.description) {
+            articles = JSON.parse(section.section.description);
+            if (articles.length) {
+                for (let i = 0; i < articles.length; i++) {
+                    results.push({
+                        id: articles[i]['id'],
+                        name: articles[i]['name'],
+                        html_url: articles[i]['html_url']
+                    });
+                }
+            }
+        }
         return results;
     },
 
@@ -168,7 +188,7 @@ $(document).ready(function() {
     /*
     * Video Tutorial Page(article)
     */
-    let currentId = pageInfo.id; console.log(currentId,currentId === '4408397419538')
+    let currentId = pageInfo.id;
     if ( currentId === '4408397419538') {
         $('.hero-inner .header_title').text('Video Tutorials').show();
         $('.hero-inner .header_desc').text('Visual guides to help you every step of the way.').show();
@@ -786,15 +806,15 @@ const categoryPage = {
     getCategorySections : function(id) {
         this.setSection(id);
         let _this = this,
-          statiSection = _this.section;
+          staticSection = _this.section;
         $('.section-tree-with-article').removeAttr('data-asynchtml');
         /*Main Categories*/
-        if (statiSection && Object.keys(statiSection).length !== 0) {
+        if (staticSection && Object.keys(staticSection).length !== 0) {
             $('.categories-page').addClass("main-categories");
 
             /*Videos section*/
-            if (statiSection.name === "Getting Started") {
-                let customArticle = statiSection.custom.find(function(el, i) {
+            if (staticSection.name === "Getting Started") {
+                let customArticle = staticSection.custom.find(function(el, i) {
                     if(el.type === 'article')
                         return true;
                 });
@@ -810,7 +830,7 @@ const categoryPage = {
             /*Custom section with categories*/
             $(".categories-page .section-tree .section[data-id]").each(function(index, _section){
                 let sectionId = $(this).data("id");
-                custom = statiSection.custom.find(function(el, i) {
+                custom = staticSection.custom.find(function(el, i) {
                     if(el.id == sectionId)
                         return true;
                 });
@@ -823,8 +843,8 @@ const categoryPage = {
                 }
                 else {
                     let articles = helpAPI.getArticlesBySectionId(sectionId);
-                    if ( articles && articles.articles.length ) {
-                        _this.setCategoryPageSections("articles", articles.articles, _section)
+                    if ( articles && articles.length ) {
+                        _this.setCategoryPageSections("articles", articles, _section)
                     }
                 }
             });
@@ -837,8 +857,8 @@ const categoryPage = {
             $(".categories-page .section-tree .section[data-id]").each(function(index, _section){
                 let sectionId = $(this).data("id");
                 let articles = helpAPI.getArticlesBySectionId(sectionId);
-                if ( articles && articles.articles.length ) {
-                    _this.setCategoryPageSections("articles", articles.articles, _section)
+                if ( articles && articles.length ) {
+                    _this.setCategoryPageSections("articles", articles, _section)
                 }
             });
         }

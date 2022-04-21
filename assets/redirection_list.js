@@ -22,4 +22,6 @@ redirection_list = {
   'https://help.10web.io/hc/en-us/articles/4439083201938-How-to-point-a-subdomain-to-10Web-':['https://help.10web.io/hc/en-us/articles/360011849000-How-to-Point-a-Subdomain-to-My-Website-on-10Web'],
   'https://help.10web.io/hc/en-us/articles/360011966960-How-to-customize-the-advanced-settings-of-the-Image-Optimizer-':['https://help.10web.io/hc/en-us/articles/360012085639-How-to-Optimize-Images-in-Other-Directories-', 'https://help.10web.io/hc/en-us/articles/360012085839-How-to-Optimize-Images-Without-Reducing-Image-Quality'],
   'https://help.10web.io/hc/en-us/articles/360027773851-10Web-s-Refund-Policy-and-Money-Back-Guarantee':['https://help.10web.io/hc/en-us/articles/360027492732-10Web-Refund-Policy'],
+  'https://help.10web.io/hc/en-us/articles/4415801525778-Personal-data-safety':['https://help.10web.io/hc/en-us/articles/360030127871-How-10Web-keeps-your-data-safe-'],
+  'https://help.10web.io/hc/en-us/articles/4407695630610-Multisite-support':['https://help.10web.io/hc/en-us/articles/360030647011'],
 };

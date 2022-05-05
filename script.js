@@ -1,4 +1,4 @@
-/*
+/**
  * jQuery v1.9.1 included
  */
 const helpCenterEndpoint = "https://help.10web.io/api/v2/help_center/";
@@ -180,14 +180,13 @@ $(document).ready(function() {
             jQuery('.copy_container span').html('Copied');
         }
     });
-    /*black friday end*/
 
 
     let pageInfo = getPageInfo(window.location.href);
 
-    /*
-    * Video Tutorial Page(article)
-    */
+    /**
+     * Video Tutorial Page(article)
+     */
     let currentId = pageInfo.id;
     if ( currentId === '4408397419538') {
         $('.hero-inner .header_title').text('Video Tutorials').show();
@@ -201,7 +200,9 @@ $(document).ready(function() {
 
     article_titles();
 
-    /*Glossary article*/
+    /**
+     * Glossary article
+     * */
     let html = '';
     let letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     for (let i =  0; i < letters.length; i++) {
@@ -216,7 +217,9 @@ $(document).ready(function() {
         }
     });
 
-    /*Remove same title from breadcrumbs*/
+    /**
+     * Remove same title from breadcrumbs
+     * */
     if (pageInfo.type && (pageInfo.type === "articles" || pageInfo.type.includes("search?"))) {
         let same = [];
         $('.breadcrumbs li').each(function(i, e){
@@ -226,10 +229,22 @@ $(document).ready(function() {
             } else {
                 same.push( text );
             }
+            /**
+             * Remove section link in the breadcrumbs
+             */
+            if($(this).find('a').length){
+                let link = $(this).find('a').attr('href'),
+                  linkText = $(this).find('a').text();
+                if(link.indexOf('/en-us/sections/') !== -1){
+                    $(this).html(`<span>${linkText}</span>`);
+                }
+            }
         });
     }
 
-    // Add vote up and down message
+    /**
+     * Add vote up and down message
+     */
     $(".article-vote-up").on('click', function() {
         $(this).addClass("active").removeClass("deactive");
         $(".article-vote-down").addClass("deactive").removeClass("active");
@@ -246,9 +261,9 @@ $(document).ready(function() {
         $('.user_info_section .login').text('Sign Up');
     }
 
-    /*
-    * Go To Section
-    */
+    /**
+     * Go To Section
+     */
 
     if ( pageInfo.type === "categories" && pageInfo.sectionId !== 0) {
         goToSection('#' + pageInfo.sectionId);
@@ -267,7 +282,9 @@ $(document).ready(function() {
     });
 
 
-    /*Zendesk chat*/
+    /**
+     * Zendesk chat
+     * */
     setTimeout(function () {
         $("#advanced_chat").fadeIn('slow');
         $(".chats-container, #advanced_chat").removeAttr("style");
@@ -339,7 +356,7 @@ $(document).ready(function() {
 
     function tenweb_loadScript( src, id, callback ) {
         if ( $( '#' + id ).length == 0 ) {
-            var script = document.createElement( 'script' );
+            let script = document.createElement( 'script' );
             script.setAttribute( 'src', src );
             script.setAttribute( 'id', id );
             script.addEventListener( 'load', callback );
@@ -349,7 +366,9 @@ $(document).ready(function() {
 
 
 
-    /*Video*/
+    /**
+     * Video
+     * */
     $(".play_button").click(function (e) {
         e.preventDefault();
         showPopup(e, 'YT');
@@ -382,7 +401,9 @@ $(document).ready(function() {
     });
 
 
-    /*Popup*/
+    /**
+     * Popup
+     * */
     $(".article-body img, .article-body video").click(function (e) {
         e.preventDefault();
         showPopup(e, 'popup');
@@ -430,13 +451,18 @@ $(document).ready(function() {
 
     $(".blocks-item").has("a[href$='/hc/en-us/categories/360001741252-10Web-Platform-information']").hide();
     $(".section-articles ul").has("a[href$='/hc/en-us/articles/360028017772-Public-roadmap']").parent().parent().hide()
-    // social share popups
+
+    /**
+     * Social share popups
+     */
     $(".share a").click(function(e) {
         e.preventDefault();
         window.open(this.href, "", "height = 500, width = 500");
     });
 
-    // show form controls when the textarea receives focus or back button is used and value exists
+    /**
+     * Show form controls when the textarea receives focus or back button is used and value exists
+     */
     const $commentContainerTextarea = $(".comment-container textarea"),
       $commentContainerFormControls = $(".comment-form-controls, .comment-ccs");
 
@@ -447,7 +473,9 @@ $(document).ready(function() {
         $commentContainerFormControls.show();
     }
 
-    // Expand Request comment form when Add to conversation is clicked
+    /**
+     * Expand Request comment form when Add to conversation is clicked
+     */
     const $showRequestCommentContainerTrigger = $(".request-container .comment-container .comment-show-container"),
       $requestCommentFields = $(".request-container .comment-container .comment-fields"),
       $requestCommentSubmit = $(".request-container .comment-container .request-submit-comment");
@@ -459,7 +487,9 @@ $(document).ready(function() {
         $commentContainerTextarea.focus();
     });
 
-    // Mark as solved button
+    /**
+     * Mark as solved button
+     */
     const $requestMarkAsSolvedButton = $(".request-container .mark-as-solved:not([data-disabled])"),
       $requestMarkAsSolvedCheckbox = $(".request-container .comment-container input[type=checkbox]"),
       $requestCommentSubmitButton = $(".request-container .comment-container input[type=submit]");
@@ -470,7 +500,9 @@ $(document).ready(function() {
         $(this).attr("data-disabled", true).closest("form").submit();
     });
 
-    // Change Mark as solved text according to whether comment is filled
+    /**
+     * Change mark as solved text according to whether comment is filled
+     */
     const $requestCommentTextarea = $(".request-container .comment-container textarea");
 
     $requestCommentTextarea.on("keyup", function() {
@@ -483,18 +515,24 @@ $(document).ready(function() {
         }
     });
 
-    // Disable submit button if textarea is empty
+    /**
+     * Disable submit button if textarea is empty
+     */
     if ($requestCommentTextarea.val() === "") {
         $requestCommentSubmitButton.prop("disabled", true);
     }
 
-    // Submit requests filter form in the request list page
+    /**
+     * Submit requests filter form in the request list page
+     */
     $("#request-status-select, #request-organization-select")
       .on("change", function() {
           search();
       });
 
-    // Submit requests filter form in the request list page
+    /**
+     * Submit requests filter form in the request list page
+     */
     $("#quick-search").on("keypress", function(e) {
         if (e.which === 13) {
             search();
@@ -532,15 +570,19 @@ $(document).ready(function() {
         }
     });
 
-    // Submit organization form in the request page
+    /**
+     * Submit organization form in the request page
+     */
     $("#request-organization select").on("change", function() {
         this.form.submit();
     });
 
-    // Toggles expanded aria to collapsible elements
+    /**
+     * Toggles expanded aria to collapsible elements
+     */
     $(".collapsible-nav, .collapsible-sidebar").on("click", function(e) {
         e.stopPropagation();
-        var isExpanded = this.getAttribute("aria-expanded") === "true";
+        let isExpanded = this.getAttribute("aria-expanded") === "true";
         this.setAttribute("aria-expanded", !isExpanded);
     });
 
@@ -571,8 +613,8 @@ $(document).ready(function() {
         $(this).parent().find('.accordion-section .accordion-container').hide();
     });
 
-    var $temp = $("<input>");
-    var $url = $(location).attr('href');
+    let $temp = $("<input>");
+    let $url = $(location).attr('href');
 
     $('.clipboard').on('click', function() {
         $("body").append($temp);
@@ -588,8 +630,8 @@ $(document).ready(function() {
 
     click = false;
     $(".article-sidebar li").on('click', function() {
-        var links = $(".article-body").find("h2");
-        var i = $(this).index();
+        let links = $(".article-body").find("h2"),
+          i = $(this).index();
         $(".article-sidebar li").removeClass("active");
         $(this).addClass("active");
         click = true;
@@ -608,8 +650,8 @@ $(document).ready(function() {
         }
 
         if ($(".article-sidebar.desktop-sidebar").length) {
-            var links = $(".article-body").find("h2");
-            var sTop = $(window).scrollTop();
+            let links = $(".article-body").find("h2"),
+              sTop = $(window).scrollTop();
             if(links.length && !click) {
                 $(links).each(function (index, el) {
                     if(links.eq(index + 1).length){
@@ -644,13 +686,13 @@ $(document).ready(function() {
 
 
 function article_titles(){
-    var links = $(".article-body").find("h2");
+    let links = $(".article-body").find("h2");
     if($(links).length) {
         $('.article-sidebar.desktop-sidebar').toggleClass('desktop-active');
         $('.article-sidebar.mobile-sidebar').toggleClass('mobile-active');
-        var ul = "<ul>";
-        for(var i = 0; i < links.length; i++){
-            var el_class = (i == 0) ? "active" : "";
+        let ul = "<ul>";
+        for(let i = 0; i < links.length; i++){
+            let el_class = (i == 0) ? "active" : "";
             ul += "<li class='" + el_class + "'>";
             ul += links.eq(i).html() + "</li>";
         }
@@ -674,8 +716,8 @@ $(window).on("resize", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    var yearSpan = document.querySelector('.full_year')
-    var date = new Date().getFullYear();
+    let yearSpan = document.querySelector('.full_year'),
+      date = new Date().getFullYear();
     yearSpan.textContent = date;
 });
 
@@ -766,7 +808,9 @@ const categoryPage = {
     },
 
     setCategoryPageSections : function(type, list, section) {
-        /*Set all articles in sections*/
+        /**
+         * Set all articles in sections
+         * */
 
         let html = "";
         if ( list.length) {
@@ -808,11 +852,16 @@ const categoryPage = {
         let _this = this,
           staticSection = _this.section;
         $('.section-tree-with-article').removeAttr('data-asynchtml');
-        /*Main Categories*/
+
+        /**
+         * Main Categories
+         * */
         if (staticSection && Object.keys(staticSection).length !== 0) {
             $('.categories-page').addClass("main-categories");
 
-            /*Videos section*/
+            /**
+             * Videos section
+             * */
             if (staticSection.name === "Getting Started") {
                 let customArticle = staticSection.custom.find(function(el, i) {
                     if(el.type === 'article')
@@ -827,7 +876,9 @@ const categoryPage = {
                 }
             }
 
-            /*Custom section with categories*/
+            /**
+             * Custom section with categories
+             * */
             $(".categories-page .section-tree .section[data-id]").each(function(index, _section){
                 let sectionId = $(this).data("id");
                 custom = staticSection.custom.find(function(el, i) {
@@ -911,7 +962,9 @@ function setMenu() {
     $("#mobile-menu .mobile-menu-container").html(html);
 
 
-    /*Set current category and breadcrumbs item*/
+    /**
+     * Set current category and breadcrumbs item
+     * */
     isCurrentCategory(allSections)
 }
 
@@ -927,12 +980,16 @@ function  isCurrentCategory(allSections) {
             });
             if (parentSection.length) {
                 let parentCategoryId = parentSection[0].category_id;
-                /*Set current class to parent category*/
+                /**
+                 * Set current class to parent category
+                 * */
                 if ($('#categories-menu li[data-id=' + parentCategoryId + ']').length) {
                     $('#categories-menu li[data-id=' + parentCategoryId + ']').addClass('current-item');
                 }
 
-                /*Add parent category item to breadcrumbs*/
+                /**
+                 * Add parent category item to breadcrumbs
+                 * */
                 if ($('.breadcrumbs-nav').length) {
                     if (mainSections.hasOwnProperty(parentCategoryId)) {
                         let parentCategoryName = mainSections[parentCategoryId].name;

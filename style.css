@@ -7395,6 +7395,7 @@ a.article-unsubscribe {
     width: 720px;
     padding: 20px;
 }
+.article-body li .tip-main-container,
 .article-body li .note-main-container {
     margin-left: -38px;
 }

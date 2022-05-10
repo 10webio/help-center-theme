@@ -7841,7 +7841,7 @@ a.article-unsubscribe {
     text-align: left;
     cursor: pointer;
     padding: 9px 15px 9px 15px;
-    margin: 1px 10px 1px 0;
+    margin: 1px 0 1px 10px;
 }
 .article-sidebar.desktop-sidebar .sticky-sidebar li span {
     font-weight: 600 !important;
@@ -7849,15 +7849,11 @@ a.article-unsubscribe {
 .article-sidebar li:hover {
     background: #323A450D 0% 0% no-repeat padding-box;
     border-radius: 6px;
-    margin: 1px 0 1px 10px;
 }
 .article-sidebar li.active {
     background: #2160B5 0% 0% no-repeat padding-box;
     border-radius: 6px;
     color: #FFFFFF;
-    margin: 1px 0 1px 10px;
-    padding-left: 15px;
-    padding-right: 15px;
 }
 .article-sidebar li.active .wysiwyg-color-blue80{
     color: #FFFFFF;

@@ -7840,7 +7840,7 @@ a.article-unsubscribe {
     opacity: 1;
     text-align: left;
     cursor: pointer;
-    padding: 9px 15px 9px 25px;
+    padding: 9px 15px 9px 15px;
     margin: 1px 10px 1px 0;
 }
 .article-sidebar.desktop-sidebar .sticky-sidebar li span {
@@ -7850,8 +7850,6 @@ a.article-unsubscribe {
     background: #323A450D 0% 0% no-repeat padding-box;
     border-radius: 6px;
     margin: 1px 0 1px 10px;
-    padding-left: 15px;
-    padding-right: 15px;
 }
 .article-sidebar li.active {
     background: #2160B5 0% 0% no-repeat padding-box;

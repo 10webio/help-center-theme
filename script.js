@@ -656,19 +656,16 @@ $(document).ready(function() {
                 $(links).each(function (index, el) {
                     if(links.eq(index + 1).length){
                         if (sTop > $(el).offset().top - 135 && sTop < links.eq(index + 1).offset().top - 135) {
-                            $(".desktop-sidebar .sticky-sidebar").find("li").removeClass("active");
-                            $(".desktop-sidebar .sticky-sidebar").find("li").eq(index).addClass("active");
+                            highlightInThisArticle(index);
                         }
                     } else {
                         if (sTop > $(el).offset().top - 135) {
-                            $(".desktop-sidebar .sticky-sidebar").find("li").removeClass("active");
-                            $(".desktop-sidebar .sticky-sidebar").find("li").eq(index).addClass("active");
+                            highlightInThisArticle(index);
                         }
                     }
                 });
                 if(sTop + $(window).height() == $(document).height()){
-                    $(".desktop-sidebar .sticky-sidebar").find("li").removeClass("active");
-                    $(".desktop-sidebar .sticky-sidebar").find("li").eq(links.length-1).addClass("active");
+                    highlightInThisArticle(links.length-1);
                 }
             }
         }
@@ -683,6 +680,34 @@ $(document).ready(function() {
         }
     });
 });
+
+function highlightInThisArticle(index) {
+    let items = jQuery(".desktop-sidebar .sticky-sidebar").find("li"),
+      currentItem = items.eq(index);
+    items.removeClass("active");
+    currentItem.addClass("active");
+    if (!checkInView(currentItem)) {
+        jQuery(".desktop-sidebar .sticky-sidebar").scrollTo(currentItem, 12);
+    }
+}
+
+function checkInView(elem,partial) {
+    let container = jQuery(".desktop-sidebar .sticky-sidebar"),
+      contHeight = container.height(),
+      elemTop = jQuery(elem).offset().top - container.offset().top,
+      elemBottom = elemTop + jQuery(elem).height(),
+      isTotal = (elemTop >= 0 && elemBottom <=contHeight),
+      isPart = ((elemTop < 0 && elemBottom > 0 ) || (elemTop > 0 && elemTop <= container.height())) && partial;
+
+    return  isTotal  || isPart ;
+}
+
+jQuery.fn.scrollTo = function(elem, speed) {
+    jQuery(this).animate({
+        scrollTop:  jQuery(this).scrollTop() - jQuery(this).offset().top + elem.offset().top
+    },  speed);
+    return this;
+};
 
 
 function article_titles(){

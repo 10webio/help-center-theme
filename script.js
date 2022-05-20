@@ -7,16 +7,13 @@ const myDomain = "https://my.10web.io/";
 const mainSections = {
     "4403735323410" : {
         "name" : "Getting Started",
+        "type" : "category",
         "custom" :
-          [
-              {
-                  "id":"4408397419538",
-                  "type":"article"
-              }
-          ]
+          []
     },
     "4403729393554":{
         "name" : "Automated WP Platform",
+        "type" : "category",
         "custom" :
           [
               {
@@ -35,6 +32,7 @@ const mainSections = {
     },
     "4403729943442":{
         "name" : "10Web Builder",
+        "type" : "category",
         "custom" :
           [
               {
@@ -47,11 +45,29 @@ const mainSections = {
     },
     "4403736661266":{
         "name" : "Account & Payment",
+        "type" : "category",
         "custom" :
           []
     },
+    "4408397419538":{
+        "name" : "Video Tutorials",
+        "type" : "article",
+        "custom" :
+          []
+    },
+    "4403731365906":{
+        "name" : "Troubleshooting",
+        "type" : "category",
+        "custom" :
+          [
+              {
+                  "id":"4403731580946",
+              }
+          ]
+    },
     "4403730877330":{
         "name" : "Plugins",
+        "type" : "category",
         "custom" :
           [
               {
@@ -62,15 +78,6 @@ const mainSections = {
               },
               {
                   "id":"4403731164306",
-              }
-          ]
-    },
-    "4403731365906":{
-        "name" : "Troubleshooting",
-        "custom" :
-          [
-              {
-                  "id":"4403731580946",
               }
           ]
     }
@@ -105,8 +112,8 @@ const helpAPI = {
 
     getArticlesBySectionId : function(sectionId) {
         let result = {},
-            results = [],
-            articles = [];
+          results = [],
+          articles = [];
         $.ajax({
             url: `${helpCenterEndpoint}/sections/${sectionId}/articles?per_page=100`,
             type: 'get',
@@ -185,13 +192,18 @@ $(document).ready(function() {
     let pageInfo = getPageInfo(window.location.href);
 
     /**
-    * Video Tutorial Page(article)
-    */
+     * Video Tutorial Page(article)
+     */
     let currentId = pageInfo.id;
     if ( currentId === '4408397419538') {
         $('.hero-inner .header_title').text('Video Tutorials').show();
         $('.hero-inner .header_desc').text('Visual guides to help you every step of the way.').show();
         $('.breadcrumbs li[title="Video Tutorials"]').css('pointer-events','none');
+        $('.article-header').append(`<div class="video-search"><div class="video-search__container">
+            <input type="text" class="video-search__query" placeholder="Search…" autocomplete="off">
+            <div class="remove-selected icon-close"></div>
+          </div></div>`);
+        videoSearch.init();
     }
     else {
         $('.hero-inner .header_title,.hero-inner .header_desc').show();
@@ -234,7 +246,7 @@ $(document).ready(function() {
              */
             if($(this).find('a').length){
                 let link = $(this).find('a').attr('href'),
-                    linkText = $(this).find('a').text();
+                  linkText = $(this).find('a').text();
                 if(link.indexOf('/en-us/sections/') !== -1){
                     $(this).html(`<span>${linkText}</span>`);
                 }
@@ -244,7 +256,7 @@ $(document).ready(function() {
 
     /**
      * Add vote up and down message
-      */
+     */
     $(".article-vote-up").on('click', function() {
         $(this).addClass("active").removeClass("deactive");
         $(".article-vote-down").addClass("deactive").removeClass("active");
@@ -262,8 +274,8 @@ $(document).ready(function() {
     }
 
     /**
-    * Go To Section
-    */
+     * Go To Section
+     */
 
     if ( pageInfo.type === "categories" && pageInfo.sectionId !== 0) {
         goToSection('#' + pageInfo.sectionId);
@@ -427,6 +439,7 @@ $(document).ready(function() {
     });
     $("body").on("click", function(e) {
         $(".user-info").removeClass('active');
+        $("#categories-menu").removeClass('opened');
     });
 
     if (matchMedia('screen and (max-width: 767px)').matches) {
@@ -454,7 +467,7 @@ $(document).ready(function() {
 
     /**
      * Social share popups
-      */
+     */
     $(".share a").click(function(e) {
         e.preventDefault();
         window.open(this.href, "", "height = 500, width = 500");
@@ -462,7 +475,7 @@ $(document).ready(function() {
 
     /**
      * Show form controls when the textarea receives focus or back button is used and value exists
-      */
+     */
     const $commentContainerTextarea = $(".comment-container textarea"),
       $commentContainerFormControls = $(".comment-form-controls, .comment-ccs");
 
@@ -475,7 +488,7 @@ $(document).ready(function() {
 
     /**
      * Expand Request comment form when Add to conversation is clicked
-      */
+     */
     const $showRequestCommentContainerTrigger = $(".request-container .comment-container .comment-show-container"),
       $requestCommentFields = $(".request-container .comment-container .comment-fields"),
       $requestCommentSubmit = $(".request-container .comment-container .request-submit-comment");
@@ -489,7 +502,7 @@ $(document).ready(function() {
 
     /**
      * Mark as solved button
-      */
+     */
     const $requestMarkAsSolvedButton = $(".request-container .mark-as-solved:not([data-disabled])"),
       $requestMarkAsSolvedCheckbox = $(".request-container .comment-container input[type=checkbox]"),
       $requestCommentSubmitButton = $(".request-container .comment-container input[type=submit]");
@@ -631,7 +644,7 @@ $(document).ready(function() {
     click = false;
     $(".article-sidebar li").on('click', function() {
         let links = $(".article-body").find("h2"),
-            i = $(this).index();
+          i = $(this).index();
         $(".article-sidebar li").removeClass("active");
         $(this).addClass("active");
         click = true;
@@ -651,7 +664,7 @@ $(document).ready(function() {
 
         if ($(".article-sidebar.desktop-sidebar").length) {
             let links = $(".article-body").find("h2"),
-                sTop = $(window).scrollTop();
+              sTop = $(window).scrollTop();
             if(links.length && !click) {
                 $(links).each(function (index, el) {
                     if(links.eq(index + 1).length){
@@ -671,7 +684,8 @@ $(document).ready(function() {
         }
     });
 
-    $(".categories-menu_current").on('click', function() {
+    $(".categories-menu_current").on('click', function(event) {
+        event.stopPropagation();
         if($(this).closest("#categories-menu").hasClass("opened")){
             $(this).closest("#categories-menu").removeClass("opened");
         }
@@ -742,7 +756,7 @@ $(window).on("resize", function () {
 
 document.addEventListener("DOMContentLoaded", function() {
     let yearSpan = document.querySelector('.full_year'),
-        date = new Date().getFullYear();
+      date = new Date().getFullYear();
     yearSpan.textContent = date;
 });
 
@@ -887,7 +901,7 @@ const categoryPage = {
             /**
              * Videos section
              * */
-            if (staticSection.name === "Getting Started") {
+            /*if (staticSection.name === "Getting Started") {
                 let customArticle = staticSection.custom.find(function(el, i) {
                     if(el.type === 'article')
                         return true;
@@ -899,7 +913,7 @@ const categoryPage = {
                     }
 
                 }
-            }
+            }*/
 
             /**
              * Custom section with categories
@@ -953,6 +967,7 @@ function setMenu() {
         for (const id in mainSections) {
             menu[id] = {};
             menu[id].name = mainSections[id].name;
+            menu[id].type = mainSections[id].type;
             menu[id].sections = allSections.sections.filter(function(el, i) {
                 if(el.category_id == id)
                     return true;
@@ -962,8 +977,15 @@ function setMenu() {
     let currentName = (mainSections.hasOwnProperty(currentId)) ? mainSections[currentId].name : mainSections[Object.keys(mainSections)[0]].name;
     html += "<div class='container'><div class='categories-menu_current'>" + currentName + "</div><ul>";
     for (const property in menu) {
-        let currentItem = property === currentId ? "class='current-item'" : "";
-        html += "<li " + currentItem + " data-id='" + property + "'><a href='" + helpCenterLink + "categories/" + property + "'>" + menu[property]["name"] + "</a>";
+        let classLi = '',
+          link = helpCenterLink + "categories/" + property;
+        if (menu[property]["type"] === 'article') {
+            link = helpCenterLink + "articles/" + property;
+        } else {
+            classLi = 'has_sub_menu';
+        }
+        classLi += property === currentId ? " current-item" : "";
+        html += "<li class='" + classLi + "' data-id='" + property + "'><a href='" + link + "'>" + menu[property]["name"] + "</a>";
         if (menu[property]["sections"].length) {
             html += "<div class='submenu-overflow'><ul>";
             for (let i = 0; i < menu[property]["sections"].length; i++) {
@@ -1045,3 +1067,166 @@ function copyToClipboard(element) {
     element.select();
     navigator.clipboard.writeText(element.val());
 }
+
+let videoSearch = {
+    showCount: 12,
+    page: 1,
+    searchForm: '.video-search',
+    searchInput: '.video-search__query',
+    suggestion: '.video-suggestion',
+    videoContainer: '.video_container',
+    searchedItems: {},
+    helpCenterVideos: [],
+    isEmpty: true,
+    init: function () {
+        let _this = this;
+
+        /*
+        * Search
+        */
+        jQuery(_this.videoContainer).each(function(index, element){
+            _this.helpCenterVideos[index] = jQuery(element).find('h4').text();
+        });
+
+        jQuery(_this.searchInput).on('keyup', function (event) {
+            let value = jQuery(this).val();
+            if (value.length > 2) {
+                for (const index in _this.helpCenterVideos) {
+                    if (_this.helpCenterVideos[index].toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+                        _this.searchedItems[index] = _this.helpCenterVideos[index];
+                        _this.isEmpty = false;
+                    }
+                }
+                if (Object.keys(_this.searchedItems).length === 0) {
+                    _this.isEmpty = true;
+                }
+
+                if (event.key === 'Enter') {
+                    _this.showVideos();
+                    return false;
+                } else {
+                    _this.showSuggestion(value);
+                }
+            } else {
+                if (value.length === 0) {
+                    _this.removeSelected('keyup');
+                }
+            }
+        });
+
+        jQuery('body').on('click', function() {
+            jQuery('.video-suggestion').remove();
+        });
+
+        jQuery(this.searchInput).on('click', function(e) {
+            e.stopPropagation();
+        });
+
+        jQuery('.remove-selected').on('click', function() {
+            _this.removeSelected('button');
+            jQuery(_this.searchInput).val('');
+        });
+
+        jQuery('body').on('click', '.video-suggestion li a', function(e) {
+            _this.showVideos(jQuery(this).data('index'));
+            e.stopPropagation();
+            e.preventDefault();
+        });
+
+        /*
+        * Pagination
+        */
+        _this.applay('pagination');
+        jQuery('.see_more').css('display','block');
+
+        if (_this.showCount * _this.page >= _this.helpCenterVideos.length) {
+            jQuery('.see_more').hide();
+        }
+        jQuery('body').on('click', '.see_more', function(e) {
+            _this.page++;
+            _this.applay('pagination');
+            e.stopPropagation();
+            e.preventDefault();
+        });
+    },
+
+    applay: function(from){
+        let _this = this,
+          items = _this.helpCenterVideos,
+          count = 0,
+          length = items.length;
+        if ((Object.keys(_this.searchedItems).length !== 0 && from === 'pagination') || from === 'search')  {
+            items = _this.searchedItems;
+            length = Object.keys(_this.searchedItems).length;
+        }
+        if (_this.showCount * _this.page >= length) {
+            jQuery('.see_more').hide();
+            if (_this.showCount * _this.page === _this.helpCenterVideos.length) {
+                jQuery('.see_more').addClass('all');
+            }
+        }
+        for (const i in items) {
+            count++;
+            if ((_this.showCount * _this.page) >= count) {
+                jQuery(_this.videoContainer).eq(i).show();
+            } else {
+                break;
+            }
+        }
+    },
+
+    showVideos: function(index) {
+        let _this = this;
+        jQuery(_this.searchForm).addClass('selected');
+        if (!_this.isEmpty || index) {
+            jQuery(_this.suggestion).remove();
+            jQuery(_this.videoContainer).hide();
+            jQuery('.videos_container').show();
+            jQuery('.video__no-result').remove();
+            if (typeof index !== 'undefined') {
+                jQuery(_this.videoContainer).eq(index).show();
+                jQuery('.see_more').hide();
+            }	else {
+                jQuery('.see_more').show();
+                _this.applay('search');
+            }
+        } else {
+            if (!jQuery('.video__no-result').length) {
+                let emptyContent = `<div class="video__no-result"><p>We did not find any results that <br class="mobile">match your search criteria.</p></div>`;
+                jQuery('.container_tutorials').append(emptyContent);
+                jQuery('.videos_container, .see_more').hide();
+            }
+        }
+    },
+
+    showSuggestion: function(value) {
+        jQuery(this.suggestion).remove();
+        if (!this.isEmpty) {
+            let items = '<div class="video-suggestion custom-scroll"><ul>';
+            for (const index in this.searchedItems) {
+                let video = this.searchedItems[index],
+                  regEx = new RegExp(value, "ig"),
+                  highlight = video.replace(regEx, `<b>${value}</b>`);
+                items += `<li><a href="" data-index="${index}">${highlight}</a></li>`;
+            }
+            items += '</ul></div>';
+            jQuery(this.searchForm).append(items);
+        }
+        this.searchedItems = {};
+    },
+
+    removeSelected: function(from) {
+        jQuery('.video_container').hide();
+        this.page = 1;
+        this.applay('remove');
+        jQuery(this.searchForm).removeClass('selected');
+        jQuery('.videos_container').show();
+        if (!jQuery('.see_more').hasClass('all')) {
+            jQuery('.see_more').show();
+        }
+        jQuery('.video__no-result').remove();
+        jQuery(this.suggestion).remove();
+        this.searchedItems = {};
+        this.isEmpty = true;
+    }
+};

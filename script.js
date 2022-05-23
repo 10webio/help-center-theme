@@ -1069,7 +1069,7 @@ function copyToClipboard(element) {
 }
 
 let videoSearch = {
-    showCount: 12,
+    showCount: 4,
     page: 1,
     searchForm: '.video-search',
     searchInput: '.video-search__query',
@@ -1137,10 +1137,12 @@ let videoSearch = {
         * Pagination
         */
         _this.applay('pagination');
-        jQuery('.see_more').css('display','block');
+
 
         if (_this.showCount * _this.page >= _this.helpCenterVideos.length) {
-            jQuery('.see_more').hide();
+            jQuery('.see_more').addClass('all').hide();
+        } else {
+            jQuery('.see_more').css('display','block');
         }
         jQuery('body').on('click', '.see_more', function(e) {
             _this.page++;
@@ -1221,9 +1223,7 @@ let videoSearch = {
         this.applay('remove');
         jQuery(this.searchForm).removeClass('selected');
         jQuery('.videos_container').show();
-        if (!jQuery('.see_more').hasClass('all')) {
-            jQuery('.see_more').show();
-        }
+        jQuery('.see_more').show();
         jQuery('.video__no-result').remove();
         jQuery(this.suggestion).remove();
         this.searchedItems = {};

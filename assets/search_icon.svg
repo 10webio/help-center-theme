@@ -1,0 +1,10 @@
+<svg id="Search_Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_47769" data-name="Rectangle 47769" width="24" height="24" fill="#323a45"/>
+    </clipPath>
+  </defs>
+  <g id="Search_Icon-2" data-name="Search_Icon" clip-path="url(#clip-path)">
+    <path id="design_system_icons-38" data-name="design system icons-38" d="M12.41,22.406a6.9,6.9,0,0,1,0-9.58,6.56,6.56,0,0,1,9.384,0,6.952,6.952,0,0,1,1.2,7.946l4.314,4.4a1.808,1.808,0,0,1,0,2.5,1.72,1.72,0,0,1-2.446,0l-4.225-4.313A6.562,6.562,0,0,1,12.41,22.406ZM20.5,21.134a4.978,4.978,0,0,0,0-6.992,4.775,4.775,0,0,0-6.849,0,5.02,5.02,0,0,0,0,6.992A4.775,4.775,0,0,0,20.5,21.134Z" transform="translate(-7.142 -7.517)" fill="#323a45"/>
+  </g>
+</svg>

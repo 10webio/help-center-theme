@@ -1220,10 +1220,10 @@ let videoSearch = {
     removeSelected: function(from) {
         jQuery('.video_container').hide();
         this.page = 1;
+        jQuery('.see_more').show();
         this.applay('remove');
         jQuery(this.searchForm).removeClass('selected');
         jQuery('.videos_container').show();
-        jQuery('.see_more').show();
         jQuery('.video__no-result').remove();
         jQuery(this.suggestion).remove();
         this.searchedItems = {};

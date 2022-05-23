@@ -1069,7 +1069,7 @@ function copyToClipboard(element) {
 }
 
 let videoSearch = {
-    showCount: 4,
+    showCount: 12,
     page: 1,
     searchForm: '.video-search',
     searchInput: '.video-search__query',

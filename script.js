@@ -864,7 +864,7 @@ const categoryPage = {
                     let existsInRedirectionList = false;
                     if (typeof redirection_list !== 'undefined') {
                         for (const property in redirection_list) {
-                            if (redirection_list[property].includes(list[i].html_url)/* && !allowed_list.includes(list[i].html_url)*/) {
+                            if (redirection_list[property].includes(list[i].html_url) && !allowed_list.includes(list[i].html_url)) {
                                 existsInRedirectionList = true;
                                 break;
                             }

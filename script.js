@@ -157,11 +157,13 @@ const helpAPI = {
     }
 };
 
-Object.keys(redirection_list).map( function(key) {
-    if ( redirection_list[key].includes(window.location.href) ) {
-        window.location.replace( key );
-    }
-});
+if (typeof redirection_list !== 'undefined') {
+    Object.keys(redirection_list).map( function(key) {
+        if ( redirection_list[key].includes(window.location.href) ) {
+            window.location.replace( key );
+        }
+    });
+}
 
 $(document).ready(function() {
     /**
@@ -850,7 +852,7 @@ const categoryPage = {
         /**
          * Set all articles in sections
          * */
-
+        let allowed_list = ['https://help.10web.io/hc/en-us/articles/4410153219730-Glossary'];
         let html = "";
         if ( list.length) {
             let ulClass = type === "categories" ? " category-list" : "";
@@ -860,10 +862,12 @@ const categoryPage = {
                     html += "<li><a href='" + helpCenterLink + "categories/" + list[i].id + "'>" + list[i].name + "</a></li>";
                 } else {
                     let existsInRedirectionList = false;
-                    for (const property in redirection_list) {
-                        if (redirection_list[property].includes(list[i].html_url)) {
-                            existsInRedirectionList = true;
-                            break;
+                    if (typeof redirection_list !== 'undefined') {
+                        for (const property in redirection_list) {
+                            if (redirection_list[property].includes(list[i].html_url)/* && !allowed_list.includes(list[i].html_url)*/) {
+                                existsInRedirectionList = true;
+                                break;
+                            }
                         }
                     }
                     if (!existsInRedirectionList) {

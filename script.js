@@ -159,8 +159,12 @@ const helpAPI = {
 
 if (typeof redirection_list !== 'undefined') {
     Object.keys(redirection_list).map( function(key) {
-        if ( redirection_list[key].includes(window.location.href) ) {
-            window.location.replace( key );
+        let article = location.href.split('/articles/')[1];
+        if ( typeof article === 'string' ) {
+            let id = article.split('-')[0];
+            if ( redirection_list[key].includes(id) ) {
+                window.location.replace( key );
+            }
         }
     });
 }
@@ -864,7 +868,7 @@ const categoryPage = {
                     let existsInRedirectionList = false;
                     if (typeof redirection_list !== 'undefined') {
                         for (const property in redirection_list) {
-                            if (redirection_list[property].includes(list[i].html_url) && !allowed_list.includes(list[i].html_url)) {
+                            if (redirection_list[property].includes(list[i].html_url)/* && !allowed_list.includes(list[i].html_url)*/) {
                                 existsInRedirectionList = true;
                                 break;
                             }

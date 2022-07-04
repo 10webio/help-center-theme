@@ -1,5 +1,7 @@
 
-
+.tw-icons-speed:before {
+  content: "\e948";
+}
 .tw-icons-wp-family:before {
   content: "\e903";
 }

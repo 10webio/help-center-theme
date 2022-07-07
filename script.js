@@ -170,6 +170,33 @@ if (typeof redirection_list !== 'undefined') {
 }
 
 $(document).ready(function() {
+    /*Product Hunt*/
+    if ( !sessionStorage.getItem('closeTopBar') ) {
+        jQuery('body').addClass('with-topbar');
+        jQuery('.top-bar-container').removeClass('hidden');
+    }
+    /*Remove topbar*/
+    jQuery(".top-bar-container__close").on('click', function () {
+        jQuery('body,html').removeClass('with-topbar');
+        jQuery('.top-bar-container').remove();
+        sessionStorage.setItem('closeTopBar', '1');
+    });
+
+    jQuery('.copy_container').on('click', function () {
+        if (!jQuery(this).hasClass('copied')) {
+            const el = this;
+            setTimeout(function() {
+                jQuery('.copy_container').removeClass('copied');
+                jQuery('.copy_container span').html('Copy');
+            }, 700);
+            copyToClipboard(jQuery('#coupon_code'));
+            jQuery(this).addClass('copied');
+            jQuery('.copy_container span').html('Copied');
+        }
+    });
+    /*Product Hunt end*/
+
+
     /**
      * Add tracking to hire an expert link
      */

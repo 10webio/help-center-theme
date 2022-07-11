@@ -1,8 +1,8 @@
 {
   "name": "10Web HC New Theme (Master Branch)",
   "author": "10Web",
-  "version": "1.7.85",
-  "api_version": 2,
+  "version": "1.7.86",
+  "api_version": 1,
   "default_locale": "en-us",
   "settings": [
     {

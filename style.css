@@ -8136,9 +8136,8 @@ ul.glossary-letters li:last-child span{
         height: fit-content;
         margin-right: 2%;
         border: 1px solid #323A4533;
-        border-radius: 12px;
+        border-radius: 6px;
         background: #FFFFFF 0% 0% no-repeat padding-box;
-        box-shadow: 0px 5px 20px #e5e6e8cc;
         padding: 20px 0 11px 0;
     }
     .article-sidebar.mobile-sidebar.mobile-active {

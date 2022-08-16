@@ -240,7 +240,7 @@ $(document).ready(function() {
     /**
      * Remove same title from breadcrumbs
      * */
-    if (pageInfo.type && (pageInfo.type === "articles" || pageInfo.type.includes("search?"))) {
+    if (pageInfo.type && (pageInfo.type === "articles" || pageInfo.type === "sections" || pageInfo.type.includes("search?"))) {
         let same = [];
         $('.breadcrumbs li').each(function(i, e){
             let text = $(this).text().toLowerCase();

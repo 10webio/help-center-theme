@@ -7345,12 +7345,12 @@ a.article-unsubscribe {
 }
 .article-body .blurred {
     color: transparent;
-    text-shadow: 0 0 5px #292929c4;
+    text-shadow: 0 0 7px #292929c4;
 }
 
 .article-body .blurred::selection  {
     color: transparent;
-    text-shadow: 0 0 5px #ffffff78 !important;
+    text-shadow: 0 0 7px #ffffff78 !important;
 }
 .article-body p + p {
     margin-top: 20px;

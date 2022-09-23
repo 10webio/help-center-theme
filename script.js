@@ -187,7 +187,7 @@ const categoryPage = {
                             }
                         }
                     }
-                    if (!existsInRedirectionList) {
+                    if (!existsInRedirectionList && list[i].id !== 7665294284306) {
                         html += "<li><a href='" + list[i].html_url + "'>" + list[i].name + "</a></li>";
                     }
                 }

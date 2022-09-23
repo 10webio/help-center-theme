@@ -8315,3 +8315,283 @@ zd-autocomplete-option:hover {
 .zEWidget-automaticAnswers.zEWidget-automaticAnswers--active {
     display: none;
 }
+
+
+/*Reviews*/
+.reviews .hidden{
+    display: none;
+}
+.reviews img {
+    margin: 0;
+    border: 0px;
+    border-radius: 0;
+}
+.reviews .container .reviews-container .review p {
+    margin-top: 0;
+}
+.reviews img:hover {
+    cursor: default;
+}
+.reviews .container .wp-image {
+    width: 166px;
+    height: 27px;
+    display: block;
+}
+.reviews .container .section-title {
+    text-align: center;
+}
+.reviews .container .reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.reviews .container .reviews-container .review {
+    box-sizing: border-box;
+    width: 100%;
+}
+.reviews .container .reviews-container .review .review-title {
+    font-weight: 800;
+    margin: 0 0 4px 0;
+}
+.reviews .container .reviews-container .review > .author-name {
+    font-weight: 600;
+    font-style: italic;
+}
+.reviews .container .reviews-container .review .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.reviews .container .reviews-container .review .review-header .image-container {
+    border-radius: 50%;
+    overflow: hidden;
+}
+.reviews .container .reviews-container .review .review-header .image-container img {
+    max-width: 100%;
+}
+.reviews .container .reviews-container .review .review-header .author-name {
+    font-weight: 700;
+}
+.reviews .container .reviews-container .review .review-header .stars-container {
+    flex-grow: 1;
+    text-align: right;
+}
+.reviews .container .reviews-container .review .stars-type {
+    width: 120px;
+    height: 22px;
+}
+.reviews .container .reviews-container .review p {
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.reviews .container .reviews-container .review p .stars {
+    display: block;
+    color: #FDB82C;
+}
+.reviews .container .reviews-container .review .images {
+    margin-top: 20px;
+    font-size: 0;
+    line-height: 0;
+}
+.reviews .container .reviews-container .review .images .trustpilot {
+    width: 88px;
+    height: 22px;
+    margin-left: 10px;
+}
+.reviews .container .reviews-container .review.white {
+    padding: 0;
+}
+.reviews .container .reviews-container .review.white p {
+    font-weight: 400;
+}
+.reviews .container .reviews-container .review.dark {
+    background: #1E2939;
+}
+.reviews .container .reviews-container .review.dark p {
+    font-weight: 500;
+}
+.reviews .container .reviews-container .review.dark * {
+    color: #ffffff;
+}
+.reviews .container .reviews-container .review.blue {
+    background: rgba(34, 179, 57, 0.04);
+    margin-bottom: 0 !important;
+}
+.reviews .container .reviews-container .review.center {
+    text-align: center;
+}
+.reviews .container .reviews-container .review.center .author-name {
+    font-weight: 700;
+    font-style: normal;
+}
+.reviews .container .button_container {
+    display: block;
+}
+
+@media screen and (min-width: 768px) {
+    .reviews {
+        margin: 76px 0;
+    }
+    .reviews .container .wp-image {
+        margin: 0 auto 20px;
+    }
+    .reviews .container .section-title {
+        font-size: 32px;
+        line-height: 42px;
+        margin-bottom: 40px;
+    }
+    .reviews .container .reviews-container {
+        gap: 12px;
+    }
+    .reviews .container .reviews-container .review {
+        border-radius: 6px;
+    }
+
+    .reviews .container .reviews-container .review.white {
+        width: 340px;
+    }
+    .reviews .container .reviews-container .review .review-title {
+        font-size: 20px;
+        line-height: 27px;
+    }
+    .reviews .container .reviews-container .review > .author-name {
+        font-size: 16px;
+        line-height: 28px;
+        margin: 0 0 20px 0;
+    }
+    .reviews .container .reviews-container .review .review-header {
+        gap: 20px;
+        margin: 0 0 16px 0;
+    }
+    .reviews .container .reviews-container .review .review-header .image-container {
+        width: 50px;
+        height: 50px;
+    }
+    .reviews .container .reviews-container .review .review-header .author-name {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .reviews .container .reviews-container .review p {
+        font-size: 18px;
+        line-height: 30px;
+    }
+    .reviews .container .reviews-container .review p + .author-name {
+        margin: 20px 0 0;
+    }
+    .reviews .container .reviews-container .review.dark, .reviews .container .reviews-container .review.blue {
+        padding: 30px 50px 40px;
+        margin-bottom: 0 !important;
+    }
+    .reviews .container .reviews-container .review.blue.full {
+        margin: 36px 0 0 !important;
+    }
+    .reviews .container .reviews-container .review.center {
+        margin-bottom: 28px;
+    }
+    .reviews .container .reviews-container .review.center p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .reviews .container .reviews-container .review.center .author-name {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .reviews .container .reviews-container .review.white p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .container.id_7665294284306{
+        margin: 0 auto 0;
+        width:320px;
+    }
+    .container.id_7665294284306 .article-sidebar.mobile-sidebar{
+        width:100% ;
+        margin-left: 0;
+    }
+    .review_page > p{
+        width:280px;
+        margin-left:  auto;
+        margin-right:  auto;
+    }
+    .reviews {
+        margin: 80px 0;
+    }
+    .reviews .container .wp-image {
+        margin: 0 auto 15px;
+    }
+    .reviews .container .section-title {
+        font-size: 25px;
+        line-height: 34px;
+        margin-bottom: 40px;
+    }
+    .reviews .container .reviews-container {
+        gap: 10px;
+    }
+    .reviews .container .reviews-container .review {
+        width: 280px;
+    }
+    .reviews .container .reviews-container .review .review-title {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .reviews .container .reviews-container .review > .author-name {
+        font-size: 14px;
+        line-height: 24px;
+        margin: 0 0 10px 0;
+    }
+    .reviews .container .reviews-container .review .review-header {
+        gap: 14px;
+        margin-bottom: 18px;
+    }
+    .reviews .container .reviews-container .review .review-header .image-container {
+        width: 34px;
+        height: 34px;
+    }
+    .reviews .container .reviews-container .review .review-header .author-name {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 800;
+    }
+    .reviews .container .reviews-container .review p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    .reviews .container .reviews-container .review.dark p,
+    .reviews .container .reviews-container .review.blue p{
+        font-weight: 700;
+    }
+    .reviews .container .reviews-container .review.center p {
+        font-weight: 600;
+    }
+    .reviews .container .reviews-container .review p + .author-name {
+        margin: 20px 0 0;
+        font-weight: 800;
+    }
+    .reviews .container .reviews-container .review.dark, .reviews .container .reviews-container .review.blue {
+        width: 320px;
+        padding: 30px 20px;
+        margin: 0 -20px !important;
+    }
+    .reviews .container .reviews-container .review.blue.full {
+        margin: 40px -20px 0 !important;
+    }
+    .reviews .container .reviews-container .review.white {
+        margin-bottom: 30px;
+    }
+    .reviews .container .reviews-container .review.white:last-child {
+        margin-bottom: 0;
+    }
+    .reviews .container .reviews-container .review.center {
+        margin-bottom: 30px;
+    }
+    .reviews .container .reviews-container .review.center .author-name {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 800;
+    }
+    .reviews .container .button_container {
+        margin-top: 30px;
+    }
+}

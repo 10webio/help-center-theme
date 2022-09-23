@@ -8473,7 +8473,7 @@ zd-autocomplete-option:hover {
     }
     .reviews .container .reviews-container .review p {
         font-size: 18px;
-        line-height: 30px;
+        line-height: 28px;
     }
     .reviews .container .reviews-container .review p + .author-name {
         margin: 20px 0 0;
@@ -8506,6 +8506,14 @@ zd-autocomplete-option:hover {
         margin: 0 auto 0;
         width:320px;
     }
+    .container.id_7665294284306 footer,
+    .container.id_7665294284306 .article-header,
+    .container.id_7665294284306 .breadcrumbs-nav {
+        width: calc(100% - 40px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .container.id_7665294284306 .article-sidebar.mobile-sidebar{
         width:100% ;
         margin-left: 0;
@@ -8557,13 +8565,6 @@ zd-autocomplete-option:hover {
     .reviews .container .reviews-container .review p {
         font-size: 14px;
         line-height: 24px;
-    }
-    .reviews .container .reviews-container .review.dark p,
-    .reviews .container .reviews-container .review.blue p{
-        font-weight: 700;
-    }
-    .reviews .container .reviews-container .review.center p {
-        font-weight: 600;
     }
     .reviews .container .reviews-container .review p + .author-name {
         margin: 20px 0 0;

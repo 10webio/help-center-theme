@@ -494,8 +494,9 @@ function article_titles(){
         let ul = "<ul>";
         for(let i = 0; i < links.length; i++){
             let el_class = (i == 0) ? "active" : "";
+            let title = links.eq(i).attr("data-title") ? links.eq(i).attr("data-title") : links.eq(i).html()
             ul += "<li class='" + el_class + "'>";
-            ul += links.eq(i).html() + "</li>";
+            ul += title + "</li>";
         }
         ul += "</ul>";
         $(".sticky-sidebar").html(ul);

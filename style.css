@@ -8432,6 +8432,9 @@ zd-autocomplete-option:hover {
     .reviews {
         margin: 76px 0;
     }
+    .reviews:last-child{
+        margin: 76px 0 50px;
+    }
     .reviews .container .wp-image {
         margin: 0 auto 20px;
     }

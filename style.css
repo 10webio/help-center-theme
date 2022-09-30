@@ -8250,7 +8250,7 @@ ul.glossary-letters li:last-child span{
 .article-body .image_link{
     display:block;
 }
-.article-body .image_link:hover{
+.article-body .image_link img:hover{
     cursor:pointer;
 }
 

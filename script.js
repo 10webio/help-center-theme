@@ -4,6 +4,7 @@
 const helpCenterEndpoint = "https://help.10web.io/api/v2/help_center/";
 const helpCenterLink = "https://help.10web.io/hc/en-us/";
 const myDomain = "https://my.10web.io/";
+const hiddenArticles = [7665294284306, 7866702142354, 7866589582610];
 const mainSections = {
     "4403735323410" : {
         "name" : "Getting Started",
@@ -187,7 +188,8 @@ const categoryPage = {
                             }
                         }
                     }
-                    if (!existsInRedirectionList && list[i].id !== 7665294284306) {
+
+                    if (!existsInRedirectionList && !hiddenArticles.includes(list[i].id)) {
                         html += "<li><a href='" + list[i].html_url + "'>" + list[i].name + "</a></li>";
                     }
                 }

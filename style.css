@@ -8247,6 +8247,14 @@ ul.glossary-letters li:last-child span{
 .article-body section:last-child {
     margin-bottom: 50px;
 }
+.article-body .image_link{
+    display:block;
+}
+.article-body .image_link:hover{
+    cursor:pointer;
+}
+
+
 #advanced_chat {
     width: 200px;
     background: transparent;

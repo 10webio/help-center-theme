@@ -4,7 +4,15 @@
 const helpCenterEndpoint = "https://help.10web.io/api/v2/help_center/";
 const helpCenterLink = "https://help.10web.io/hc/en-us/";
 const myDomain = "https://my.10web.io/";
-const hiddenArticles = [7665294284306, 7866702142354, 7866589582610, 7883543694994];
+const hiddenArticles = [
+    7665294284306,
+    7866702142354,
+    7866589582610,
+    7883543694994,
+    7952757255186,
+    7952760128530,
+    7952796874258
+];
 const mainSections = {
     "4403735323410" : {
         "name" : "Getting Started",

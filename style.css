@@ -7721,16 +7721,18 @@ a.article-unsubscribe {
 .tip-main-container .tip-container p:last-child {
     margin: -7px 0 0 49px;
 }
-
+.without-icon.tip-main-container .tip-container p:last-child{
+    margin:0;
+}
 /* tip container with button*/
 
 .tip-main-container .green-button {
-    width: 220px;
+    width: 260px;
     margin-right: 20px;
 }
 .article-info .article-content .article-body .tip-main-container .green-button a {
     font-size: 14px;
-    width: 220px;
+    width: 260px;
     line-height: 48px;
     display: inline-block;
     background: #008A62 0% 0% no-repeat padding-box;
@@ -8247,10 +8249,10 @@ ul.glossary-letters li:last-child span{
 .article-body section:last-child {
     margin-bottom: 50px;
 }
+
 .article-body .image_link:hover{
     cursor:pointer;
 }
-
 
 #advanced_chat {
     width: 200px;

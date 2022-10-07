@@ -269,7 +269,7 @@ li.article-promoted [data-title="Promoted article"] {
     opacity: 1;
 }
 .footer-bottom-content-right .social_icons li .instagram {
-    background-image: url($assets-instagram-svg);
+    background-image: url($assets-slack-svg);
 }
 .footer-bottom-content-right .social_icons li .tw {
     background-image: url($assets-t-svg);

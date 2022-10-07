@@ -270,6 +270,7 @@ li.article-promoted [data-title="Promoted article"] {
 }
 .footer-bottom-content-right .social_icons li .slack {
     background-image: url($assets-slack-svg);
+    opacity: 1;
 }
 .footer-bottom-content-right .social_icons li .tw {
     background-image: url($assets-t-svg);

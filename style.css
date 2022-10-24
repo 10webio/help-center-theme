@@ -8641,7 +8641,7 @@ zd-autocomplete-option:hover {
     }
     .feature-items .feature-items__content {
         border: 1px solid rgba(50, 58, 69, 0.2);
-        border-radius: 12px;
+        border-radius: 6px;
         padding: 24px 25px;
     }
     .feature-items .feature-items__content .feature-item {
@@ -8668,7 +8668,7 @@ zd-autocomplete-option:hover {
     }
     .feature-items .feature-items__content {
         border: 1px solid rgba(50, 58, 69, 0.2);
-        border-radius: 12px;
+        border-radius: 6px;
         padding: 24px 25px;
     }
     .feature-items .feature-items__content .feature-item {

@@ -8932,7 +8932,7 @@ body.opened #header {
         margin-top: 80px;
     }
     body .header_fixed {
-        top: 80px;
+        top: 80px !important;
     }
     .top-bar-container {
         padding: 7px 0;
@@ -8973,7 +8973,7 @@ body.opened #header {
         margin-top: 78px;
     }
     body .header_fixed {
-        top: 78px;
+        top: 78px !important;
     }
     .top-bar-container {
         padding: 14px 0;
@@ -8998,7 +8998,7 @@ body.opened #header {
         margin-top: 252px;
     }
     body  .header_fixed {
-        top: 252px;
+        top: 252px !important;
     }
     .top-bar-container {
         padding: 20px 0;

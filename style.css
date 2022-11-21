@@ -8720,6 +8720,31 @@ zd-autocomplete-option:hover {
 }
 
 /*BF*/
+figure, figcaption {
+    display: block;
+}
+.timeTo {
+    font-weight: bold;
+}
+
+.timeTo figure {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.timeTo figcaption {
+    text-align: center;
+}
+
+.timeTo div {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.timeTo ul {
+    position: absolute;
+}
 
 body.opened #header {
     top: 0;

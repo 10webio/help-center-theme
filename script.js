@@ -708,6 +708,23 @@ function copyToClipboard(element) {
 
 $(document).ready(function() {
 
+    /**
+    * Black Friday
+     */
+    let size = 26
+    let captionSize = 10
+    if (matchMedia('screen and (max-width:1260px)').matches) {
+        size = 18
+    }
+    jQuery('#countdown').timeTo({
+        timeTo: new Date('Nov 26 2022 14:37:00 GMT+0200 (EET)'),
+        displayDays: 2,
+        displaySeconds: false,
+        displayCaptions: true,
+        fontSize: size,
+        captionSize: captionSize,
+    });
+
 
     /**
      * Add tracking to hire an expert link

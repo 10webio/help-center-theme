@@ -708,6 +708,31 @@ function copyToClipboard(element) {
 
 $(document).ready(function() {
 
+    /**
+     * Black Friday
+     */
+    let size = 26
+    let captionSize = 10
+    if (matchMedia('screen and (max-width:1260px)').matches) {
+        size = 18
+    }
+    jQuery('#countdown').timeTo({
+        timeTo: new Date('Nov 29 2022 00:00:00 GMT+0400 (EET)'),
+        displayDays: 2,
+        displaySeconds: false,
+        displayCaptions: true,
+        fontSize: size,
+        captionSize: captionSize,
+    });
+
+    let dbUserId = getCookie( 'db-user-id' );
+
+    if ( dbUserId ) {
+        jQuery(".topbar_link").each(function () {
+            jQuery(this).attr('href', 'https://my.10web.io/upgrade-plan');
+        });
+    }
+
 
     /**
      * Add tracking to hire an expert link
@@ -1253,3 +1278,19 @@ $(window).on("resize", function () {
         }
     }
 });
+
+function getCookie(name) {
+    var name = name + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}

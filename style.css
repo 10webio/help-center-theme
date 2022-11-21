@@ -8912,7 +8912,12 @@ body.opened #header {
     display: inline-block;
     line-height: 19px;
 }
-
+.menu_opened .header_fixed {
+    top: 0;
+}
+.menu_opened .top-bar-container {
+    display: none;
+}
 @media screen and (min-width: 1640px) {
     .top-bar-container {
         background-image: url($assets-left-png), url($assets-right-png);
@@ -8925,7 +8930,7 @@ body.opened #header {
     body  {
         margin-top: 80px;
     }
-    body .fixed_header .header_fixed {
+    body .header_fixed {
         top: 80px;
     }
     .top-bar-container {
@@ -8966,7 +8971,7 @@ body.opened #header {
     body  {
         margin-top: 78px;
     }
-    body .fixed_header .header_fixed {
+    body .header_fixed {
         top: 78px;
     }
     .top-bar-container {
@@ -8991,7 +8996,7 @@ body.opened #header {
     body  {
         margin-top: 252px;
     }
-    body .fixed_header .header_fixed {
+    body  .header_fixed {
         top: 252px;
     }
     .top-bar-container {

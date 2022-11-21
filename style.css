@@ -8745,13 +8745,24 @@ body.opened #header {
     background-repeat: no-repeat;
     background-position: left center;
 }
+.top-bar-container .container p {
+    margin: 0;
+}
 .top-bar-container .container .top-bar__link a {
     padding: 10px 46px;
+    background-color: #22b339;
+    color: #fff;
+    border: 0;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    line-height: 19px;
 }
 
 @media screen and (min-width: 1640px) {
     .top-bar-container {
-        background-image: url($assets-tw-left-png), url($assets-tw-right-png);
+        background-image: url($assets-left-png), url($assets-right-png);
         background-position: left center, right center;
         background-size: 330px 80px;
         background-repeat: no-repeat;
@@ -8782,7 +8793,7 @@ body.opened #header {
     .top-bar-container .container .top-bar__content .top .marked:after {
         content: "";
         position: absolute;
-        background-image: url($assets-tw-mark-svg);
+        background-image: url($assets-mark-svg);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: left center;
@@ -8852,7 +8863,7 @@ body.opened #header {
     .top-bar-container .container .top-bar__content .top .marked:after {
         content: "";
         position: absolute;
-        background-image: url($assets-tw-mark_mobile-svg);
+        background-image: url($assets-mark_mobile-svg);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: left center;

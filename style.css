@@ -8807,7 +8807,7 @@ figure, figcaption {
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1260px) and (min-width: 768px) {
     #countdown.timeTo {
         height: 50px;
         font-size: 18px !important;
@@ -8840,6 +8840,7 @@ figure, figcaption {
         margin-right: 2px !important;
     }
 }
+
 @media screen and (max-width: 767px) {
     #countdown.timeTo {
         height: 50px;

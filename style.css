@@ -8903,7 +8903,7 @@ body.opened #header {
     margin: 0;
 }
 .top-bar-container .container .top-bar__link a {
-    padding: 10px 39px;
+    padding: 10px 31px;
     background-color: #22b339;
     color: #fff;
     border: 0;
@@ -8912,6 +8912,7 @@ body.opened #header {
     font-weight: 600;
     display: inline-block;
     line-height: 19px;
+    text-transform: uppercase;
 }
 .top-bar-container .container .top-bar__link a:hover {
     opacity: 0.8;

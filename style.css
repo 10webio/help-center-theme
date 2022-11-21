@@ -8720,6 +8720,7 @@ zd-autocomplete-option:hover {
 }
 
 /*BF*/
+
 figure, figcaption {
     display: block;
 }
@@ -8744,6 +8745,130 @@ figure, figcaption {
 
 .timeTo ul {
     position: absolute;
+}
+#countdown.timeTo > span, #countdown.timeTo > figure:nth-child(6) {
+    display: none;
+}
+#countdown.timeTo > span, #countdown.timeTo > figure:nth-child(6) {
+    display: none;
+}
+#countdown.timeTo figure {
+    position: relative;
+}
+#countdown.timeTo figure:not(:nth-child(4)):after {
+    content: ":";
+    color: #22B339;
+    position: absolute;
+}
+#countdown.timeTo figure div {
+    color: white !important;
+    border: 0 !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-radius: 6px;
+    margin-right: 0 !important;
+}
+#countdown.timeTo figure figcaption {
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 4px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+@media screen and (min-width: 1261px) {
+    #countdown.timeTo {
+        height: 66px;
+        font-size: 26px !important;
+    }
+    #countdown.timeTo figure {
+        width: 74px !important;
+        max-width: 74px !important;
+        margin-right: 19px;
+    }
+    #countdown.timeTo figure:not(:nth-child(4)):after {
+        font-size: 29px;
+        top: 6px;
+        right: -14px;
+    }
+    #countdown.timeTo figure div {
+        width: 34px !important;
+        height: 46px !important;
+    }
+    #countdown.timeTo figure div ul {
+        left: 9px !important;
+        top: -47px !important;
+    }
+    #countdown.timeTo figure div ul li {
+        line-height: 47px;
+    }
+    #countdown.timeTo figure div.first {
+        margin-right: 6px !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #countdown.timeTo {
+        height: 50px;
+        font-size: 18px !important;
+    }
+    #countdown.timeTo figure {
+        width: 46px !important;
+        max-width: 46px !important;
+        margin-right: 17px;
+    }
+    #countdown.timeTo figure:nth-child(4) {
+        margin-right: 0;
+    }
+    #countdown.timeTo figure:not(:nth-child(4)):after {
+        font-size: 24px;
+        top: 5px;
+        right: -12px;
+    }
+    #countdown.timeTo figure div {
+        width: 22px !important;
+        height: 32px !important;
+    }
+    #countdown.timeTo figure div ul {
+        left: 6px !important;
+        top: -22px !important;
+    }
+    #countdown.timeTo figure div ul li {
+        line-height: 26px;
+    }
+    #countdown.timeTo figure div.first {
+        margin-right: 2px !important;
+    }
+}
+@media screen and (max-width: 767px) {
+    #countdown.timeTo {
+        height: 50px;
+        font-size: 18px !important;
+    }
+    #countdown.timeTo figure {
+        width: 46px !important;
+        max-width: 46px !important;
+        margin-right: 17px;
+    }
+    #countdown.timeTo figure:nth-child(4) {
+        margin-right: 0;
+    }
+    #countdown.timeTo figure:not(:nth-child(4)):after {
+        font-size: 24px;
+        top: 5px;
+        right: -12px;
+    }
+    #countdown.timeTo figure div {
+        width: 22px !important;
+        height: 32px !important;
+    }
+    #countdown.timeTo figure div ul {
+        left: 6px !important;
+        top: -22px !important;
+    }
+    #countdown.timeTo figure div ul li {
+        line-height: 26px;
+    }
+    #countdown.timeTo figure div.first {
+        margin-right: 2px !important;
+    }
 }
 
 body.opened #header {

@@ -8772,7 +8772,7 @@ figure, figcaption {
 }
 #countdown.timeTo figure figcaption {
     color: rgba(255, 255, 255, 0.8);
-    margin-top: -5px;
+    margin-top: -3px;
     font-weight: 600;
     text-transform: capitalize;
 }
@@ -8822,7 +8822,7 @@ figure, figcaption {
     }
     #countdown.timeTo figure:not(:nth-child(4)):after {
         font-size: 24px;
-        top: -5px;
+        top: -3px;
         right: -12px;
     }
     #countdown.timeTo figure div {

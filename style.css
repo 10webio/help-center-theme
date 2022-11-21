@@ -9038,6 +9038,10 @@ body.opened #header {
         margin-bottom: 10px;
     }
 }
-
+@media screen and (min-width: 767px){
+    .fixed_header #categories-menu {
+        top: 157px;
+    }
+}
 
 

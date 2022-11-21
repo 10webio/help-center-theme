@@ -717,7 +717,7 @@ $(document).ready(function() {
         size = 18
     }
     jQuery('#countdown').timeTo({
-        timeTo: new Date('Nov 29 2022 00:00:00 GMT+0200 (EET)'),
+        timeTo: new Date('Nov 29 2022 00:00:00 GMT+0000 (EET)'),
         displayDays: 2,
         displaySeconds: false,
         displayCaptions: true,

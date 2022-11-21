@@ -8914,7 +8914,7 @@ body.opened #header {
     line-height: 19px;
 }
 .menu_opened .header_fixed {
-    top: 0;
+    top: 0 !important;
 }
 .menu_opened .top-bar-container {
     display: none;

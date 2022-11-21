@@ -8822,7 +8822,7 @@ figure, figcaption {
     }
     #countdown.timeTo figure:not(:nth-child(4)):after {
         font-size: 24px;
-        top: 5px;
+        top: -5px;
         right: -12px;
     }
     #countdown.timeTo figure div {
@@ -8856,7 +8856,7 @@ figure, figcaption {
     }
     #countdown.timeTo figure:not(:nth-child(4)):after {
         font-size: 24px;
-        top: 5px;
+        top: -5px;
         right: -12px;
     }
     #countdown.timeTo figure div {
@@ -8912,6 +8912,9 @@ body.opened #header {
     font-weight: 600;
     display: inline-block;
     line-height: 19px;
+}
+.top-bar-container .container .top-bar__link a:hover {
+    opacity: 0.8;
 }
 .menu_opened .header_fixed {
     top: 0 !important;

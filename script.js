@@ -724,6 +724,16 @@ $(document).ready(function() {
         fontSize: size,
         captionSize: captionSize,
     });
+    window.addEventListener('focus', function() {
+        jQuery('#countdown').timeTo({
+            timeTo: new Date('Nov 29 2022 00:00:00 GMT+0400 (EET)'),
+            displayDays: 2,
+            displaySeconds: false,
+            displayCaptions: true,
+            fontSize: size,
+            captionSize: captionSize,
+        });
+    });
 
     let dbUserId = getCookie( 'db-user-id' );
 

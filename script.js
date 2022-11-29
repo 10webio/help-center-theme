@@ -717,7 +717,7 @@ $(document).ready(function() {
         size = 18
     }
     jQuery('#countdown').timeTo({
-        timeTo: new Date('Nov 29 2022 12:00:00 GMT+0400 (EET)'),
+        timeTo: new Date('Dec 02 2022 12:00:00 GMT+0400 (EET)'),
         displayDays: 2,
         displaySeconds: false,
         displayCaptions: true,
@@ -726,7 +726,7 @@ $(document).ready(function() {
     });
     window.addEventListener('focus', function() {
         jQuery('#countdown').timeTo({
-            timeTo: new Date('Nov 29 2022 12:00:00 GMT+0400 (EET)'),
+            timeTo: new Date('Dec 02 2022 12:00:00 GMT+0400 (EET)'),
             displayDays: 2,
             displaySeconds: false,
             displayCaptions: true,

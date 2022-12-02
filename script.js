@@ -709,42 +709,6 @@ function copyToClipboard(element) {
 $(document).ready(function() {
 
     /**
-    * Black Friday
-     */
-    let size = 26
-    let captionSize = 10
-    if (matchMedia('screen and (max-width:1260px)').matches) {
-        size = 18
-    }
-    jQuery('#countdown').timeTo({
-        timeTo: new Date('Dec 02 2022 12:00:00 GMT+0400 (EET)'),
-        displayDays: 2,
-        displaySeconds: false,
-        displayCaptions: true,
-        fontSize: size,
-        captionSize: captionSize,
-    });
-    window.addEventListener('focus', function() {
-        jQuery('#countdown').timeTo({
-            timeTo: new Date('Dec 02 2022 12:00:00 GMT+0400 (EET)'),
-            displayDays: 2,
-            displaySeconds: false,
-            displayCaptions: true,
-            fontSize: size,
-            captionSize: captionSize,
-        });
-    });
-
-    let dbUserId = getCookie( 'db-user-id' );
-
-    if ( dbUserId ) {
-        jQuery(".topbar_link").each(function () {
-            jQuery(this).attr('href', 'https://my.10web.io/upgrade-plan');
-        });
-    }
-
-
-    /**
      * Add tracking to hire an expert link
      */
     jQuery(".hire_an_expert").on("click",function () {

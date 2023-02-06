@@ -8724,7 +8724,7 @@ zd-autocomplete-option:hover {
 
 
 body.menu_opened .header_fixed {
-    top: 0;
+    top: 0 !important;
     z-index: 99999999;
 }
 body.menu_opened .top-bar-container {

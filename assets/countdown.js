@@ -25,7 +25,7 @@ jQuery(window).ready(function () {
         }
     }
     jQuery('#countdown').timeTo({
-        timeTo: new Date('Feb 17 2023 13:00:00 GMT-0800 (EET)'),
+        timeTo: new Date('Feb 16 2023 08:00:00 GMT-0800 (EET)'),
         displayDays: 2,
         displaySeconds: false,
         displayCaptions: true,
@@ -34,7 +34,7 @@ jQuery(window).ready(function () {
     });
     window.addEventListener('focus', function() {
         jQuery('#countdown').timeTo({
-            timeTo: new Date('Feb 17 2023 13:00:00 GMT-0800 (EET)'),
+            timeTo: new Date('Feb 16 2023 08:00:00 GMT-0800 (EET)'),
             displayDays: 2,
             displaySeconds: false,
             displayCaptions: true,

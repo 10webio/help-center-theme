@@ -8804,7 +8804,7 @@ body.menu_opened .top-bar-container {
 }
 @media screen and (min-width: 1770px) {
     .top-bar-container {
-        background-image: url(../images/left.png), url(../images/right.png);
+        background-image: url($assets-left-png), url($assets-right-png) !important;
         background-position: left center, right center;
         background-size: 300px 80px;
         background-repeat: no-repeat;

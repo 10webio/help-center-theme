@@ -8790,7 +8790,6 @@ body.with-topbar.menu_opened .top-bar-container {
     color: #FFFFFF;
     display: flex;
     height: 100%;
-    position: relative;
     background-repeat: no-repeat;
     background-position: left center;
 }

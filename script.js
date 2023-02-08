@@ -708,12 +708,12 @@ function copyToClipboard(element) {
 
 $(document).ready(function() {
 
-    /*TOp bar*/
+    /*Top bar
     if (typeof jQuery.cookie("closeTopBar") === "undefined") {
         jQuery('body').addClass('with-topbar');
         jQuery('.top-bar-container').removeClass('hidden');
-    }
-    /*Remove topbar*/
+    }*/
+    /*Remove topbar
     jQuery(".top-bar-container__close").on('click', function () {
         jQuery('body,html').removeClass('with-topbar');
         jQuery('.top-bar-container').remove();
@@ -721,7 +721,7 @@ $(document).ready(function() {
             path: '/',
             domain: '10web.io'
         });
-    });
+    });*/
 
     /**
      * Add tracking to hire an expert link

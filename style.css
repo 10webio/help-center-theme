@@ -8792,6 +8792,7 @@ body.with-ph-topbar.opened_menu .top-bar-container {
 }
 .top-bar-container .container .top-bar__content .top {
     font-weight: 600;
+    margin: 0;
 }
 .top-bar-container .container .top-bar__content .top b {
     font-weight: 800;
@@ -8802,6 +8803,7 @@ body.with-ph-topbar.opened_menu .top-bar-container {
     border: 1px solid #FFFFFF;
     color: #ffffff;
     box-sizing: border-box;
+    border-radius: 6px;
 }
 .top-bar-container .top-bar-container__close {
     position: absolute;

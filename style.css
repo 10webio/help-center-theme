@@ -8732,210 +8732,188 @@ body.with-topbar.menu_opened .top-bar-container {
 }
 @media screen and (min-width: 1261px) {
     body.with-topbar {
-        margin-top: 80px;
+        margin-top: 90px;
     }
     body.with-topbar.fixed_header  .header_fixed {
-        top: 80px;
+        top: 90px;
     }
     body.with-topbar.fixed_header #categories-menu{
-        top:157px;
+        top:167px;
     }
 }
 @media screen and (max-width: 1260px) and (min-width: 768px) {
     body.with-topbar {
-        margin-top: 78px;
+        margin-top: 90px;
     }
     body.with-topbar.fixed_header  .header_fixed {
-        top: 78px;
+        top: 90px;
     }
     body.with-topbar.fixed_header #categories-menu{
-        top:157px;
+        top:169px;
     }
 }
 @media screen and (max-width: 767px) {
     body.with-topbar {
-        margin-top: 243px;
+        margin-top: 222px;
     }
     body.with-topbar.fixed_header  .header_fixed {
-        top: 243px;
+        top: 222px;
     }
 }
 .top-bar-container.hidden{
     display: none;
 }
-
-@-webkit-keyframes cu-bouncedelay {
-    0%, 100%, 80% {
-        -webkit-transform: scale(0);
-    }
-    40% {
-        -webkit-transform: scale(1);
-    }
+body.with-ph-topbar.opened_menu .blog_header {
+    top: 0;
+    z-index: 1;
 }
-@keyframes cu-bouncedelay {
-    0%, 100%, 80% {
-        -webkit-transform: scale(0);
-        transform: scale(0);
-    }
-    40% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-    }
-}
-
-figure, figcaption {
-    display: block;
-}
-.timeTo {
-    font-weight: bold;
-}
-
-.timeTo figure {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-}
-.timeTo figcaption {
-    text-align: center;
-}
-
-.timeTo div {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-}
-
-.timeTo ul {
-    position: absolute;
-}
-
-#countdown *{
-    font-family: 'Open Sans', sans-serif;
-}
-#countdown.timeTo > span, #countdown.timeTo > figure:nth-child(6) {
+body.with-ph-topbar.opened_menu .top-bar-container {
     display: none;
 }
-#countdown.timeTo figure {
-    position: relative;
-    line-height: 1;
+
+.top-bar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999999;
+    color: #FFFFFF;
+    background-color: #DA552F;
+    box-sizing: border-box;
 }
-#countdown.timeTo figure:not(:nth-child(4)):after {
-    content: ":";
-    color: #22B339;
-    position: absolute;
+.top-bar-container .container {
+    display: flex;
 }
-#countdown.timeTo figure div {
-    color: white !important;
-    border: 0 !important;
-    background: rgba(255, 255, 255, 0.04) !important;
-    border-radius: 6px;
-    margin-right: 0 !important;
+.top-bar-container .container .top-bar-logo {
+    width: 80px;
+    height: 80px;
+    background-image: url($assets-ph-png);
+    background-size: 80px;
 }
-#countdown.timeTo figure figcaption {
-    color: rgba(255, 255, 255, 0.8);
-    margin-top: 4px;
+.top-bar-container .container .top-bar__content .top {
     font-weight: 600;
-    text-transform: capitalize;
-    line-height: 1;
+    margin: 0;
+}
+.top-bar-container .container .top-bar__content .top b {
+    font-weight: 800;
+}
+.top-bar-container .container .top-bar__link a {
+    padding: 9px 20px;
+    width: 180px;
+    border: 1px solid #FFFFFF;
+    color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+.top-bar-container .top-bar-container__close {
+    position: absolute;
+    background: url($assets-close_w-svg) no-repeat;
+    background-position: center;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    background-size: 13px;
+    opacity: 0.8;
 }
 @media screen and (min-width: 1261px) {
-    #countdown.timeTo {
-        height: 66px;
-        font-size: 26px !important;
+    body.with-ph-topbar {
+        margin-top: 80px;
     }
-    #countdown.timeTo figure {
-        width: 74px !important;
-        max-width: 74px !important;
-        margin-right: 19px;
+    body.with-ph-topbar .blog_header {
+        top: 80px;
     }
-    #countdown.timeTo figure:not(:nth-child(4)):after {
-        font-size: 29px;
-        top: 6px;
-        right: -14px;
+    .top-bar-container {
+        height: 80px;
     }
-    #countdown.timeTo figure div {
-        width: 34px !important;
-        height: 46px !important;
+    .top-bar-container .container {
+        align-items: center;
+        gap: 20px;
     }
-    #countdown.timeTo figure div ul {
-        left: 9px !important;
-        top: -47px !important;
+    .top-bar-container .container .top-bar__content {
+        flex-grow: 1;
     }
-    #countdown.timeTo figure div ul li {
-        line-height: 47px;
+    .top-bar-container .container .top-bar__content .top {
+        font-size: 20px;
+        line-height: 28px;
     }
-    #countdown.timeTo figure div.first {
-        margin-right: 6px !important;
+    .top-bar-container .top-bar-container__close {
+        top: 50%;
+        transform: translateY(-50%);
+        right: 7px;
     }
 }
 @media screen and (max-width: 1260px) and (min-width: 768px) {
-    #countdown.timeTo {
-        height: 50px;
-        font-size: 18px !important;
+    body.with-ph-topbar {
+        margin-top: 80px;
     }
-    #countdown.timeTo figure {
-        width: 46px !important;
-        max-width: 46px !important;
-        margin-right: 17px;
+    body.with-ph-topbar .blog_header {
+        top: 80px;
     }
-    #countdown.timeTo figure:nth-child(4) {
-        margin-right: 0;
+    .top-bar-container {
+        height: 80px;
     }
-    #countdown.timeTo figure:not(:nth-child(4)):after {
-        font-size: 24px;
-        top: 5px;
-        right: -12px;
+    .top-bar-container .container {
+        position: relative;
+        align-items: center;
+        gap: 20px;
     }
-    #countdown.timeTo figure div {
-        width: 22px !important;
-        height: 32px !important;
+    .top-bar-container .container .top-bar__content {
+        flex-grow: 1;
     }
-    #countdown.timeTo figure div ul {
-        left: 6px !important;
-        top: -22px !important;
+    .top-bar-container .container .top-bar__content .top {
+        font-size: 20px;
+        line-height: 28px;
     }
-    #countdown.timeTo figure div ul li {
-        line-height: 26px;
+    .top-bar-container .container .top-bar__content .top b {
+        display: block;
     }
-    #countdown.timeTo figure div.first {
-        margin-right: 2px !important;
+    .top-bar-container .container .top-bar__link {
+        margin-right: 56px;
+    }
+    .top-bar-container .top-bar-container__close {
+        right: 0;
+        width: 22px;
+        height: 22px;
+        background-size: 12px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }
 @media screen and (max-width: 767px) {
-    #countdown.timeTo {
-        height: 50px;
-        font-size: 18px !important;
+    body.with-ph-topbar {
+        margin-top: 222px;
     }
-    #countdown.timeTo figure {
-        width: 46px !important;
-        max-width: 46px !important;
-        margin-right: 17px;
+    body.with-ph-topbar .blog_header {
+        top: 222px;
     }
-    #countdown.timeTo figure:nth-child(4) {
-        margin-right: 0;
+    .top-bar-container {
+        padding: 10px 0 20px;
+        height: 222px;
     }
-    #countdown.timeTo figure:not(:nth-child(4)):after {
-        font-size: 24px;
-        top: 5px;
-        right: -12px;
+    .top-bar-container .container {
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
     }
-    #countdown.timeTo figure div {
-        width: 22px !important;
-        height: 32px !important;
+    .top-bar-container .container .top-bar-logo {
+        margin-bottom: 4px;
     }
-    #countdown.timeTo figure div ul {
-        left: 6px !important;
-        top: -22px !important;
+    .top-bar-container .container .top-bar__content {
+        margin-bottom: 20px;
     }
-    #countdown.timeTo figure div ul li {
-        line-height: 26px;
+    .top-bar-container .container .top-bar__content .top {
+        font-size: 14px;
+        line-height: 24px;
     }
-    #countdown.timeTo figure div.first {
-        margin-right: 2px !important;
+    .top-bar-container .container .top-bar__content .top b {
+        display: block;
+    }
+    .top-bar-container .top-bar-container__close {
+        top: 10px;
+        right: 10px;
     }
 }
 
-/*Event popup end*/
 
 
 

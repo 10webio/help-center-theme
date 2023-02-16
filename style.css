@@ -8732,7 +8732,7 @@ body.with-topbar.menu_opened .top-bar-container {
 }
 @media screen and (min-width: 1261px) {
     body.with-topbar {
-        margin-top: 90px;
+        margin-top: 80px;
     }
     body.with-topbar.fixed_header  .header_fixed {
         top: 90px;
@@ -8743,7 +8743,7 @@ body.with-topbar.menu_opened .top-bar-container {
 }
 @media screen and (max-width: 1260px) and (min-width: 768px) {
     body.with-topbar {
-        margin-top: 90px;
+        margin-top: 80px;
     }
     body.with-topbar.fixed_header  .header_fixed {
         top: 90px;

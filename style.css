@@ -8730,27 +8730,6 @@ body.with-topbar.menu_opened .header_fixed {
 body.with-topbar.menu_opened .top-bar-container {
     display: none;
 }
-@media screen and (min-width: 1261px) {
-    body.with-topbar.fixed_header  .header_fixed {
-        top: 90px;
-    }
-    body.with-topbar.fixed_header #categories-menu{
-        top:167px;
-    }
-}
-@media screen and (max-width: 1260px) and (min-width: 768px) {
-    body.with-topbar.fixed_header  .header_fixed {
-        top: 90px;
-    }
-    body.with-topbar.fixed_header #categories-menu{
-        top:169px;
-    }
-}
-@media screen and (max-width: 767px) {
-    body.with-topbar.fixed_header  .header_fixed {
-        top: 222px;
-    }
-}
 .top-bar-container.hidden{
     display: none;
 }

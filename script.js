@@ -859,10 +859,15 @@ $(document).ready(function() {
     /**
      * Zendesk chat
      * */
-    setTimeout(function () {
-        $("#advanced_chat").fadeIn('slow');
-        $(".chats-container, #advanced_chat").removeAttr("style");
-    }, 100);
+    const dbUserSubscrCategory = getCookie( 'db-user-subscr-category' );
+    if (!dbUserSubscrCategory || (dbUserSubscrCategory && dbUserSubscrCategory !== 'starter')) {
+        setTimeout(function () {
+            $("#advanced_chat").fadeIn('slow');
+            $(".chats-container, #advanced_chat").removeAttr("style");
+        }, 100);
+    } else {
+        jQuery('.resource_item.contact_us').hide();
+    }
 
     $(".resource_item.contact_us, .advanced_chat-bubble").on('click', function(){
         if( typeof zE != 'undefined' && zE('webWidget:get', 'chat:isChatting') ) {

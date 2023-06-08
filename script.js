@@ -858,8 +858,8 @@ $(document).ready(function() {
     /**
      * Zendesk chat
      * */
-    let dbUserId = getCookie( 'db-user-id' );
-    if (dbUserId) {
+    let dbUserSubscrCategory = getCookie( 'db-user-subscr-category' );
+    if (dbUserSubscrCategory && dbUserSubscrCategory !== 'starter') {
         setTimeout(function () {
             $("#advanced_chat").fadeIn('slow');
             $(".chats-container, #advanced_chat").removeAttr("style");

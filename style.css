@@ -8635,6 +8635,46 @@ zd-autocomplete-option:hover {
     font-weight: 600;
     margin: 0;
 }
+
+/*Table*/
+.table-container{
+    border: 1px solid #F4F4F4;
+    margin: 20px 0;
+    display: inline-block;
+    max-width: 100%;
+}
+.table-container table{
+    border: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-family: "Open Sans", sans-serif;
+    table-layout: fixed;
+    display: flex;
+}
+.table-container table td,
+.table-container table th{
+    padding: 10px 20px;
+    border: 0;
+    font-family: 'Literata', serif;
+}
+.table-container table th{
+    background: #2160B508;
+    font-weight: 600;
+}
+.table-container table tr td:not(:last-child) {
+    border-right: 1px solid #F4F4F4;
+}
+.table-container table tr:not(:last-child) {
+    border-bottom: 1px solid #F4F4F4;
+}
+
+.table-container .center tr td,
+.table-container .center tr th{
+    text-align:center;
+}
+
+
 @media screen and (min-width: 1261px) {
     .feature-items {
         margin: 0 0 50px;

@@ -41,7 +41,7 @@ const mainSections = {
           ]
     },
     "4403729943442":{
-        "name" : "10Web Builder",
+        "name" : "AI Builder",
         "type" : "category",
         "custom" :
           [

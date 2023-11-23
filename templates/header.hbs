@@ -1,46 +1,64 @@
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://metrics.10web.io/ns.html?id=GTM-M6GPZ95"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<header class="header">
-  <div class="header_fixed">
-     <div class="header_container container">
-        <div class="header_left">
-          <div class="menu-icon">
-            <div>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-          <div class="logo">
-            {{#link 'help_center'}}
-              <div class="help-center-logo" ></div>
-            {{/link}}
-          </div>
-          {{#link 'requests' class='my-tickets-link logged-in'}}My Tickets{{/link}}
-      </div>
-      <div class="header_right">
-        <div class="header_search">
-          <span class="toggle-search icon-search"></span>
-          {{search submit=false instant=settings.instant_search class='search' placeholder='Search The Help Center'}}
-          <div class="icon-close"></div>
+<div class="top-bar-container">
+    <div class="top-bar-logo"></div>
+    <div class="container">
+        <div class="top-bar-countdown">
+            <div class="countdown light-color"></div>
         </div>
-        <div class="user_info_section">
-          {{user_info}}
+        <div class="top-bar__content">
+            <p class="top">Get <span class="with-gradient">AI Website Builder</span><br class="mobile"> with a 50%
+                discount!</p>
+            <p class="bottom">Grow your business with AI</p>
         </div>
-      </div>
-   </div>
-   <div id="mobile-menu">
-     <div class="mobile-menu-logged-in">
-       <div class="container">
-        {{#link 'requests' class='my-tickets-link logged-in'}}My Tickets{{/link}}
-       </div>
-     </div>
-     <div class="container">
-       <div class="mobile-menu-container"></div>
-       <div class="mobile-menu-logged-out"></div>
-     </div>
+        <div class="top-bar__link button">
+            <a href="https://10web.io/pricing-platform/">Claim Your Discount</a>
+        </div>
     </div>
-  </div>
+    <div class="top-bar-right-img"></div>
+</div>
+
+<header class="header">
+    <div class="header_fixed">
+        <div class="header_container container">
+            <div class="header_left">
+                <div class="menu-icon">
+                    <div>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="logo">
+                    {{#link 'help_center'}}
+                        <div class="help-center-logo" ></div>
+                    {{/link}}
+                </div>
+                {{#link 'requests' class='my-tickets-link logged-in'}}My Tickets{{/link}}
+            </div>
+            <div class="header_right">
+                <div class="header_search">
+                    <span class="toggle-search icon-search"></span>
+                    {{search submit=false instant=settings.instant_search class='search' placeholder='Search The Help Center'}}
+                    <div class="icon-close"></div>
+                </div>
+                <div class="user_info_section">
+                    {{user_info}}
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu">
+            <div class="mobile-menu-logged-in">
+                <div class="container">
+                    {{#link 'requests' class='my-tickets-link logged-in'}}My Tickets{{/link}}
+                </div>
+            </div>
+            <div class="container">
+                <div class="mobile-menu-container"></div>
+                <div class="mobile-menu-logged-out"></div>
+            </div>
+        </div>
+    </div>
 </header>

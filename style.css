@@ -9145,7 +9145,7 @@ figure, figcaption {
 
 @media screen and (min-width: 1261px) {
     .countdown.timeTo {
-        height: 84px;
+        height: 80px;
         font-size: 24px !important;
         display: flex;
         align-items: center;

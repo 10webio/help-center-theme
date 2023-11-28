@@ -710,58 +710,6 @@ function copyToClipboard(element) {
 }
 
 $(document).ready(function() {
-    /*Top bar*/
-    jQuery('body').addClass('with-topbar');
-    let size = 26
-    let captionSize = 10
-    if (jQuery('.page-template-page-pricing').length) {
-        size = 26
-    }
-    if (jQuery('.page-template-page-booster-landing').length) {
-        size = 36
-        captionSize = 14
-    }
-    if (matchMedia('screen and (max-width:1260px) and (min-width:768px)').matches) {
-        size = 18
-        if (jQuery('.page-template-page-pricing').length) {
-            size = 20
-        }
-        if (jQuery('.page-template-page-booster-landing').length) {
-            size = 36
-            captionSize = 14
-        }
-    } else if (matchMedia('screen and (max-width:767px)').matches){
-        size = 18
-        if (jQuery('.page-template-page-booster-landing').length || jQuery('.page-template-page-pricing').length) {
-            size = 20
-            captionSize = 10
-        }
-    }
-    jQuery('.countdown').each(function(){
-        jQuery(this).timeTo({
-            timeTo: new Date('Nov 28 2023 12:00:00'),
-            displayDays: 2,
-            displaySeconds: false,
-            displayCaptions: true,
-            fontSize: size,
-            captionSize: captionSize,
-        });
-    })
-
-    window.addEventListener('focus', function() {
-        jQuery('.countdown').each(function(){
-            jQuery(this).timeTo({
-                timeTo: new Date('Nov 28 2023 12:00:00'),
-                displayDays: 2,
-                displaySeconds: false,
-                displayCaptions: true,
-                fontSize: size,
-                captionSize: captionSize,
-            });
-        });
-    });
-    /** blk offer
-
 
      /**
      * Add tracking to hire an expert link

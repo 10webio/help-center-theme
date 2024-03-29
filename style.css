@@ -198,16 +198,14 @@ li.article-promoted [data-title="Promoted article"] {
     max-width: 100%;
     float: left;
 }
-.footer-bottom-content-left .copyright_info br {
-    display: none;
-}
+
 .footer-bottom-content-left .copyright_info a {
     text-decoration: underline;
     color: #323a45;
     position: relative;
 }
 .copyright_info #privacy-policy {
-    padding: 0 15px 0 10px;
+    padding: 0 15px 0 0;
 }
 .copyright_info #terms-of-services {
     padding: 0 15px 0 0;
@@ -216,13 +214,14 @@ li.article-promoted [data-title="Promoted article"] {
     padding: 0 15px 0 0;
 }
 .copyright_info #report-abuse {
-    padding: 0;
+    padding: 0 15px 0 0;
 }
 .footer-bottom-content-left .copyright_info a:hover {
     color: rgba(50,58,69,.7);
 }
 #privacy-policy:after,
 #terms-of-services:after,
+#report-abuse:after,
 #sla:after {
     content: "";
     width: 3px;

@@ -711,6 +711,13 @@ function copyToClipboard(element) {
 
 $(document).ready(function() {
 
+    jQuery('.article-body a').each(function() {
+        const href = jQuery(this).attr('href');
+        if (isValidUrl(href)) {
+            jQuery(this).attr('target', '_blank');
+        }
+    });
+
      /**
      * Add tracking to hire an expert link
      */

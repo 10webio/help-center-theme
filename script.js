@@ -19,7 +19,11 @@ const mainSections = {
         "name" : "Getting Started",
         "type" : "category",
         "custom" :
-          []
+          [
+              {
+                  "id":"4403735338258",
+              }
+          ]
     },
     "4403729393554":{
         "name" : "Automated WP Platform",

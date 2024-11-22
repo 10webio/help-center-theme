@@ -67,7 +67,14 @@ const mainSections = {
         "name" : "Account & Payment",
         "type" : "category",
         "custom" :
-            []
+          [
+              {
+                  "id":"4403730847122",
+              },
+              {
+                  "id":"4403736693266",
+              }
+          ]
     },
     "4408397419538":{
         "name" : "Video Tutorials",

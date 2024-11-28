@@ -2510,10 +2510,10 @@ h3.search-results-subheading {
 .article-body > p:last-child {
     margin-bottom: 0;
 }
-.article-body img:hover,
+/*.article-body img:hover,
 .article-body video:hover{
     cursor:url($assets-zoom-svg), auto;
-}
+}*/
 .article-body li img:hover {
     cursor: none;
 }

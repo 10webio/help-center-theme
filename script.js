@@ -966,11 +966,11 @@ $(document).ready(function() {
 
     /**
      * Popup
-     *
-    $(".article-body img:not(.image_link), .article-body video").click(function (e) {
+     **/
+    $(".article-body img:not(.image_link):not(.gif), .article-body video").click(function (e) {
         e.preventDefault();
         showPopup(e, 'popup');
-    });*/
+    });
 
     if ($('.user_info_section #user').length) {
         $('body').addClass("logged-in");

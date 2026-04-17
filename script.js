@@ -19,94 +19,94 @@ const mainSections = {
         "name" : "Getting Started",
         "type" : "category",
         "custom" :
-          [
-              {
-                  "id":"4403735338258",
-              },
-              {
-                  "id":"13000029302930",
-              }
-          ]
+            [
+                {
+                    "id":"4403735338258",
+                },
+                {
+                    "id":"13000029302930",
+                }
+            ]
     },
     "4403729393554":{
         "name" : "Automated WP Platform",
         "type" : "category",
         "custom" :
-          [
-              {
-                  "id":"4403735372178",
-              },
-              {
-                  "id":"4403729648146",
-              },
-              {
-                  "id":"4403729668754",
-              },
-              {
-                  "id":"4403729675538",
-              }
-          ]
+            [
+                {
+                    "id":"4403735372178",
+                },
+                {
+                    "id":"4403729648146",
+                },
+                {
+                    "id":"4403729668754",
+                },
+                {
+                    "id":"4403729675538",
+                }
+            ]
     },
     "4403729943442":{
         "name" : "AI Builder",
         "type" : "category",
         "custom" :
-          [
-              {
-                  "id":"360005216339",
-              },
-              {
-                  "id":"4403730815122",
-              },
-              {
-                  "id":"4403735907986",
-              }
-          ]
+            [
+                {
+                    "id":"360005216339",
+                },
+                {
+                    "id":"4403730815122",
+                },
+                {
+                    "id":"4403735907986",
+                }
+            ]
     },
     "4403736661266":{
         "name" : "Account & Payment",
         "type" : "category",
         "custom" :
-          [
-              {
-                  "id":"4403730847122",
-              },
-              {
-                  "id":"4403736693266",
-              }
-          ]
+            [
+                {
+                    "id":"4403730847122",
+                },
+                {
+                    "id":"4403736693266",
+                }
+            ]
     },
     "4408397419538":{
         "name" : "Video Tutorials",
         "type" : "article",
         "custom" :
-          []
+            []
     },
     "4403731365906":{
         "name" : "Troubleshooting",
         "type" : "category",
         "custom" :
-          [
-              {
-                  "id":"4403731580946",
-              }
-          ]
+            [
+                {
+                    "id":"4403731580946",
+                }
+            ]
     },
     "4403730877330":{
         "name" : "Plugins",
         "type" : "category",
         "custom" :
-          [
-              {
-                  "id":"4403731132434",
-              },
-              {
-                  "id":"4403736802706",
-              },
-              {
-                  "id":"4403731164306",
-              }
-          ]
+            [
+                {
+                    "id":"4403731132434",
+                },
+                {
+                    "id":"4403736802706",
+                },
+                {
+                    "id":"4403731164306",
+                }
+            ]
     }
 };
 const helpAPI = {
@@ -138,8 +138,8 @@ const helpAPI = {
 
     getArticlesBySectionId : function(sectionId) {
         let result = {},
-          results = [],
-          articles = [];
+            results = [],
+            articles = [];
         $.ajax({
             url: `${helpCenterEndpoint}/sections/${sectionId}/articles?per_page=100`,
             type: 'get',
@@ -229,8 +229,8 @@ const categoryPage = {
 
     setCategoryPageCustomArticle : function(article) {
         let html = "<section class='section article'>" +
-          "<h3 class='section-tree-title'>" + article.name + "</h3>" +
-          "<div>" + article.body + "</div></section>";
+            "<h3 class='section-tree-title'>" + article.name + "</h3>" +
+            "<div>" + article.body + "</div></section>";
 
         $(".section-tree").prepend(html);
     },
@@ -238,7 +238,7 @@ const categoryPage = {
     getCategorySections : function(id) {
         this.setSection(id);
         let _this = this,
-          staticSection = _this.section;
+            staticSection = _this.section;
         $('.section-tree-with-article').removeAttr('data-asynchtml');
 
         /**
@@ -389,9 +389,9 @@ let videoSearch = {
 
     applay: function(from){
         let _this = this,
-          items = _this.helpCenterVideos,
-          count = 0,
-          length = items.length;
+            items = _this.helpCenterVideos,
+            count = 0,
+            length = items.length;
         if ((Object.keys(_this.searchedItems).length !== 0 && from === 'pagination') || from === 'search')  {
             items = _this.searchedItems;
             length = Object.keys(_this.searchedItems).length;
@@ -442,8 +442,8 @@ let videoSearch = {
             let items = '<div class="video-suggestion custom-scroll"><ul>';
             for (const index in this.searchedItems) {
                 let video = this.searchedItems[index],
-                  regEx = new RegExp(value, "ig"),
-                  highlight = video.replace(regEx, `<b>${value}</b>`);
+                    regEx = new RegExp(value, "ig"),
+                    highlight = video.replace(regEx, `<b>${value}</b>`);
                 items += `<li><a href="" data-index="${index}">${highlight}</a></li>`;
             }
             items += '</ul></div>';
@@ -487,7 +487,7 @@ if (typeof redirection_list !== 'undefined') {
 
 function highlightInThisArticle(index) {
     let items = jQuery(".desktop-sidebar .sticky-sidebar").find("li"),
-      currentItem = items.eq(index);
+        currentItem = items.eq(index);
     items.removeClass("active");
     currentItem.addClass("active");
     if (!checkInView(currentItem)) {
@@ -497,11 +497,11 @@ function highlightInThisArticle(index) {
 
 function checkInView(elem,partial) {
     let container = jQuery(".desktop-sidebar .sticky-sidebar"),
-      contHeight = container.height(),
-      elemTop = jQuery(elem).offset().top - container.offset().top,
-      elemBottom = elemTop + jQuery(elem).height(),
-      isTotal = (elemTop >= 0 && elemBottom <=contHeight),
-      isPart = ((elemTop < 0 && elemBottom > 0 ) || (elemTop > 0 && elemTop <= container.height())) && partial;
+        contHeight = container.height(),
+        elemTop = jQuery(elem).offset().top - container.offset().top,
+        elemBottom = elemTop + jQuery(elem).height(),
+        isTotal = (elemTop >= 0 && elemBottom <=contHeight),
+        isPart = ((elemTop < 0 && elemBottom > 0 ) || (elemTop > 0 && elemTop <= container.height())) && partial;
 
     return  isTotal  || isPart ;
 }
@@ -534,19 +534,19 @@ function article_titles(){
 
 document.addEventListener("DOMContentLoaded", function() {
     let yearSpan = document.querySelector('.full_year'),
-      date = new Date().getFullYear();
+        date = new Date().getFullYear();
     yearSpan.textContent = date;
 });
 
 function showPopup(e, type) {
 
     const videoContainer = '<div id="embed_container">' +
-      '<div><div class="close_embed screen"></div>' +
-      '<div class="iframe-container-latest">' +
-      '<div id="iframe-container"></div>' +
-      '</div>' +
-      '</div>' +
-      '</div>';
+        '<div><div class="close_embed screen"></div>' +
+        '<div class="iframe-container-latest">' +
+        '<div id="iframe-container"></div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
     $('body').append(videoContainer);
 
     if (type === 'popup') {
@@ -613,11 +613,11 @@ function setFixedMenu() {
 
 function setMenu() {
     let menu = {},
-      html = "",
-      link = "",
-      pageInfo = getPageInfo(window.location.href),
-      currentId = pageInfo.id,
-      allSections = helpAPI.getSections();
+        html = "",
+        link = "",
+        pageInfo = getPageInfo(window.location.href),
+        currentId = pageInfo.id,
+        allSections = helpAPI.getSections();
     if (allSections.count) {
         for (const id in mainSections) {
             menu[id] = {};
@@ -633,7 +633,7 @@ function setMenu() {
     html += "<div class='container'><div class='categories-menu_current'>" + currentName + "</div><ul>";
     for (const property in menu) {
         let classLi = '',
-          link = helpCenterLink + "categories/" + property;
+            link = helpCenterLink + "categories/" + property;
         if (menu[property]["type"] === 'article') {
             link = helpCenterLink + "articles/" + property;
         } else {
@@ -673,8 +673,8 @@ function setMenu() {
 function  isCurrentCategory(allSections) {
     if ($(".breadcrumbs-nav").length && $(".breadcrumbs-nav").is(':visible')) {
         let link = $(".breadcrumbs-nav .breadcrumbs > li:nth-child(2) a").length ? $(".breadcrumbs-nav .breadcrumbs > li:nth-child(2) a").attr('href') : window.location.href,
-          pageInfo = getPageInfo(link),
-          categoryId = pageInfo.id;
+            pageInfo = getPageInfo(link),
+            categoryId = pageInfo.id;
         if (allSections.count) {
             let parentSection = allSections.sections.filter(function(el, i) {
                 if(el.description.includes(categoryId))
@@ -814,7 +814,7 @@ $(document).ready(function() {
              */
             if($(this).find('a').length){
                 let link = $(this).find('a').attr('href'),
-                  linkText = $(this).find('a').text();
+                    linkText = $(this).find('a').text();
                 if(link.indexOf('/en-us/sections/') !== -1){
                     $(this).html(`<span>${linkText}</span>`);
                 }
@@ -1028,7 +1028,7 @@ $(document).ready(function() {
      * Show form controls when the textarea receives focus or back button is used and value exists
      */
     const $commentContainerTextarea = $(".comment-container textarea"),
-      $commentContainerFormControls = $(".comment-form-controls, .comment-ccs");
+        $commentContainerFormControls = $(".comment-form-controls, .comment-ccs");
 
     $commentContainerTextarea.one("focus", function() {
         $commentContainerFormControls.show();
@@ -1041,8 +1041,8 @@ $(document).ready(function() {
      * Expand Request comment form when Add to conversation is clicked
      */
     const $showRequestCommentContainerTrigger = $(".request-container .comment-container .comment-show-container"),
-      $requestCommentFields = $(".request-container .comment-container .comment-fields"),
-      $requestCommentSubmit = $(".request-container .comment-container .request-submit-comment");
+        $requestCommentFields = $(".request-container .comment-container .comment-fields"),
+        $requestCommentSubmit = $(".request-container .comment-container .request-submit-comment");
 
     $showRequestCommentContainerTrigger.on("click", function() {
         $showRequestCommentContainerTrigger.hide();
@@ -1055,8 +1055,8 @@ $(document).ready(function() {
      * Mark as solved button
      */
     const $requestMarkAsSolvedButton = $(".request-container .mark-as-solved:not([data-disabled])"),
-      $requestMarkAsSolvedCheckbox = $(".request-container .comment-container input[type=checkbox]"),
-      $requestCommentSubmitButton = $(".request-container .comment-container input[type=submit]");
+        $requestMarkAsSolvedCheckbox = $(".request-container .comment-container input[type=checkbox]"),
+        $requestCommentSubmitButton = $(".request-container .comment-container input[type=submit]");
 
     $requestMarkAsSolvedButton.on("click", function () {
         $requestMarkAsSolvedCheckbox.attr("checked", true);
@@ -1090,9 +1090,9 @@ $(document).ready(function() {
      * Submit requests filter form in the request list page
      */
     $("#request-status-select, #request-organization-select")
-      .on("change", function() {
-          search();
-      });
+        .on("change", function() {
+            search();
+        });
 
     /**
      * Submit requests filter form in the request list page
@@ -1150,15 +1150,15 @@ $(document).ready(function() {
         this.setAttribute("aria-expanded", !isExpanded);
     });
 
-    $("footer .footer_widget_nav_menu .footer_titles").click(function () {
+    $("footer .footer-menu_title").click(function () {
         if (matchMedia('screen and (max-width: 1279px)').matches) {
             if ($(this).hasClass("active")) {
                 $(this).removeClass("active");
-                $(this).next("div").slideUp("fast");
+                $(this).next("ul").slideUp("fast");
             }
             else {
                 $(this).addClass("active");
-                $(this).next("div").slideDown("fast");
+                $(this).next("ul").slideDown("fast");
             }
         }
     });
@@ -1195,7 +1195,7 @@ $(document).ready(function() {
     click = false;
     $(".article-sidebar li").on('click', function() {
         let links = $(".article-body").find("h2"),
-          i = $(this).index();
+            i = $(this).index();
         $(".article-sidebar li").removeClass("active");
         $(this).addClass("active");
         click = true;
@@ -1215,7 +1215,7 @@ $(document).ready(function() {
 
         if ($(".article-sidebar.desktop-sidebar").length) {
             let links = $(".article-body").find("h2"),
-              sTop = $(window).scrollTop();
+                sTop = $(window).scrollTop();
             if(links.length && !click) {
                 $(links).each(function (index, el) {
                     if(links.eq(index + 1).length){

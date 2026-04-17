@@ -8438,6 +8438,10 @@ body.with-ph-topbar.opened_menu .top-bar-container {
 #colophon.minified_without_links .footer_top .container {
     padding-bottom: 0;
 }
+
+#colophon .content-left p {
+    margin: 0;
+}
 @media screen and (min-width: 1261px) {
     #colophon .footer_top .container {
         gap: 50px;
@@ -8448,6 +8452,7 @@ body.with-ph-topbar.opened_menu .top-bar-container {
     }
     #colophon .footer_top .footer-column .footer-menu_title {
         margin-bottom: 20px;
+        margin-top: 0;
     }
     #colophon .footer_top .footer-column .footer-menu_title span {
         color: rgba(255, 255, 255, 0.5);

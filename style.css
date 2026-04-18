@@ -8332,6 +8332,7 @@ body.with-ph-topbar.opened_menu .top-bar-container {
     background: #14151f;
     border-top: 1px solid rgba(255, 255, 255, 0.14);
     padding: 40px 0;
+    margin-top: 100px;
 }
 #colophon.dark_blue_bg {
     background: #14151f;

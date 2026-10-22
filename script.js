@@ -25,6 +25,12 @@ const mainSections = {
                 }
             ]
     },
+    "4408397419538":{
+        "name" : "Build with AI",
+        "type" : "article",
+        "custom" :
+            []
+    },
     "4403729393554":{
         "name" : "Automated WP Platform",
         "type" : "category",
@@ -72,12 +78,6 @@ const mainSections = {
                     "id":"4403736693266",
                 }
             ]
-    },
-    "4408397419538":{
-        "name" : "Video Tutorials",
-        "type" : "article",
-        "custom" :
-            []
     },
     "4403731365906":{
         "name" : "Troubleshooting",

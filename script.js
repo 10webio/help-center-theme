@@ -27,7 +27,7 @@ const mainSections = {
     },
     "4408397419538":{
         "name" : "Build with AI",
-        "type" : "article",
+        "type" : "category",
         "custom" :
             []
     },

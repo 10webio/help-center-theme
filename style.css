@@ -161,11 +161,11 @@ iframe#launcher {
 .home-page .container_top .container_top_bottom_item .learn-more{
     display:none;
 }
-.home-page .container_top .container_top_item.builder,
+.home-page .container_top .container_top_item.wp_platform,
 .home-page .container_top .container_top_item.troubleshooting{
     border-right: 0;
 }
-.home-page .container_top .container_top_item.video_tutorial,
+.home-page .container_top .container_top_item.builder,
 .home-page .container_top .container_top_item.account_payment,
 .home-page .container_top .container_top_item.troubleshooting{
     border-bottom: 0;

@@ -220,7 +220,7 @@ iframe#launcher {
     background-image: url($assets-account_payment-svg);
 }
 .home-page .container_top .container_top_item.video_tutorial h3 {
-    background-image: url($assets-video_tutorial-svg);
+    background-image: url($assets-build-with-ai-svg);
 }
 .home-page .container_top .container_top_item.troubleshooting h3 {
     background-image: url($assets-troubleshooting-svg);

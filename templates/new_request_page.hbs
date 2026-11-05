@@ -1,23 +1,31 @@
-<div class="container-divider"></div>
-<div class="container">
-  <nav class="sub-nav">
-    {{breadcrumbs}}
-  </nav>
-  <div class='form_section'>
-    <div class='form_container'>
-      <h1>
-        {{t 'submit_a_request'}}
-        {{#if follow_up}}
-          <span class="follow-up-hint">
-            {{follow_up}}
-          </span>
-        {{/if}}
-      </h1>
+<div class="dx-shell dx-requests-mode dx-nr-mode">
+  <main class="dx-main" id="dx-main" data-dx-page="new-request">
+    <div class="dx-nr">
+      {{#link 'requests' class='dx-nr-back'}}<svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M10.4 3.6a.55.55 0 0 1 0 .78L6.78 8l3.62 3.62a.55.55 0 1 1-.78.78l-4-4a.55.55 0 0 1 0-.78l4-4a.55.55 0 0 1 .78 0Z"/></svg>My tickets{{/link}}
+      <h1 class="dx-rq-title">Submit a ticket</h1>
+      {{#if follow_up}}<p class="dx-nr-followup">{{follow_up}}</p>{{/if}}
+      <p class="dx-rq-lead">Tell us what’s happening and our support team will get back to you, usually within a few hours.</p>
 
-      <div class="form">
-        {{request_form}}
+      <div class="dx-nr-grid">
+        <div class="dx-nr-form dx-zd-form">
+          {{request_form}}
+        </div>
+
+        <aside class="dx-nr-side" aria-label="Before you submit">
+          <div class="dx-nr-tips">
+            <h2 class="dx-nr-side-t">Get a faster answer</h2>
+            <ol>
+              <li>Name the website or domain that’s affected.</li>
+              <li>List the steps that lead to the problem.</li>
+              <li>Attach a screenshot of any error.</li>
+            </ol>
+          </div>
+          <button type="button" class="dx-rq-card" data-dx-open-search><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.24 1.55c-.52 0-.95.43-.95.95v11c0 .52.43.95.95.95h9.52c.52 0 .95-.43.95-.95v-11c0-.52-.43-.95-.95-.95H3.24ZM1.19 2.5C1.19 1.37 2.11.45 3.24.45h9.52c1.13 0 2.05.92 2.05 2.05v11c0 1.13-.92 2.05-2.05 2.05H3.24a2.05 2.05 0 0 1-2.05-2.05v-11ZM4.45 5c0-.3.25-.55.55-.55h6a.55.55 0 1 1 0 1.1H5A.55.55 0 0 1 4.45 5Zm0 3c0-.3.25-.55.55-.55h6a.55.55 0 1 1 0 1.1H5A.55.55 0 0 1 4.45 8Zm0 3c0-.3.25-.55.55-.55h3.5a.55.55 0 1 1 0 1.1H5a.55.55 0 0 1-.55-.55Z"/></svg><span><strong>Search the docs</strong><em>Most questions have a step-by-step guide.</em></span><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 3.6a.55.55 0 0 1 .78 0l4 4a.55.55 0 0 1 0 .78l-4 4a.55.55 0 1 1-.78-.78L9.22 8 5.6 4.38a.55.55 0 0 1 0-.78Z"/></svg></button>
+          <a class="dx-rq-card" href="https://status.10web.io/" target="_blank" rel="noopener"><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 2.45c.24 0 .45.15.52.38l2.06 6.66 1.4-3.73a.55.55 0 0 1 1.02-.02l.86 1.81H15a.55.55 0 1 1 0 1.1h-3.98a.55.55 0 0 1-.5-.31l-.48-1-1.53 4.1a.55.55 0 0 1-1.04-.03L5.42 4.85 3.98 9.1a.55.55 0 0 1-.52.37H1a.55.55 0 1 1 0-1.1h2.06l1.92-5.55a.55.55 0 0 1 .52-.37Z"/></svg><span><strong>System status</strong><em>Check for outages and maintenance.</em></span><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 3.6a.55.55 0 0 1 .78 0l4 4a.55.55 0 0 1 0 .78l-4 4a.55.55 0 1 1-.78-.78L9.22 8 5.6 4.38a.55.55 0 0 1 0-.78Z"/></svg></a>
+          <a class="dx-rq-card" href="/hc/sections/{{settings.changelog_section_id}}"><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.98 1.1a.55.55 0 0 1 .82.48v11.3a.55.55 0 0 1-.79.5L7.3 10.33H6.1v3.12a1.1 1.1 0 0 1-1.1 1.1h-.9a1.1 1.1 0 0 1-1.1-1.1v-3.15A2.6 2.6 0 0 1 .95 7.75v-.9a2.6 2.6 0 0 1 2.6-2.6H7.3l6.68-3.15ZM7.65 5.2v4.06l6.05 2.75V2.43L7.65 5.2ZM6.55 9.23V5.35h-3a1.5 1.5 0 0 0-1.5 1.5v.9c0 .83.67 1.48 1.5 1.48h3ZM4.1 10.33v3.12h.9v-3.12h-.9Z"/></svg><span><strong>Changelog</strong><em>See what changed recently in 10Web.</em></span><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 3.6a.55.55 0 0 1 .78 0l4 4a.55.55 0 0 1 0 .78l-4 4a.55.55 0 1 1-.78-.78L9.22 8 5.6 4.38a.55.55 0 0 1 0-.78Z"/></svg></a>
+        </aside>
       </div>
     </div>
-  </div>
-  {{chat}}
+  </main>
 </div>
+{{chat}}

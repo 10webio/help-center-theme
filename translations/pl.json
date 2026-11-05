@@ -62,5 +62,12 @@
   "post_sharing_description": "Pokaż udostępnienia wpisu w mediach społecznościowych",
   "community_topic_group_label": "Elementy tematów w społeczności",
   "follow_topic_label": "Obserwuj",
-  "follow_topic_description": "Użytkownicy mogą obserwować wybrany temat"
+  "follow_topic_description": "Użytkownicy mogą obserwować wybrany temat",
+  "hover_link_color_label": "Hover link color",
+  "hover_link_color_description": "Link color on hover. Also used by the AI quick answer box.",
+  "visited_link_color_label": "Visited link color",
+  "visited_link_color_description": "Color of links the visitor already opened. Also used by the AI quick answer box.",
+  "changelog_group_label": "Changelog",
+  "changelog_section_id_label": "Changelog section ID",
+  "changelog_section_id_description": "ID of the section that holds changelog posts. Leave empty to hide the Changelog tab."
 }

@@ -1147,19 +1147,6 @@ $(document).ready(function() {
         this.setAttribute("aria-expanded", !isExpanded);
     });
 
-    $("footer .footer-menu_title").click(function () {
-        if (matchMedia('screen and (max-width: 1279px)').matches) {
-            if ($(this).hasClass("active")) {
-                $(this).removeClass("active");
-                $(this).next("ul").slideUp("fast");
-            }
-            else {
-                $(this).addClass("active");
-                $(this).next("ul").slideDown("fast");
-            }
-        }
-    });
-
     $(".header_container .toggle-search").click(function () {
         $('.header_container .header_search').addClass('active_search');
     });

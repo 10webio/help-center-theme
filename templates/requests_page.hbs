@@ -1,122 +1,94 @@
-<nav class="my-activities-nav collapsible-nav">
-  <ul class="collapsible-nav-list container">
-    <li aria-selected=true>{{t 'requests'}}</li>
-    <li>{{link 'contributions'}}</li>
-    <li>{{link 'subscriptions'}}</li>
-  </ul>
-</nav>
-
-<div class="container">
-  <header class="my-activities-header">
-    <h1>{{t 'my_requests'}}</h1>
-    <nav class="my-activities-sub-nav collapsible-nav">
-      <ul class="collapsible-nav-list">
-        {{#each filters}}
-          {{#if selected}}
-            <li aria-selected=true>{{name}}</li>
-          {{else}}
-            <li>
-              <a href="{{url}}">{{name}}</a>
-            </li>
-          {{/if}}
-        {{/each}}
-      </ul>
-    </nav>
-  </header>
-
-  {{#form 'requests_filter' class='requests-table-toolbar'}}
-    <div class="search">
-      {{input 'query' id='quick-search' type='search' class='requests-search'}}
-    </div>
-    {{#if help_center.multiple_organizations_enabled}}
-      <div class="request-table-filter">
-        {{label 'organization' for='request-organization-select' class='request-filter request-filter-label'}}
-        {{select 'organization' id='request-organization-select' class='request-filter'}}
+<div class="dx-shell dx-requests-mode">
+  <main class="dx-main" id="dx-main" data-dx-page="requests">
+    <div class="dx-rq">
+      <div class="dx-rq-head">
+        <div>
+          <p class="dx-eyebrow">{{#link 'help_center'}}Help Center{{/link}}</p>
+          <h1 class="dx-rq-title">My tickets</h1>
+          <p class="dx-rq-lead">Follow up on conversations with 10Web support. Replies also arrive by email.</p>
+        </div>
+        {{#link 'new_request' class='dx-cta dx-rq-new'}}<svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.45c.3 0 .55.25.55.55v5.45H14a.55.55 0 1 1 0 1.1H8.55V14a.55.55 0 1 1-1.1 0V8.55H2a.55.55 0 1 1 0-1.1h5.45V2c0-.3.25-.55.55-.55Z"/></svg>Submit a ticket{{/link}}
       </div>
-    {{/if}}
 
-    <div class="request-table-filter">
-      {{subscribe}}
-    </div>
+      <div class="dx-rq-stats" role="group" aria-label="Filter by status" hidden>
+        <button type="button" class="dx-rq-stat" data-status="open" aria-pressed="false"><span class="dx-rq-stat-n" data-count="open">–</span><span class="dx-rq-stat-l"><i class="dx-dot dx-dot-open"></i>Open</span></button>
+        <button type="button" class="dx-rq-stat" data-status="pending" aria-pressed="false"><span class="dx-rq-stat-n" data-count="pending">–</span><span class="dx-rq-stat-l"><i class="dx-dot dx-dot-pending"></i>Awaiting your reply</span></button>
+        <button type="button" class="dx-rq-stat" data-status="solved" aria-pressed="false"><span class="dx-rq-stat-n" data-count="solved">–</span><span class="dx-rq-stat-l"><i class="dx-dot dx-dot-solved"></i>Solved</span></button>
+      </div>
 
-    <div class="request-table-filter">
-      {{label 'status' for='request-status-select' class='request-filter request-filter-label'}}
-      {{select 'status' id='request-status-select' class='request-filter'}}
-    </div>
-  {{/form}}
+      <nav class="dx-rq-tabs" aria-label="Ticket lists">
+        {{#each filters}}
+        <a href="{{url}}" class="dx-rq-tab"{{#if selected}} aria-current="page"{{/if}}>{{name}}</a>
+        {{/each}}
+      </nav>
 
-  {{#if query}}
-    <div class="requests-search-info meta-data">
-      {{t 'requests_search_results_info' count=requests.length query=query}}
-    </div>
-  {{else}}
-    {{#unless requests}}
-      <p class="no-activities">{{t 'no_requests'}}</p>
-    {{/unless}}
-  {{/if}}
+      {{#form 'requests_filter' class='dx-rq-toolbar'}}
+        <label class="dx-rq-search">
+          <svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.8 1.36a5.46 5.46 0 1 0 0 10.92 5.46 5.46 0 0 0 0-10.92ZM.24 6.82a6.56 6.56 0 1 1 11.77 3.98l3.46 3.42a.55.55 0 1 1-.78.78l-3.43-3.4A6.56 6.56 0 0 1 .24 6.82Z"/></svg>
+          <span class="dx-visually-hidden">Search tickets</span>
+          {{input 'query' id='quick-search' type='search' placeholder='Search by subject or ticket number'}}
+        </label>
+        <label class="dx-rq-select">
+          <span class="dx-visually-hidden">Status</span>
+          {{select 'status' id='request-status-select'}}
+          <svg class="dx-icon dx-rq-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.6 5.6a.55.55 0 0 1 .78 0L8 9.22l3.62-3.62a.55.55 0 1 1 .78.78l-4 4a.55.55 0 0 1-.78 0l-4-4a.55.55 0 0 1 0-.78Z"/></svg>
+        </label>
+        <label class="dx-rq-select">
+          <span class="dx-visually-hidden">Sort by</span>
+          <select id="dx-rq-sort">
+            <option value="updated_at">Last activity</option>
+            <option value="created_at">Date created</option>
+          </select>
+          <svg class="dx-icon dx-rq-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.6 5.6a.55.55 0 0 1 .78 0L8 9.22l3.62-3.62a.55.55 0 1 1 .78.78l-4 4a.55.55 0 0 1-.78 0l-4-4a.55.55 0 0 1 0-.78Z"/></svg>
+        </label>
+      {{/form}}
+      <span class="dx-rq-sortlinks" hidden>{{#link 'requests' sort_by='updated_at' class='dx-sort-updated'}}Last activity{{/link}}{{#link 'requests' sort_by='created_at' class='dx-sort-created'}}Date created{{/link}}</span>
 
-  <div class="requests">
-    {{#if requests}}
-      <table class="table my-activities-table requests-table {{current_filter.identifier}}-requests">
-        <thead>
-          <tr>
-            <th>{{t 'subject'}}</th>
-            <th>{{t 'id'}}</th>
-            <th>
-              {{#is current_filter.identifier 'my'}}
-                {{#link 'requests' sort_by='created_at'}}{{t 'created'}}{{/link}}
-              {{else}}
-                {{t 'requester'}}
-              {{/is}}
-            </th>
-            <th>{{#link 'requests' sort_by='updated_at'}}{{t 'last_activity'}}{{/link}}</th>
-            <th>
-              {{t 'status'}}
-            </th>
-          </tr>
-        </thead>
+      {{#if query}}
+      <p class="dx-rq-count">{{t 'requests_search_results_info' count=requests.length query=query}}</p>
+      {{/if}}
 
-        <tbody>
+      {{#if requests}}
+      <div class="dx-rq-table" role="table" aria-label="Tickets">
+        <div class="dx-rq-row dx-rq-row-head" role="row">
+          <span role="columnheader">Subject</span>
+          <span role="columnheader">Ticket</span>
+          <span role="columnheader">Last activity</span>
+          <span role="columnheader">Created</span>
+          <span role="columnheader">Status</span>
+          <span aria-hidden="true"></span>
+        </div>
+        <div id="dx-rq-body" role="rowgroup">
           {{#each requests}}
-            <tr {{#is status 'closed'}} class="request-closed" {{/is}}>
-              <td class="request-info requests-table-info">
-                <a href="{{url}}" class="striped-list-title" title="{{subject}}">
-                  {{#if subject}}
-                    {{subject}}
-                  {{else}}
-                    {{excerpt description characters=50}}
-                  {{/if}}
-                </a>
-
-                <!-- Visible on mobile -->
-                <div class="requests-table-meta meta-group">
-                  <span class="meta-data">#{{id}}</span>
-                  <span class="meta-data">{{date created_at timeago=true}}</span>
-                  <span class="status-label status-label-{{status}}" title="{{status_description}}">
-                    {{status_name}}
-                  </span>
-                </div>
-              </td>
-              <td>#{{id}}</td>
-              <td>
-                {{#is ../current_filter.identifier 'my'}}
-                  {{date created_at timeago=true}}
-                {{else}}
-                  {{requester.name}}
-                {{/is}}
-              </td>
-              <td>{{date updated_at timeago=true}}</td>
-              <td class="requests-table-status">
-                <span class="status-label status-label-{{status}}" title="{{status_description}}">
-                  {{status_name}}
-                </span>
-              </td>
-            </tr>
+          <a class="dx-rq-row" role="row" href="{{url}}" data-status="{{status}}">
+            <span class="dx-rq-subj" role="cell"><strong>{{#if subject}}{{subject}}{{else}}{{excerpt description characters=60}}{{/if}}</strong></span>
+            <span class="dx-rq-id" role="cell"><span class="dx-rq-mlabel">Ticket </span>#{{id}}</span>
+            <span class="dx-rq-date dx-rq-upd" role="cell"><span class="dx-rq-mlabel">Updated </span>{{date updated_at}}</span>
+            <span class="dx-rq-date dx-rq-cre" role="cell"><span class="dx-rq-mlabel">Created </span>{{date created_at}}</span>
+            <span class="dx-rq-badge is-{{status}}" role="cell" title="{{status_description}}"><i class="dx-dot dx-dot-{{status}}"></i>{{status_name}}</span>
+            <svg class="dx-icon dx-rq-go" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 3.6a.55.55 0 0 1 .78 0l4 4a.55.55 0 0 1 0 .78l-4 4a.55.55 0 1 1-.78-.78L9.22 8 5.6 4.38a.55.55 0 0 1 0-.78Z"/></svg>
+          </a>
           {{/each}}
-        </tbody>
-      </table>
-    {{/if}}
-  </div>
+        </div>
+      </div>
+      {{else}}
+      <div class="dx-rq-empty">
+        <span class="dx-rq-empty-i"><svg viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 27 11 9h26l5 18v12H6V27Z"/><path d="M6 27h11l2 5h10l2-5h11"/></svg></span>
+        <p class="dx-rq-empty-t">{{#if query}}No tickets match{{else}}No tickets yet{{/if}}</p>
+        <p class="dx-rq-empty-d">{{#if query}}Try another status or search term.{{else}}When you contact 10Web support, your conversations show up here.{{/if}}</p>
+      </div>
+      {{/if}}
 
-  {{pagination}}
+      <div class="dx-rq-foot">{{pagination}}</div>
+
+      <section class="dx-rq-help" aria-labelledby="dx-rq-help-t">
+        <h2 id="dx-rq-help-t" class="dx-rq-help-t">Before you open a ticket</h2>
+        <div class="dx-rq-help-grid">
+          <button type="button" class="dx-rq-card" data-dx-open-search><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.24 1.55c-.52 0-.95.43-.95.95v11c0 .52.43.95.95.95h9.52c.52 0 .95-.43.95-.95v-11c0-.52-.43-.95-.95-.95H3.24ZM1.19 2.5C1.19 1.37 2.11.45 3.24.45h9.52c1.13 0 2.05.92 2.05 2.05v11c0 1.13-.92 2.05-2.05 2.05H3.24a2.05 2.05 0 0 1-2.05-2.05v-11ZM4.45 5c0-.3.25-.55.55-.55h6a.55.55 0 1 1 0 1.1H5A.55.55 0 0 1 4.45 5Zm0 3c0-.3.25-.55.55-.55h6a.55.55 0 1 1 0 1.1H5A.55.55 0 0 1 4.45 8Zm0 3c0-.3.25-.55.55-.55h3.5a.55.55 0 1 1 0 1.1H5a.55.55 0 0 1-.55-.55Z"/></svg><span><strong>Search the docs</strong><em>Most questions have a step-by-step guide.</em></span><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 3.6a.55.55 0 0 1 .78 0l4 4a.55.55 0 0 1 0 .78l-4 4a.55.55 0 1 1-.78-.78L9.22 8 5.6 4.38a.55.55 0 0 1 0-.78Z"/></svg></button>
+          <a class="dx-rq-card" href="https://status.10web.io/" target="_blank" rel="noopener"><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 2.45c.24 0 .45.15.52.38l2.06 6.66 1.4-3.73a.55.55 0 0 1 1.02-.02l.86 1.81H15a.55.55 0 1 1 0 1.1h-3.98a.55.55 0 0 1-.5-.31l-.48-1-1.53 4.1a.55.55 0 0 1-1.04-.03L5.42 4.85 3.98 9.1a.55.55 0 0 1-.52.37H1a.55.55 0 1 1 0-1.1h2.06l1.92-5.55a.55.55 0 0 1 .52-.37Z"/></svg><span><strong>System status</strong><em>Check for outages and maintenance.</em></span><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 3.6a.55.55 0 0 1 .78 0l4 4a.55.55 0 0 1 0 .78l-4 4a.55.55 0 1 1-.78-.78L9.22 8 5.6 4.38a.55.55 0 0 1 0-.78Z"/></svg></a>
+          <a class="dx-rq-card" href="/hc/sections/{{settings.changelog_section_id}}"><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.98 1.1a.55.55 0 0 1 .82.48v11.3a.55.55 0 0 1-.79.5L7.3 10.33H6.1v3.12a1.1 1.1 0 0 1-1.1 1.1h-.9a1.1 1.1 0 0 1-1.1-1.1v-3.15A2.6 2.6 0 0 1 .95 7.75v-.9a2.6 2.6 0 0 1 2.6-2.6H7.3l6.68-3.15ZM7.65 5.2v4.06l6.05 2.75V2.43L7.65 5.2ZM6.55 9.23V5.35h-3a1.5 1.5 0 0 0-1.5 1.5v.9c0 .83.67 1.48 1.5 1.48h3ZM4.1 10.33v3.12h.9v-3.12h-.9Z"/></svg><span><strong>Changelog</strong><em>See what changed recently in 10Web.</em></span><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 3.6a.55.55 0 0 1 .78 0l4 4a.55.55 0 0 1 0 .78l-4 4a.55.55 0 1 1-.78-.78L9.22 8 5.6 4.38a.55.55 0 0 1 0-.78Z"/></svg></a>
+        </div>
+      </section>
+    </div>
+  </main>
 </div>

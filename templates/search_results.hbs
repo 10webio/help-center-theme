@@ -1,82 +1,65 @@
-<div class="search-result-container">
-  <div class="container-divider"></div>
-    <section class="section hero">
-      <div class="hero-container container">
-        <div class="hero-inner">
-          <h2 class="header_search_result"><b>{{results_count}} results</b> found for "{{query}}"</h2>
-           {{search submit=false instant=settings.instant_search class='search search-full'}}
-        </div>
+{{!--
+  Search results with Zendesk AI search (generative search / quick answers).
+  Per Zendesk's Help center templating cookbook, {{generative_answers}} sits at the top of
+  <section id="main-content" class="search-results-column">, before the results heading.
+  Turn it on in Knowledge admin > Settings > Search settings > Quick answers > Manage.
+--}}
+<div class="dx-shell dx-search-mode">
+  <main class="dx-main" id="dx-main" data-dx-page="search">
+    <div class="dx-sr">
+      <p class="dx-eyebrow">{{#link 'help_center'}}Help Center{{/link}}</p>
+      <h1 class="dx-rq-title">{{#if query}}Results for “{{query}}”{{else}}Search the Help Center{{/if}}</h1>
+
+      <div class="dx-sr-form">
+        {{search submit=false instant=settings.instant_search class='dx-sr-zd-search' placeholder='Search or ask a question…'}}
       </div>
-      <div id="categories-menu"></div>
-    </section>
-  <div class="container">
-    <div class="search-results">
-      <section class="search-results-column">
-         <ul class="search-results-list">
-       		 {{#if article_results}}
-            {{#each article_results}}
-              <li class="search-result">
-                <div class="clear">
-                  <a href="{{url}}" class="search-result-link">{{title}}</a>
-                  {{#if vote_sum}}
-                    <span class="search-result-votes meta-count">-{{vote_sum}}</span>
-                  {{/if}}
-                </div>  
-                <div class="search-result-description">{{text}}</div>
-                <ul class="meta-group">
-                  <li>
-                    <ol class="breadcrumbs search-result-breadcrumbs">
-                      {{#each path_steps}}
-                        <li title="{{name}}"><a href="{{url}}">{{name}}</a></li>
-                      {{/each}}
-                    </ol>
-                  </li>
-                </ul>
-              </li>
-            {{/each}}
-       		{{/if}}
+
+      <section id="main-content" class="search-results-column">
+        {{generative_answers}}
+
+        <h2 class="dx-sr-count search-results-subheading">{{results_count}} results</h2>
+
+        {{#if article_results}}
+        <ul class="dx-sr-list">
+          {{#each article_results}}
+          <li class="dx-sr-item result-article">
+            <a href="{{url}}">
+              <span class="dx-sr-path">{{#each path_steps}}<span>{{name}}</span>{{/each}}</span>
+              <span class="dx-sr-title">{{title}}</span>
+              <span class="dx-sr-desc">{{text}}</span>
+            </a>
+          </li>
+          {{/each}}
           {{#if help_center.community_enabled}}
-            {{#if post_results}}
-              {{#each post_results}}
-                  <li class="search-result">
-                    <div class="clear">
-                      <a href="{{url}}" class="search-result-link">{{title}}</a>
-                    </div>
-                    <div class="search-result-description">{{text}}</div>
-                    <ul class="meta-group">
-                      <li>
-                        <ol class="breadcrumbs search-result-breadcrumbs">
-                          {{#each path_steps}}<br class="mobile">
-                            <li title="{{name}}"><a href="{{url}}">{{name}}</a></li>
-                          {{/each}}
-                        </ol>
-                      </li>
-                    </ul>
-                  </li>
-                {{/each}}
-              {{/if}}
-           {{/if}}
-          </ul>
-          <div class="result-not-found">
-            <h3>
-              Sorry! We looked everywhere, but could not find <b>{{query}}</b>.
-            </h3>
-            <h4> 
-              Try a different search, or browse our help topics instead.
-            </h4>
-          </div>
+          {{#each post_results}}
+          <li class="dx-sr-item result-post">
+            <a href="{{url}}">
+              <span class="dx-sr-path">{{#each path_steps}}<span>{{name}}</span>{{/each}}</span>
+              <span class="dx-sr-title">{{title}}</span>
+              <span class="dx-sr-desc">{{text}}</span>
+            </a>
+          </li>
+          {{/each}}
+          {{/if}}
+        </ul>
+        {{pagination}}
+        {{else}}
+        <div class="dx-rq-empty dx-sr-empty">
+          <p class="dx-rq-empty-t">No results for “{{query}}”</p>
+          <p class="dx-rq-empty-d">Try fewer or different words, or ask our support team.</p>
+          {{#link 'new_request' class='dx-cta dx-rq-new'}}Submit a ticket{{/link}}
+        </div>
+        {{/if}}
       </section>
-
     </div>
-
-    {{pagination}}
-  </div>
+  </main>
 </div>
 <script>
-  if ( $(".search-results-list li").length) {
-     $('.result-not-found').css('display','none');
-  }
-  if ($('li[title="Archive Category"]').length){
-    $('li[title="Archive Category"]').closest('li.search-result').hide();
-  }
+  (function () {
+    var items = document.querySelectorAll('.dx-sr-item');
+    Array.prototype.forEach.call(items, function (li) {
+      var path = li.querySelector('.dx-sr-path');
+      if (path && /Archive Category/.test(path.textContent)) li.hidden = true;
+    });
+  })();
 </script>

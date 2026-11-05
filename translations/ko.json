@@ -62,5 +62,12 @@
   "post_sharing_description": "게시물에 소셜 미디어 공유 표시",
   "community_topic_group_label": "커뮤니티 주제 요소",
   "follow_topic_label": "팔로우",
-  "follow_topic_description": "사용자가 특정 주제를 팔로우할 수 있음"
+  "follow_topic_description": "사용자가 특정 주제를 팔로우할 수 있음",
+  "hover_link_color_label": "Hover link color",
+  "hover_link_color_description": "Link color on hover. Also used by the AI quick answer box.",
+  "visited_link_color_label": "Visited link color",
+  "visited_link_color_description": "Color of links the visitor already opened. Also used by the AI quick answer box.",
+  "changelog_group_label": "Changelog",
+  "changelog_section_id_label": "Changelog section ID",
+  "changelog_section_id_description": "ID of the section that holds changelog posts. Leave empty to hide the Changelog tab."
 }

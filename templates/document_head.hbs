@@ -5,8 +5,20 @@
         'https://metrics.10web.io/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-M6GPZ95');</script>
 <!-- End Google Tag Manager -->
-<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<!-- 10Web docs layout: theme + page flags before first paint -->
+<script>
+(function () {
+  var d = document.documentElement, p = location.pathname;
+  try { var t = localStorage.getItem('dx-theme'); if (t === 'dark' || t === 'light') d.setAttribute('data-theme', t); } catch (e) {}
+  if (/\/requests(\/|$)/.test(p)) d.classList.add('dx-tickets');
+  if (/\/requests\/?$/.test(p) || /\/requests\/(ccd|organization)\/?$/.test(p)) d.classList.add('dx-tickets-list');
+})();
+</script>
+
 <script src="{{asset 'jquery.easeScroll.js'}}"></script>
 <script src="{{asset 'jquery.cookie.min.js'}}"></script>
 <script src="https://10-web-for-upload.s3.eu-central-1.amazonaws.com/HelpcenterRedirections/redirection_list.js"></script>
 <link rel="stylesheet" href="{{asset 'font.css'}}" type="text/css">
+<script src="{{asset 'dx-docs.js'}}" defer></script>
+<script src="{{asset 'dx-footer.js'}}" defer></script>

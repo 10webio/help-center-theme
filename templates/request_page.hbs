@@ -1,225 +1,147 @@
-<nav class="my-activities-nav collapsible-nav">
-  <ul class="collapsible-nav-list container">
-    <li aria-selected=true>{{t 'requests'}}</li>
-    <li>{{link 'contributions'}}</li>
-    <li>{{link 'subscriptions'}}</li>
-  </ul>
-</nav>
+<div class="dx-shell dx-requests-mode dx-req-mode">
+  <main class="dx-main" id="dx-main" data-dx-page="request">
+    <div class="dx-req">
+      {{#link 'requests' class='dx-nr-back'}}<svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M10.4 3.6a.55.55 0 0 1 0 .78L6.78 8l3.62 3.62a.55.55 0 1 1-.78.78l-4-4a.55.55 0 0 1 0-.78l4-4a.55.55 0 0 1 .78 0Z"/></svg>My tickets{{/link}}
 
-<div class="container">
-  <div class="request-breadcrumbs">{{breadcrumbs}}</div>
+      <div class="dx-req-head">
+        <h1 class="dx-rq-title">{{request.subject}}</h1>
+        <div class="dx-req-meta">
+          <span class="dx-rq-badge is-{{request.status}}" title="{{request.status_description}}"><i class="dx-dot dx-dot-{{request.status}}"></i>{{request.status_name}}</span>
+          <span class="dx-req-meta-i">Ticket #{{request.id}}</span>
+          <span class="dx-req-meta-i">Opened {{date request.created_at}}</span>
+        </div>
+      </div>
 
-  <h2 class="request-title">{{request.subject}}</h2>
+      <div class="dx-req-grid">
+        <section class="dx-req-main" aria-label="Conversation">
+          <div class="dx-req-csat">{{satisfaction}}</div>
 
-  <div class="request-container">
-    <section class="request-main">
-      {{satisfaction}}
-      <ul class="comment-list">
-        {{#each comments}}
-          <li id="{{anchor}}" class="comment">
-            <div class="comment-wrapper">
-              <div class="comment-info">
-                <div class="comment-author">
-                  <div class="avatar comment-avatar">
-                    {{#if author.agent}}
-                      <span class="icon-agent"></span>
-                    {{/if}}
-                    <img src="{{author.avatar_url}}" alt="" class="user-avatar"/>
-                  </div>
-
-                  <div class="comment-meta">
-                    <span title="{{author.name}}">
-                      {{#link 'user_profile' id=author.id}}
-                        {{author.name}}
-                      {{/link}}
-                    </span>
-
-                    <ul class="meta-group">
-                      <li class="meta-data">{{date created_at timeago=true}}</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <section class="comment-body">{{body}}</section>
-
-                {{#if attachments}}
-                  <ul class="attachments">
-                    {{#each attachments}}
-                      <li class="attachment-item">
-                        <a href="{{url}}" target="_blank">{{name}}</a>
-                        <div class="attachment-meta meta-group">
-                          <span class="attachment-meta-item meta-data">{{size}}</span>
-                          <a href="{{url}}" target="_blank" class="attachment-meta-item meta-data">{{t 'download'}}</a>
-                        </div>
-                      </li>
-                    {{/each}}
-                  </ul>
-                {{/if}}
+          <ol class="dx-req-thread">
+            {{#each comments}}
+            <li id="{{anchor}}" class="dx-req-msg{{#if author.agent}} is-agent{{/if}}">
+              <div class="dx-req-msg-head">
+                <span class="dx-req-avatar"><img src="{{author.avatar_url}}" alt=""></span>
+                <span class="dx-req-who">
+                  <strong title="{{author.name}}">{{author.name}}</strong>
+                  {{#if author.agent}}<span class="dx-req-tag">10Web support</span>{{/if}}
+                </span>
+                <span class="dx-req-time">{{date created_at timeago=true}}</span>
               </div>
-            </div>
-          </li>
-        {{/each}}
-      </ul>
+              <div class="dx-req-body">{{body}}</div>
+              {{#if attachments}}
+              <ul class="dx-req-files">
+                {{#each attachments}}
+                <li>
+                  <a href="{{url}}" target="_blank" rel="noopener">
+                    <svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M10.7 2.2a2.3 2.3 0 0 0-3.25 0L2.9 6.75a3.6 3.6 0 0 0 5.1 5.1l4.2-4.2a.55.55 0 1 1 .78.78l-4.2 4.2a4.7 4.7 0 0 1-6.66-6.66L6.67 1.42a3.4 3.4 0 0 1 4.81 4.81l-4.55 4.55a2.1 2.1 0 0 1-2.97-2.97l4.2-4.2a.55.55 0 1 1 .78.78l-4.2 4.2a1 1 0 0 0 1.41 1.41l4.55-4.55a2.3 2.3 0 0 0 0-3.25Z"/></svg>
+                    <span>{{name}}</span>
+                    <small>{{size}}</small>
+                  </a>
+                </li>
+                {{/each}}
+              </ul>
+              {{/if}}
+            </li>
+            {{/each}}
+          </ol>
 
-      {{pagination}}
+          <div class="dx-rq-foot">{{pagination}}</div>
 
-      {{#if comment_callout}}
-        <div class="request-follow-up">
-          {{comment_callout}}
-        </div>
-      {{/if}}
+          {{#if comment_callout}}
+          <div class="dx-req-callout">{{comment_callout}}</div>
+          {{/if}}
 
-      {{#form 'comment' class='comment-form'}}
-        <div class="avatar comment-avatar">
-          {{user_avatar class='user-avatar'}}
-        </div>
-
-        <div class="comment-container">
-          <div class="comment-show-container {{#validate 'body'}}hidden{{/validate}}">
-            <span class="comment-show-container-content">
-              {{t 'add_to_conversation'}}
-            </span>
-          </div>
-
-          <div class="comment-fields {{#validate 'body'}}shown{{/validate}}">
+          {{#form 'comment' class='dx-req-reply dx-zd-form'}}
+            <h2 class="dx-req-reply-t">{{t 'add_to_conversation'}}</h2>
             {{#if help_center.request_ccs_enabled}}
-              <div class="comment-ccs form-field">
-               {{token_field 'ccs' class='ccs-input'}}
-              </div>
+            <div class="form-field dx-req-ccs">
+              {{token_field 'ccs' class='ccs-input'}}
+            </div>
             {{/if}}
 
-            {{textarea 'body' rows='7'}}
+            <div class="form-field dx-req-text">
+              {{textarea 'body' rows='6'}}
+            </div>
 
             {{#if upload}}
-              <div class="comment-attachments">
-                {{upload}}
-              </div>
+            <div class="form-field dx-req-upload">{{upload}}</div>
             {{/if}}
-          </div>
 
-          <div class="comment-form-controls">
-            {{checkbox 'mark_as_solved'}}
-
-            {{#if request.can_be_marked_as_solved}}
-              <a role="button" class="button-large button-secondary mark-as-solved"
+            <div class="dx-req-actions">
+              <span class="dx-req-solve-native" hidden>{{checkbox 'mark_as_solved'}}</span>
+              {{#if request.can_be_marked_as_solved}}
+              <button type="button" class="dx-req-solve"
                 data-solve-translation="{{t 'mark_as_solved'}}"
-                data-solve-and-submit-translation="{{t 'mark_as_solved_and_submit'}}">
-                {{t 'mark_as_solved'}}
-              </a>
-            {{/if}}
+                data-solve-and-submit-translation="{{t 'mark_as_solved_and_submit'}}">{{t 'mark_as_solved'}}</button>
+              {{/if}}
+              <span class="dx-req-submit">{{input type='submit'}}</span>
+            </div>
+          {{/form}}
+        </section>
 
-            <span class="request-submit-comment {{#validate 'body'}}shown{{/validate}}">
-              {{input type='submit'}}
-            </span>
+        <aside class="dx-req-side" aria-label="{{t 'ticket_details'}}">
+          <div class="dx-req-card">
+            <h2 class="dx-req-card-t">{{t 'ticket_details'}}</h2>
+            <dl class="dx-req-dl">
+              <div><dt>{{t 'status'}}</dt><dd><span class="dx-rq-badge is-{{request.status}}" title="{{request.status_description}}"><i class="dx-dot dx-dot-{{request.status}}"></i>{{request.status_name}}</span></dd></div>
+              <div><dt>{{t 'id'}}</dt><dd>#{{request.id}}</dd></div>
+              <div><dt>{{t 'requester'}}</dt><dd>{{request.requester.name}}</dd></div>
+              <div><dt>{{t 'created'}}</dt><dd>{{date request.created_at}}</dd></div>
+              <div><dt>{{t 'last_activity'}}</dt><dd>{{date request.updated_at}}</dd></div>
+              {{#if assignee}}
+              <div><dt>{{t 'assignee'}}</dt><dd>{{assignee.name}}</dd></div>
+              {{/if}}
+              {{#if group}}
+              <div><dt>{{t 'group'}}</dt><dd>{{group.name}}</dd></div>
+              {{/if}}
+              {{#if request.type}}
+              <div><dt>{{t 'type'}}</dt><dd>{{request.type_name}}{{#is request.type 'task'}} · {{t 'task_due_date' due_date=request.due_date}}{{/is}}</dd></div>
+              {{/if}}
+              {{#if request.priority}}
+              <div><dt>{{t 'priority'}}</dt><dd>{{request.priority_name}}</dd></div>
+              {{/if}}
+              {{#if request.followup_source_id}}
+              <div><dt>{{t 'followup'}}</dt><dd>{{link 'request' id=request.followup_source_id}}</dd></div>
+              {{/if}}
+              {{#each custom_fields}}
+              <div><dt>{{title}}</dt><dd>{{value}}</dd></div>
+              {{/each}}
+              {{#if collaborators}}
+              <div class="dx-req-dl-wide"><dt>{{t 'ccs'}}</dt><dd><ul class="dx-req-ccs-list">{{#each collaborators}}<li title="{{name}}">{{name}}</li>{{/each}}</ul></dd></div>
+              {{/if}}
+            </dl>
+            {{#form 'organization' id='request-organization' class='dx-req-org'}}
+              <span class="dx-req-org-l">{{t 'organization'}}</span>
+              <label class="dx-rq-select">
+                <span class="dx-visually-hidden">{{t 'organization'}}</span>
+                {{select 'organization'}}
+                <svg class="dx-icon dx-rq-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.6 5.6a.55.55 0 0 1 .78 0L8 9.22l3.62-3.62a.55.55 0 1 1 .78.78l-4 4a.55.55 0 0 1-.78 0l-4-4a.55.55 0 0 1 0-.78Z"/></svg>
+              </label>
+            {{/form}}
           </div>
-        </div>
-      {{/form}}
-    </section>
 
-    <section class="request-sidebar collapsible-sidebar">
-      <h5 class="collapsible-sidebar-title">{{t 'ticket_details'}}</h5>
-      {{#if request.followup_source_id}}
-        <dl class="request-details">
-          <dt>{{t 'followup'}}</dt>
-          <dd>{{link 'request' id=request.followup_source_id}}</dd>
-        </dl>
-      {{/if}}
-      <dl class="request-details">
-        <dt>{{t 'requester'}}</dt>
-        <dd>{{request.requester.name}}</dd>
-
-        <dt>{{t 'created'}}</dt>
-        <dd>{{date request.created_at}}</dd>
-
-        <dt>{{t 'last_activity'}}</dt>
-        <dd>{{date request.updated_at}}</dd>
-
-        {{#if collaborators}}
-          <dt>{{t 'ccs'}}</dt>
-          <dd>
-            <ul class="request-collaborators">
-              {{#each collaborators}}
-                <li title="{{name}}">{{name}}</li>
-              {{/each}}
-            </ul>
-          </dd>
-        {{/if}}
-      </dl>
-
-      <dl class="request-details">
-        {{#if assignee}}
-          <dt>{{t 'assignee'}}</dt>
-          <dd>
-            {{assignee.name}}
-          </dd>
-        {{/if}}
-
-        <dt>{{t 'id'}}</dt>
-        <dd>#{{request.id}}</dd>
-
-        {{#form 'organization' id='request-organization'}}
-          <dt>{{t 'organization'}}</dt>
-          <dd>{{select 'organization'}}</dd>
-        {{/form}}
-
-        {{#if group}}
-          <dt>{{t 'group'}}</dt>
-          <dd>
-            {{group.name}}
-          </dd>
-        {{/if}}
-
-        <dt>{{t 'status'}}</dt>
-        <dd>
-          <span class="status-label status-label-{{request.status}}" title="{{request.status_description}}">
-            {{request.status_name}}
-          </span>
-        </dd>
-
-        {{#if request.type}}
-          <dt>{{t 'type'}}</dt>
-          <dd>
-            {{request.type_name}}
-            {{#is request.type 'task'}}
-              {{t 'task_due_date' due_date=request.due_date}}
-            {{/is}}
-          </dd>
-        {{/if}}
-
-        {{#if request.priority}}
-          <dt>{{t 'priority'}}</dt>
-          <dd>
-            {{request.priority_name}}
-          </dd>
-        {{/if}}
-
-        {{#each custom_fields}}
-          <dt>{{title}}</dt>
-          <dd>
-            {{value}}
-          </dd>
-        {{/each}}
-      </dl>
-
-      {{#if attachments}}
-        <dl class="request-details request-attachments">
-          <dt>{{t 'attachments_heading'}}</dt>
-          <dd>
-            <ul class="attachments">
+          {{#if attachments}}
+          <div class="dx-req-card">
+            <h2 class="dx-req-card-t">{{t 'attachments_heading'}}</h2>
+            <ul class="dx-req-files dx-req-files-stack">
               {{#each attachments}}
-                <li class="attachment-item">
-                  <a href="{{url}}" target="_blank">{{name}}</a>
-                  <div class="attachment-meta meta-group">
-                    <span class="attachment-meta-item meta-data">{{size}}</span>
-                    <a href="{{url}}" target="_blank" class="attachment-meta-item meta-data">{{t 'download'}}</a>
-                  </div>
-                </li>
+              <li>
+                <a href="{{url}}" target="_blank" rel="noopener">
+                  <svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M10.7 2.2a2.3 2.3 0 0 0-3.25 0L2.9 6.75a3.6 3.6 0 0 0 5.1 5.1l4.2-4.2a.55.55 0 1 1 .78.78l-4.2 4.2a4.7 4.7 0 0 1-6.66-6.66L6.67 1.42a3.4 3.4 0 0 1 4.81 4.81l-4.55 4.55a2.1 2.1 0 0 1-2.97-2.97l4.2-4.2a.55.55 0 1 1 .78.78l-4.2 4.2a1 1 0 0 0 1.41 1.41l4.55-4.55a2.3 2.3 0 0 0 0-3.25Z"/></svg>
+                  <span>{{name}}</span>
+                  <small>{{size}}</small>
+                </a>
+              </li>
               {{/each}}
             </ul>
-          </dd>
-        </dl>
-      {{/if}}
-    </section>
-  </div>
-  {{chat_about_my_ticket}}
+          </div>
+          {{/if}}
+
+          <button type="button" class="dx-rq-card" data-dx-open-search><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.24 1.55c-.52 0-.95.43-.95.95v11c0 .52.43.95.95.95h9.52c.52 0 .95-.43.95-.95v-11c0-.52-.43-.95-.95-.95H3.24ZM1.19 2.5C1.19 1.37 2.11.45 3.24.45h9.52c1.13 0 2.05.92 2.05 2.05v11c0 1.13-.92 2.05-2.05 2.05H3.24a2.05 2.05 0 0 1-2.05-2.05v-11ZM4.45 5c0-.3.25-.55.55-.55h6a.55.55 0 1 1 0 1.1H5A.55.55 0 0 1 4.45 5Zm0 3c0-.3.25-.55.55-.55h6a.55.55 0 1 1 0 1.1H5A.55.55 0 0 1 4.45 8Zm0 3c0-.3.25-.55.55-.55h3.5a.55.55 0 1 1 0 1.1H5a.55.55 0 0 1-.55-.55Z"/></svg><span><strong>Search the docs</strong><em>Most questions have a step-by-step guide.</em></span><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 3.6a.55.55 0 0 1 .78 0l4 4a.55.55 0 0 1 0 .78l-4 4a.55.55 0 1 1-.78-.78L9.22 8 5.6 4.38a.55.55 0 0 1 0-.78Z"/></svg></button>
+          <a class="dx-rq-card" href="https://status.10web.io/" target="_blank" rel="noopener"><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 2.45c.24 0 .45.15.52.38l2.06 6.66 1.4-3.73a.55.55 0 0 1 1.02-.02l.86 1.81H15a.55.55 0 1 1 0 1.1h-3.98a.55.55 0 0 1-.5-.31l-.48-1-1.53 4.1a.55.55 0 0 1-1.04-.03L5.42 4.85 3.98 9.1a.55.55 0 0 1-.52.37H1a.55.55 0 1 1 0-1.1h2.06l1.92-5.55a.55.55 0 0 1 .52-.37Z"/></svg><span><strong>System status</strong><em>Check for outages and maintenance.</em></span><svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 3.6a.55.55 0 0 1 .78 0l4 4a.55.55 0 0 1 0 .78l-4 4a.55.55 0 1 1-.78-.78L9.22 8 5.6 4.38a.55.55 0 0 1 0-.78Z"/></svg></a>
+        </aside>
+      </div>
+    </div>
+  </main>
 </div>
+{{chat_about_my_ticket}}

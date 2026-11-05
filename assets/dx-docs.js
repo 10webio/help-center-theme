@@ -944,3 +944,35 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
 })();
+
+
+/* =====================================================================
+   Ticket page (request_page.hbs): reply button state and "Mark as solved".
+   The organization select is still submitted by script.js (#request-organization).
+   ===================================================================== */
+(function () {
+  function run() {
+    var form = document.querySelector('[data-dx-page="request"] .dx-req-reply');
+    if (!form) return;
+    var text = form.querySelector('textarea');
+    var submit = form.querySelector('input[type="submit"]');
+    var solve = form.querySelector('.dx-req-solve');
+    var check = form.querySelector('.dx-req-solve-native input[type="checkbox"]');
+
+    function sync() {
+      var filled = !!(text && text.value.trim());
+      if (submit) submit.disabled = !filled;
+      if (solve) solve.textContent = solve.getAttribute(filled ? 'data-solve-and-submit-translation' : 'data-solve-translation');
+    }
+    if (text) { text.addEventListener('input', sync); sync(); }
+
+    if (solve && check) solve.addEventListener('click', function () {
+      if (solve.hasAttribute('data-disabled')) return;
+      check.checked = true;
+      solve.setAttribute('data-disabled', 'true');
+      if (submit) submit.disabled = true;
+      form.submit();
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+})();

@@ -8861,7 +8861,7 @@ html { scroll-padding-top: calc(var(--dx-top) + 24px); }
   --surface-black-earthy: #14151Fcc;
   --surface-black-half: #14151F80;
   --surface-black-adept: #14151F;
-  --surface-black-adept-subtle: rgba(20, 21, 31, 0.06);
+  --surface-black-adept-subtle: rgba(20, 21, 31, 0.08);
   --surface-black-adept-mid: #14151F4d;
   --surface-positive-subtle: #dff9e5;
   --surface-warning-subtle: #fff1c5;
@@ -9423,7 +9423,7 @@ body.dx-body { font-family: var(--font-sans); color: var(--text-black-earthy); l
 :root[data-theme="dark"] .dx-theme-toggle .dx-moon { display: none; }
 
 /* ---------- Round 5: brand-50 hover (#3339f1 at 6%) ---------- */
-:root { --dx-hover-brand: rgba(51, 57, 241, 0.06); }
+:root { --dx-hover-brand: rgba(20, 21, 31, 0.06); }
 :root[data-theme="dark"] { --dx-hover-brand: rgba(255, 255, 255, 0.03); } /* grey 25, dark-mode equivalent of #14151F at 3% */
 .dx-node > .dx-row:not([aria-current="page"]):hover { background: var(--dx-hover-brand); }
 .dx-rq-card:hover, .dx-rq-card:focus-visible { background: var(--dx-hover-brand); }

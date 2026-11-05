@@ -10469,6 +10469,39 @@ html.dx-home-ready .dx-main[data-dx-page="home"] { visibility: visible; animatio
 :root[data-theme="dark"] .dx-rq-badge.is-closed .dx-dot { background: rgba(255, 255, 255, 0.4); }
 
 /* =====================================================================
+   Navigation states (sidebar tree + pagination on every page, search included):
+   hover = #14151F at 6%, selected / current = #14151F at 8%.
+   Dark mode uses white at the same strengths (the #14151F tint is invisible on the dark page).
+   ===================================================================== */
+:root { --nav-hover: rgba(20, 21, 31, 0.06); --nav-selected: rgba(20, 21, 31, 0.08); }
+:root[data-theme="dark"] { --nav-hover: rgba(255, 255, 255, 0.06); --nav-selected: rgba(255, 255, 255, 0.08); }
+
+/* Sidebar */
+.dx-node > .dx-row:not([aria-current="page"]):hover,
+:root[data-theme="dark"] .dx-node > .dx-row:not([aria-current="page"]):hover { background: var(--nav-hover) !important; }
+.dx-node > a.dx-row[aria-current="page"],
+:root[data-theme="dark"] .dx-node > a.dx-row[aria-current="page"] { background: var(--nav-selected) !important; color: var(--text-black-default) !important; font-weight: 500; }
+
+/* Pagination: page numbers */
+.dx-main .pagination li:not(.pagination-current):not(.pagination-prev):not(.pagination-next) a:hover,
+.pagination:not(.dx-sr *) li:not(.pagination-current):not(.pagination-prev):not(.pagination-next) a:hover,
+:root[data-theme="dark"] .dx-main .pagination li:not(.pagination-current):not(.pagination-prev):not(.pagination-next) a:hover {
+  background: var(--nav-hover) !important; color: var(--text-black-default) !important;
+}
+.dx-main .pagination li.pagination-current a, .dx-main .pagination li.pagination-current span,
+.pagination:not(.dx-sr *) li.pagination-current a, .pagination:not(.dx-sr *) li.pagination-current span,
+:root[data-theme="dark"] .pagination:not(.dx-sr *) li.pagination-current a,
+:root[data-theme="dark"] .pagination:not(.dx-sr *) li.pagination-current span,
+:root[data-theme="dark"] .dx-main .pagination li.pagination-current a,
+:root[data-theme="dark"] .dx-main .pagination li.pagination-current span {
+  background: var(--nav-selected) !important; border-color: transparent !important;
+  color: var(--text-black-default) !important; font-weight: 500; cursor: default;
+}
+/* Search results: page numbers drop their outline so current vs. other pages reads by fill */
+.dx-sr .pagination li:not(.pagination-prev):not(.pagination-next) a,
+.dx-sr .pagination li:not(.pagination-prev):not(.pagination-next) span { border-color: transparent !important; }
+
+/* =====================================================================
    Site footer — ported from the 10Web WordPress theme (css/scss/footer/*.scss).
    Markup: templates/footer.hbs. Behaviour: assets/dx-footer.js.
    ===================================================================== */

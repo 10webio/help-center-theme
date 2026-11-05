@@ -1,45 +1,78 @@
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://metrics.10web.io/ns.html?id=GTM-M6GPZ95"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://metrics.10web.io/ns.html?id=GTM-M6GPZ95" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<header class="header">
-    <div class="header_fixed">
-        <div class="header_container container">
-            <div class="header_left">
-                <div class="menu-icon">
-                    <div>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-                <div class="logo">
-                    {{#link 'help_center'}}
-                        <div class="help-center-logo" ></div>
-                    {{/link}}
-                </div>
-                {{#link 'requests' class='my-tickets-link logged-in'}}My Tickets{{/link}}
-            </div>
-            <div class="header_right">
-                <div class="header_search">
-                    <span class="toggle-search icon-search"></span>
-                    {{search submit=false instant=settings.instant_search class='search' placeholder='Search The Help Center'}}
-                    <div class="icon-close"></div>
-                </div>
-                <div class="user_info_section">
-                    {{user_info}}
-                </div>
-            </div>
-        </div>
-        <div id="mobile-menu">
-            <div class="mobile-menu-logged-in">
-                <div class="container">
-                    {{#link 'requests' class='my-tickets-link logged-in'}}My Tickets{{/link}}
-                </div>
-            </div>
-            <div class="container">
-                <div class="mobile-menu-container"></div>
-                <div class="mobile-menu-logged-out"></div>
-            </div>
-        </div>
+<script>document.body.classList.add('dx-body');</script>
+<a class="dx-visually-hidden" href="#dx-main">Skip to content</a>
+
+<header class="dx-header">
+  <div class="dx-nav">
+    <button class="dx-icon-btn dx-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="dx-sidebar">
+      <svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M15 12.12C15.3 12.12 15.55 12.37 15.55 12.67C15.55 12.97 15.3 13.22 15 13.22H1C0.7 13.22 0.45 12.97 0.45 12.67C0.45 12.37 0.7 12.12 1 12.12H15ZM15 7.45C15.3 7.45 15.55 7.7 15.55 8C15.55 8.3 15.3 8.55 15 8.55H1C0.7 8.55 0.45 8.3 0.45 8C0.45 7.7 0.7 7.45 1 7.45H15ZM15 2.78C15.3 2.78 15.55 3.03 15.55 3.33C15.55 3.63 15.3 3.88 15 3.88H1C0.7 3.88 0.45 3.63 0.45 3.33C0.45 3.03 0.7 2.78 1 2.78H15Z"/></svg>
+    </button>
+
+    <a class="dx-logo" href="/hc" aria-label="10Web Help Center home">
+      <img src="{{asset 'dx-logo.svg'}}" alt="10Web Help Center" width="181" height="24">
+    </a>
+
+    <div class="dx-nav-center">
+      <button class="dx-search-trigger" type="button" data-dx-open-search aria-haspopup="dialog" aria-controls="dx-search">
+        <svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M15.47 14.06L12.07 10.72C12.88 9.63 13.37 8.28 13.37 6.82C13.37 3.2 10.42 0.26 6.8 0.26C3.18 0.26 0.24 3.2 0.24 6.82C0.24 10.44 3.18 13.38 6.8 13.38C8.25 13.38 9.59 12.9 10.68 12.1C10.68 12.1 10.68 12.11 10.69 12.12L14.09 15.46C14.28 15.65 14.53 15.74 14.78 15.74C15.03 15.74 15.29 15.64 15.48 15.45C15.86 15.06 15.85 14.44 15.47 14.06ZM1.32 6.82C1.32 3.8 3.78 1.34 6.8 1.34C9.82 1.34 12.28 3.8 12.28 6.82C12.28 9.84 9.82 12.3 6.8 12.3C3.78 12.3 1.32 9.84 1.32 6.82Z"/></svg>
+        <span>Search...</span>
+      </button>
     </div>
+
+    <div class="dx-nav-right">
+      <button class="dx-icon-btn dx-search-icon-btn" type="button" data-dx-open-search aria-label="Search the Help Center">
+        <svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M15.47 14.06L12.07 10.72C12.88 9.63 13.37 8.28 13.37 6.82C13.37 3.2 10.42 0.26 6.8 0.26C3.18 0.26 0.24 3.2 0.24 6.82C0.24 10.44 3.18 13.38 6.8 13.38C8.25 13.38 9.59 12.9 10.68 12.1C10.68 12.1 10.68 12.11 10.69 12.12L14.09 15.46C14.28 15.65 14.53 15.74 14.78 15.74C15.03 15.74 15.29 15.64 15.48 15.45C15.86 15.06 15.85 14.44 15.47 14.06ZM1.32 6.82C1.32 3.8 3.78 1.34 6.8 1.34C9.82 1.34 12.28 3.8 12.28 6.82C12.28 9.84 9.82 12.3 6.8 12.3C3.78 12.3 1.32 9.84 1.32 6.82Z"/></svg>
+      </button>
+      {{#link 'requests' class='dx-nav-link dx-my-tickets'}}My Tickets{{/link}}
+      {{#if signed_in}}
+      <div class="dx-account">
+        <button type="button" class="dx-account-btn" aria-haspopup="menu" aria-expanded="false" aria-controls="dx-account-menu">
+          <span class="dx-avatar" aria-hidden="true"><img src="{{user.avatar_url}}" alt=""></span><span class="dx-visually-hidden">Account menu for {{user.name}}</span>
+          <svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.6 5.6a.55.55 0 0 1 .78 0L8 9.22l3.62-3.62a.55.55 0 1 1 .78.78l-4 4a.55.55 0 0 1-.78 0l-4-4a.55.55 0 0 1 0-.78Z"/></svg>
+        </button>
+        <div class="dx-account-menu" id="dx-account-menu" role="menu" hidden>
+          <p class="dx-account-who"><strong>{{user.name}}</strong></p>
+          <a role="menuitem" href="https://my.10web.io/">10Web dashboard</a>
+          <a role="menuitem" href="/hc/requests">My tickets</a>
+          <a role="menuitem" href="/access/logout">Sign out</a>
+        </div>
+      </div>
+      {{else}}
+      <a class="dx-nav-link dx-signin" href="https://my.10web.io/">Sign in</a>
+      {{/if}}
+      <a class="dx-cta dx-cta-build" href="https://10web.io/">Build for free</a>
+      <button class="dx-icon-btn dx-theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="dx-icon dx-sun" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 14.24C8.3 14.24 8.55 14.49 8.55 14.79V15.4C8.55 15.7 8.3 15.95 8 15.95C7.7 15.95 7.45 15.7 7.45 15.4V14.79C7.45 14.49 7.7 14.24 8 14.24ZM2.81 12.41C3.02 12.2 3.37 12.2 3.59 12.41C3.8 12.62 3.81 12.97 3.59 13.19L3.16 13.62C3.05 13.73 2.91 13.78 2.77 13.78C2.63 13.78 2.49 13.73 2.38 13.62C2.17 13.41 2.16 13.06 2.38 12.84L2.81 12.41ZM12.41 12.41C12.63 12.2 12.97 12.2 13.19 12.41L13.62 12.84C13.83 13.05 13.83 13.4 13.62 13.62C13.51 13.73 13.37 13.78 13.23 13.78C13.09 13.78 12.95 13.73 12.84 13.62L12.41 13.19C12.2 12.98 12.2 12.63 12.41 12.41ZM8 2.83C10.83 2.83 13.14 5.14 13.14 7.97C13.14 10.8 10.83 13.11 8 13.11C5.16 13.11 2.86 10.8 2.86 7.97C2.86 5.14 5.17 2.83 8 2.83ZM8 3.93C5.77 3.93 3.96 5.74 3.96 7.97C3.96 10.2 5.77 12.01 8 12.01C10.23 12.01 12.04 10.2 12.04 7.97C12.04 5.74 10.23 3.93 8 3.93ZM1.21 7.45C1.51 7.45 1.76 7.7 1.76 8C1.76 8.3 1.51 8.55 1.21 8.55H0.6C0.3 8.55 0.05 8.3 0.05 8C0.05 7.7 0.3 7.45 0.6 7.45H1.21ZM15.4 7.45C15.7 7.45 15.95 7.7 15.95 8C15.95 8.3 15.7 8.55 15.4 8.55H14.79C14.49 8.55 14.24 8.3 14.24 8C14.24 7.7 14.49 7.45 14.79 7.45H15.4ZM2.38 2.38C2.6 2.17 2.94 2.17 3.16 2.38L3.59 2.81C3.8 3.02 3.8 3.37 3.59 3.59C3.48 3.7 3.34 3.75 3.2 3.75C3.06 3.75 2.92 3.7 2.81 3.59L2.38 3.16C2.17 2.95 2.17 2.6 2.38 2.38ZM12.84 2.38C13.05 2.17 13.4 2.17 13.62 2.38C13.83 2.59 13.84 2.94 13.62 3.16L13.19 3.59C13.08 3.7 12.94 3.75 12.8 3.75C12.66 3.75 12.52 3.7 12.41 3.59C12.2 3.38 12.19 3.03 12.41 2.81L12.84 2.38ZM8 0.05C8.3 0.05 8.55 0.3 8.55 0.6V1.21C8.55 1.51 8.3 1.76 8 1.76C7.7 1.76 7.45 1.51 7.45 1.21V0.6C7.45 0.3 7.7 0.05 8 0.05Z"/></svg>
+        <svg class="dx-icon dx-moon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8.29 15.3C6.26 15.3 4.35 14.51 2.91 13.07C-0.06 10.11-0.06 5.28 2.91 2.31C3.58 1.64 4.35 1.12 5.2 0.75C5.39 0.67 5.6 0.69 5.76 0.81C5.92 0.93 6.01 1.13 5.99 1.33C5.84 2.8 5.93 5.61 8.2 7.85C10.43 10.05 13.22 10.1 14.69 9.94C14.89 9.92 15.09 10 15.21 10.17C15.33 10.34 15.36 10.55 15.28 10.73C14.91 11.59 14.38 12.38 13.68 13.07C12.24 14.51 10.33 15.3 8.3 15.3H8.29ZM4.81 2.24C4.42 2.49 4.05 2.78 3.72 3.12C1.2 5.64 1.2 9.75 3.72 12.27C4.94 13.49 6.57 14.17 8.3 14.17C10.03 14.17 11.65 13.5 12.87 12.27C13.22 11.92 13.53 11.54 13.78 11.14C12.03 11.11 9.5 10.74 7.4 8.66C5.23 6.52 4.82 3.89 4.81 2.24Z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="dx-tabs" aria-label="Help Center areas">
+    <a class="dx-tab" data-dx-tab="docs" href="/hc">
+      <svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M12.76 15.55H3.24C2.11 15.55 1.19 14.63 1.19 13.5V2.5C1.19 1.37 2.11 0.45 3.24 0.45H12.77C13.9 0.45 14.82 1.37 14.82 2.5V13.5C14.81 14.63 13.9 15.55 12.76 15.55ZM3.24 1.55C2.72 1.55 2.29 1.98 2.29 2.5V13.5C2.29 14.02 2.72 14.45 3.24 14.45H12.77C13.29 14.45 13.72 14.02 13.72 13.5V2.5C13.72 1.98 13.29 1.55 12.77 1.55H3.24Z"/><path d="M11.22 5.8H4.78C4.48 5.8 4.23 5.55 4.23 5.25C4.23 4.95 4.47 4.7 4.78 4.7H11.23C11.53 4.7 11.78 4.95 11.78 5.25C11.78 5.55 11.53 5.8 11.22 5.8Z"/><path d="M11.22 8.55H4.78C4.47 8.55 4.23 8.3 4.23 8C4.23 7.7 4.48 7.45 4.78 7.45H11.23C11.53 7.45 11.78 7.7 11.78 8C11.78 8.3 11.53 8.55 11.22 8.55Z"/><path d="M8.3 11.3H4.78C4.48 11.3 4.23 11.05 4.23 10.75C4.23 10.45 4.48 10.2 4.78 10.2H8.3C8.6 10.2 8.85 10.45 8.85 10.75C8.85 11.05 8.6 11.3 8.3 11.3Z"/></svg>
+      Documentation
+    </a>
+    {{#if settings.changelog_section_id}}
+    <a class="dx-tab" data-dx-tab="changelog" href="/hc/sections/{{settings.changelog_section_id}}">
+      <svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M14.52 0.69C14.26 0.55 13.94 0.56 13.75 0.68L6.61 3.88H3.13C1.98 3.88 1.05 4.81 1.05 5.95V8.25C1.05 9.39 1.98 10.32 3.13 10.32H3.96V14.59C3.96 15.04 4.33 15.41 4.79 15.41H5.95C6.3 15.41 6.62 15.19 6.75 14.8L7.63 10.78L13.68 13.49C13.81 13.57 13.97 13.61 14.12 13.61C14.26 13.61 14.39 13.58 14.52 13.51C14.78 13.37 14.95 13.09 14.95 12.79V1.41C14.95 1.11 14.78 0.84 14.52 0.69H14.52ZM6.67 10.35L5.79 14.39H4.99V10.32H6.62L6.67 10.35ZM13.92 12.48L6.83 9.3H3.13C2.55 9.3 2.08 8.83 2.08 8.25V5.95C2.08 5.38 2.55 4.91 3.13 4.91H6.72L13.92 1.72V12.48Z"/></svg>
+      Changelog
+    </a>
+    {{/if}}
+  </nav>
 </header>
+
+<div class="dx-modal" id="dx-search" role="dialog" aria-modal="true" aria-label="Search the Help Center" data-open="false">
+  <div class="dx-modal-backdrop" data-dx-close></div>
+  <div class="dx-modal-panel">
+    <div class="dx-modal-input-row">
+      <svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M15.47 14.06L12.07 10.72C12.88 9.63 13.37 8.28 13.37 6.82C13.37 3.2 10.42 0.26 6.8 0.26C3.18 0.26 0.24 3.2 0.24 6.82C0.24 10.44 3.18 13.38 6.8 13.38C8.25 13.38 9.59 12.9 10.68 12.1C10.68 12.1 10.68 12.11 10.69 12.12L14.09 15.46C14.28 15.65 14.53 15.74 14.78 15.74C15.03 15.74 15.29 15.64 15.48 15.45C15.86 15.06 15.85 14.44 15.47 14.06ZM1.32 6.82C1.32 3.8 3.78 1.34 6.8 1.34C9.82 1.34 12.28 3.8 12.28 6.82C12.28 9.84 9.82 12.3 6.8 12.3C3.78 12.3 1.32 9.84 1.32 6.82Z"/></svg>
+      <input type="search" autocomplete="off" spellcheck="false" placeholder="Search or ask a question…" aria-label="Search articles or ask a question" aria-controls="dx-results">
+      <kbd class="dx-kbd">Esc</kbd>
+    </div>
+    <ul class="dx-results" id="dx-results" role="listbox"></ul>
+    <div class="dx-modal-foot"><span>↑ ↓ to move, Enter to open</span><span>Quick answers are generated by Zendesk AI</span></div>
+  </div>
+</div>

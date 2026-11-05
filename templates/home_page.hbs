@@ -1,97 +1,35 @@
-<div class="home-page">
-  <section class="section hero">
-     <div class="container">
-        <div class="hero-inner">
-            <p class="header_text header_title">Hi. <br class="mobile">How can we help?</p>
-          {{search submit=false instant=settings.instant_search class='search search-full' placeholder='Search...'}}
-        </div>
-       </div>
-  </section>
-      
-  <div class="container_top">
-	  <div class="container">
-      <div class="container_top_grid">
-        <div class="container_top_item getting_started">
-          <a href="/hc/en-us/categories/4403735323410"></a>
-          <h3>Getting Started</h3>
-          <p>All you need to know to start hosting & <br class="desktop tablet mobile">building on the 10Web platform.</p>
-          <a href="/hc/en-us/categories/4403735323410" class="learn-more">Learn More</a>
-          <div class="scaled"></div>
-        </div>
-        <div class="container_top_item wp_platform">
-          <a href="/hc/en-us/categories/4403729393554"></a>
-          <h3>Automated WP Platform</h3>
-          <p>Hosting, services, features, & more. <br class="mobile">Learn <br class="desktop">how <br class="tablet">to use the 10Web <br class="mobile">Automated platform.</p>
-          <a href="/hc/en-us/categories/4403729393554" class="learn-more">Learn More</a>
-          <div class="scaled"></div>
-        </div>
-        <div class="container_top_item builder">
-          <a href="/hc/en-us/categories/4403729943442"></a>
-          <h3>AI Website Builder</h3>
-          <p>Learn to generate, convert to WordPress <br class="desktop mobile">with AI, <br class="tablet">& to build & edit websites <br class="mobile">with <br class="desktop">the 10Web Builder.</p>
-          <a href="/hc/en-us/categories/4403729943442" class="learn-more">Learn More</a>
-          <div class="scaled"></div>
-        </div>
-        <div class="container_top_item account_payment">
-          <a href="/hc/en-us/categories/4403736661266"></a>
-          <h3>Account & Payment</h3>
-          <p>Learn to manage your account, payments,<br class="desktop tablet mobile"> subscription, & business features.</p>
-          <a href="/hc/en-us/categories/4403736661266" class="learn-more">Learn More</a>
-          <div class="scaled"></div>
-        </div>
-        <div class="container_top_item video_tutorial">
-          <a href="/hc/en-us/articles/4408397419538/"></a>
-          <h3>Video Tutorials</h3>
-          <p>Check out our video tutorial library & <br class="mobile">learn <br class="desktop">how to <br class="tablet">use the 10Web platform.</p>
-          <a href="/hc/en-us/articles/4408397419538/" class="learn-more">Learn More</a>
-          <div class="scaled"></div>
-        </div>
-        <div class="container_top_item troubleshooting">
-          <a href="/hc/en-us/categories/4403731365906"></a>
-          <h3>Troubleshooting</h3>
-          <p>Find solutions to the most common issues <br class="desktop tablet mobile">of our platform.</p>
-          <a href="/hc/en-us/categories/4403731365906" class="learn-more">Learn More</a>
-          <div class="scaled"></div>
-        </div>
-      </div>
-      <div class="container_top_bottom_item plugins">
-        <a href="/hc/en-us/categories/4403730877330"></a>
-        <h3>Plugins</h3>
-        <p>Learn how to use 10Web plugins & get <br class="mobile">your sites looking <br class="tablet">& working the way you <br class="mobile">want.</p>
-        <a href="/hc/en-us/categories/4403730877330" class="learn-more">Learn More</a>
-      </div>
-    </div>
-  </div>
-  <div class="container_resources">
-	  <div class="container">
-		<div class="resources_left"> 
-		  <h2 class="section-title">Resources</h2>
-      <p>Check our public roadmap to see what is <br class="mobile">coming up, <br class="desktop">join our Facebook community <br class="tablet mobile">to ask any WP questions, <br class="desktop">& share your <br class="mobile">ideas with us.</p>
-		</div>  
-		<div class="resources_right"> 
-		    <div class="resource_item public_roadmap"> 
-			  <a href="/hc/en-us/articles/360028017772-Public-roadmap"></a>
-			  <h4>Public Roadmap</h4>
-			</div> 
-		    <div class="resource_item facebook_community"> 
-			  <a href="https://www.facebook.com/groups/356970164992808/" target="_blank"></a>
-			  <h4>Facebook Community</h4>
-			</div> 
-		    <div class="resource_item submit_your_idea"> 
-			  <a href="/hc/en-us/community/topics"></a>
-			  <h4>Submit Your Idea</h4>
-			</div> 
-		</div> 
-	  </div>
-  </div>
-  <div class="container_featured_articles">
-	  <div class="container">
-		  <h2 class="section-title">Featured Articles</h2>
-		  <div class="featured_articles">
-			  {{#each promoted_articles}}
-				  <a href="{{url}}">{{title}}</a>
-			  {{/each}}
-		  </div>
-	  </div>
-  </div>
+<div class="dx-shell dx-no-toc">
+  <aside class="dx-sidebar" id="dx-sidebar" aria-label="Help Center navigation">
+    <nav id="dx-tree" aria-busy="true">
+      <div class="dx-tree-loading" aria-hidden="true"><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div></div>
+      <span class="dx-visually-hidden">Loading navigation</span>
+    </nav>
+  </aside>
+  <div class="dx-scrim" aria-hidden="true"></div>
+
+  <main class="dx-main" id="dx-main" data-dx-page="home">
+    <h1 class="dx-page-title">How can we help?</h1>
+    <p class="dx-lead">Guides, answers and updates for everything you build with 10Web.</p>
+    <button class="dx-hero-search" type="button" data-dx-open-search aria-haspopup="dialog" aria-controls="dx-search">
+      <svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M15.47 14.06L12.07 10.72C12.88 9.63 13.37 8.28 13.37 6.82C13.37 3.2 10.42 0.26 6.8 0.26C3.18 0.26 0.24 3.2 0.24 6.82C0.24 10.44 3.18 13.38 6.8 13.38C8.25 13.38 9.59 12.9 10.68 12.1C10.68 12.1 10.68 12.11 10.69 12.12L14.09 15.46C14.28 15.65 14.53 15.74 14.78 15.74C15.03 15.74 15.29 15.64 15.48 15.45C15.86 15.06 15.85 14.44 15.47 14.06ZM1.32 6.82C1.32 3.8 3.78 1.34 6.8 1.34C9.82 1.34 12.28 3.8 12.28 6.82C12.28 9.84 9.82 12.3 6.8 12.3C3.78 12.3 1.32 9.84 1.32 6.82Z"/></svg>
+      <span>Search or ask a question…</span>
+    </button>
+    <ul class="dx-cards">
+        <li><a class="dx-card" href="/hc/categories/4403735323410"><img class="dx-card-icon" src="{{asset 'getting_started.svg'}}" alt=""><span class="dx-card-title">Getting Started</span><span class="dx-card-text">All you need to know to start hosting and building on the 10Web platform.</span></a></li>
+        <li><a class="dx-card" href="/hc/categories/4403773280018"><img class="dx-card-icon" src="{{asset 'build-with-ai.svg'}}" alt=""><span class="dx-card-title">Build with AI</span><span class="dx-card-text">Build websites, online stores and web apps with 10Web AI.</span></a></li>
+        <li><a class="dx-card" href="/hc/categories/4403729393554"><img class="dx-card-icon" src="{{asset 'wp_platform.svg'}}" alt=""><span class="dx-card-title">Automated WP Platform</span><span class="dx-card-text">Hosting, services and features of the 10Web Automated platform.</span></a></li>
+        <li><a class="dx-card" href="/hc/categories/4403729943442"><img class="dx-card-icon" src="{{asset 'builder.svg'}}" alt=""><span class="dx-card-title">AI Website Builder</span><span class="dx-card-text">Generate, convert to WordPress with AI, and build and edit websites.</span></a></li>
+        <li><a class="dx-card" href="/hc/categories/4403736661266"><img class="dx-card-icon" src="{{asset 'account_payment.svg'}}" alt=""><span class="dx-card-title">Account &amp; Payment</span><span class="dx-card-text">Manage your account, payments, subscription and business features.</span></a></li>
+        <li><a class="dx-card" href="/hc/categories/4403731365906"><img class="dx-card-icon" src="{{asset 'troubleshooting.svg'}}" alt=""><span class="dx-card-title">Troubleshooting</span><span class="dx-card-text">Solutions to the most common issues on our platform.</span></a></li>
+        <li><a class="dx-card" href="/hc/categories/4403730877330"><img class="dx-card-icon" src="{{asset 'plugins.svg'}}" alt=""><span class="dx-card-title">Plugins</span><span class="dx-card-text">Use 10Web plugins to get your sites looking and working the way you want.</span></a></li>
+    </ul>
+    {{#if promoted_articles}}
+    <h2 class="dx-block-title">Featured articles</h2>
+    <ul class="dx-link-list">
+      {{#each promoted_articles}}
+      <li><a href="{{url}}">{{title}}</a></li>
+      {{/each}}
+    </ul>
+    {{/if}}
+  </main>
 </div>

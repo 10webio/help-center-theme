@@ -62,5 +62,12 @@
   "post_sharing_description": "Gönderide sosyal medya paylaşımını göster",
   "community_topic_group_label": "Topluluk konu başlığı öğeleri",
   "follow_topic_label": "Takip et",
-  "follow_topic_description": "Kullanıcılar belirli bir konu başlığını takip edebilir"
+  "follow_topic_description": "Kullanıcılar belirli bir konu başlığını takip edebilir",
+  "hover_link_color_label": "Hover link color",
+  "hover_link_color_description": "Link color on hover. Also used by the AI quick answer box.",
+  "visited_link_color_label": "Visited link color",
+  "visited_link_color_description": "Color of links the visitor already opened. Also used by the AI quick answer box.",
+  "changelog_group_label": "Changelog",
+  "changelog_section_id_label": "Changelog section ID",
+  "changelog_section_id_description": "ID of the section that holds changelog posts. Leave empty to hide the Changelog tab."
 }

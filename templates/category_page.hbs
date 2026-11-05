@@ -1,36 +1,31 @@
-<div class="categories-page">
-  <div class="container-divider"></div>
-  <section class="section hero">
-     <div class="container">
-        <div class="hero-inner">
-            <p class="header_text header_title">{{category.name}}</p>
-            <p class="header_text header_desc">{{category.description}}</p>
-        </div>
-      </div>
-      <div id="categories-menu"></div>
-  </section>
-  <div class="container">
-
-    
-    <nav class="breadcrumbs-nav">
-      {{breadcrumbs}}
+<div class="dx-shell dx-no-toc">
+  <aside class="dx-sidebar" id="dx-sidebar" aria-label="Help Center navigation">
+    <nav id="dx-tree" aria-busy="true">
+      <div class="dx-tree-loading" aria-hidden="true"><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div></div>
+      <span class="dx-visually-hidden">Loading navigation</span>
     </nav>
+  </aside>
+  <div class="dx-scrim" aria-hidden="true"></div>
 
-    <div class="category-container">
-      <div class="category-content">
-        <h2 class="category-name">{{category.name}}</h2>
-        <div class="section-tree">
-          {{#each sections}}
-            <section class="section" data-id="{{id}}"  id="section_{{id}}">
-              <h2 class="section-tree-title">{{name}}</h2>
-                <ul class="article-list"> </ul>
-            </section>
-          {{/each}}
-        </div>
+  <main class="dx-main" id="dx-main" data-dx-page="category" data-category-id="{{category.id}}">
+    <div class="categories-page">
+      <h1 class="dx-page-title">{{category.name}}</h1>
+      {{#if category.description}}<p class="dx-lead">{{category.description}}</p>{{/if}}
+      <div class="section-tree">
+        {{#each sections}}
+        <section class="section" data-id="{{id}}" id="section_{{id}}">
+          <h2 class="section-tree-title">{{name}}</h2>
+          <ul class="article-list">
+            {{#each articles}}
+            <li><a href="{{url}}">{{title}}</a></li>
+            {{/each}}
+          </ul>
+        </section>
+        {{/each}}
       </div>
     </div>
-  </div>
+  </main>
 </div>
 <script>
- categoryPage.getCategorySections({{category.id}});
+  if (window.categoryPage) { try { categoryPage.getCategorySections({{category.id}}); } catch (e) {} }
 </script>

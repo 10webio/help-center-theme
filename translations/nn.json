@@ -26,5 +26,12 @@
   "community_background_image_description": "Bannerbilde på siden for nettsamfunnsemner",
   "community_background_image_label": "Bannerbilde for nettsamfunn",
   "community_image_description": "Bilde for nettsamfunnsdelen på hjemmesiden",
-  "community_image_label": "Nettsamfunnsfane"
+  "community_image_label": "Nettsamfunnsfane",
+  "hover_link_color_label": "Hover link color",
+  "hover_link_color_description": "Link color on hover. Also used by the AI quick answer box.",
+  "visited_link_color_label": "Visited link color",
+  "visited_link_color_description": "Color of links the visitor already opened. Also used by the AI quick answer box.",
+  "changelog_group_label": "Changelog",
+  "changelog_section_id_label": "Changelog section ID",
+  "changelog_section_id_description": "ID of the section that holds changelog posts. Leave empty to hide the Changelog tab."
 }

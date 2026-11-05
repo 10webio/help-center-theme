@@ -19,14 +19,17 @@ const mainSections = {
         "name" : "Getting Started",
         "type" : "category",
         "custom" :
-          [
-              {
-                  "id":"4403735338258",
-              },
-              {
-                  "id":"13000029302930",
-              }
-          ]
+            [
+                {
+                    "id":"13000029302930",
+                }
+            ]
+    },
+    "4403773280018":{
+        "name" : "Build with AI",
+        "type" : "category",
+        "custom" :
+            []
     },
     "4403729393554":{
         "name" : "Automated WP Platform",
@@ -67,20 +70,14 @@ const mainSections = {
         "name" : "Account & Payment",
         "type" : "category",
         "custom" :
-          [
-              {
-                  "id":"4403730847122",
-              },
-              {
-                  "id":"4403736693266",
-              }
-          ]
-    },
-    "4408397419538":{
-        "name" : "Video Tutorials",
-        "type" : "article",
-        "custom" :
-            []
+            [
+                {
+                    "id":"4403730847122",
+                },
+                {
+                    "id":"4403736693266",
+                }
+            ]
     },
     "4403731365906":{
         "name" : "Troubleshooting",
@@ -732,7 +729,7 @@ $(document).ready(function() {
         }
     });
 
-     /**
+    /**
      * Add tracking to hire an expert link
      */
     jQuery(".hire_an_expert").on("click",function () {
@@ -966,7 +963,7 @@ $(document).ready(function() {
 
     /**
      * Popup
-     * */
+     **/
     $(".article-body img:not(.image_link):not([src$=\".gif\"]), .article-body video").click(function (e) {
         e.preventDefault();
         showPopup(e, 'popup');
@@ -1150,19 +1147,6 @@ $(document).ready(function() {
         this.setAttribute("aria-expanded", !isExpanded);
     });
 
-    $("footer .footer-menu_title").click(function () {
-        if (matchMedia('screen and (max-width: 1279px)').matches) {
-            if ($(this).hasClass("active")) {
-                $(this).removeClass("active");
-                $(this).next("ul").slideUp("fast");
-            }
-            else {
-                $(this).addClass("active");
-                $(this).next("ul").slideDown("fast");
-            }
-        }
-    });
-
     $(".header_container .toggle-search").click(function () {
         $('.header_container .header_search').addClass('active_search');
     });
@@ -1255,7 +1239,7 @@ $(window).on("resize", function () {
         }
         else {
             $('.footer_widget_nav_menu > div').hide();
-            $("footer .footer_widget_nav_menu .footer-menu_title").removeClass("active");
+            $("footer .footer_widget_nav_menu .footer_titles").removeClass("active");
         }
     }
 });

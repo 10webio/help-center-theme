@@ -1,7 +1,7 @@
 {
-  "name": "10Web HC New Theme (Dev Branch)",
+  "name": "10Web HC New Theme",
   "author": "10Web",
-  "version": "1.8.98",
+  "version": "1.8.112",
   "api_version": 1,
   "default_locale": "en-us",
   "settings": [
@@ -27,14 +27,28 @@
           "type": "color",
           "description": "text_color_description",
           "label": "text_color_label",
-          "value": "rgba(50, 58, 69, 1)"
+          "value": "#000000"
         },
         {
           "identifier": "link_color",
           "type": "color",
           "description": "link_color_description",
           "label": "link_color_label",
-          "value": "rgba(33, 96, 181, 1)"
+          "value": "#3339F1"
+        },
+        {
+          "identifier": "hover_link_color",
+          "type": "color",
+          "description": "hover_link_color_description",
+          "label": "hover_link_color_label",
+          "value": "#1E22A8"
+        },
+        {
+          "identifier": "visited_link_color",
+          "type": "color",
+          "description": "visited_link_color_description",
+          "label": "visited_link_color_label",
+          "value": "#3339F1"
         },
         {
           "identifier": "background_color",
@@ -53,8 +67,12 @@
           "type": "list",
           "description": "heading_font_description",
           "label": "heading_font_label",
-          "value": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+          "value": "'Evergrow Sans', 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif",
           "options": [
+            {
+              "label": "Evergrow Sans (10Web)",
+              "value": "'Evergrow Sans', 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+            },
             {
               "label": "System",
               "value": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
@@ -126,8 +144,12 @@
           "type": "list",
           "description": "text_font_description",
           "label": "text_font_label",
-          "value": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+          "value": "'Evergrow Sans', 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif",
           "options": [
+            {
+              "label": "Evergrow Sans (10Web)",
+              "value": "'Evergrow Sans', 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+            },
             {
               "label": "System",
               "value": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
@@ -368,6 +390,18 @@
           "description": "follow_topic_description",
           "label": "follow_topic_label",
           "value": true
+        }
+      ]
+    },
+    {
+      "label": "changelog_group_label",
+      "variables": [
+        {
+          "identifier": "changelog_section_id",
+          "type": "text",
+          "description": "changelog_section_id_description",
+          "label": "changelog_section_id_label",
+          "value": ""
         }
       ]
     }

@@ -1,51 +1,46 @@
-<div class="section-page">
-  <div class="container-divider"></div>
-  <section class="section hero">
-       <div class="container">
-          <div class="hero-inner">
-              <p class="header_text header_title">10Web Help Center</p>
-              <p class="header_text header_desc">Hi, how can we help?</p>
-          </div>
-       </div>
-       <div id="categories-menu"></div>
-    </section>
-  <div class="container">
-    <nav class="breadcrumbs-nav">
-      {{breadcrumbs}}
+<div class="dx-shell dx-no-toc section-page">
+  <aside class="dx-sidebar" id="dx-sidebar" aria-label="Help Center navigation">
+    <nav id="dx-tree" aria-busy="true">
+      <div class="dx-tree-loading" aria-hidden="true"><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div><div class="dx-skel"></div></div>
+      <span class="dx-visually-hidden">Loading navigation</span>
     </nav>
+  </aside>
+  <div class="dx-scrim" aria-hidden="true"></div>
 
-    <div class="section-container">
-      <section class="section-content section-tree">
-          <h2 class="section-name section-tree-title">
-            {{section.name}}
-            {{#if section.internal}}
-              <span class="icon-lock" title="{{t 'internal'}}"></span>
-            {{/if}}
-          </h2>
-          {{#if section.description}}
-            <div class="section-subscribe" style="margin: 10px;position: relative;top: 1px;"><a role="button" href="{{section.description}}" target="_blank">See All Features</a></div>
-          {{/if}}
-
-
-        {{#if section.articles}}
+  <main class="dx-main" id="dx-main" data-dx-page="section" data-section-id="{{section.id}}" data-changelog-id="{{settings.changelog_section_id}}">
+    <div data-dx-section-default>
+      <h1 class="dx-page-title">{{section.name}}{{#if section.internal}} <span class="icon-lock" title="{{t 'internal'}}"></span>{{/if}}</h1>
+      <div class="section-tree">
+        <section class="section">
+          {{#if section.articles}}
           <ul class="article-list">
             {{#each section.articles}}
-              <li class="article-list-item {{#if promoted}} article-promoted{{/if}}">
-                {{#if promoted}}
-                  <span data-title="{{t 'promoted'}}" class="icon-star"></span>
-                {{/if}}
-                <a href="{{url}}" class="article-list-link">{{title}}</a>
-              </li>
+            <li class="article-list-item{{#if promoted}} article-promoted{{/if}}"><a href="{{url}}" class="article-list-link">{{title}}</a></li>
             {{/each}}
           </ul>
-        {{else}}
-          <i class="section-empty">
-            <a href="{{section.url}}">{{t 'empty'}}</a>
-          </i>
-        {{/if}}
-
-        {{pagination}}
-      </section>
+          {{else}}
+          <p class="dx-lead">{{t 'empty'}}</p>
+          {{/if}}
+        </section>
+      </div>
+      {{pagination}}
     </div>
-  </div>
+    <div id="dx-changelog" hidden>
+      <div class="dx-changelog-head">
+        <h1 class="dx-page-title">Changelog</h1>
+        <p class="dx-lead">New features, improvements and fixes in 10Web.</p>
+      </div>
+      <div id="dx-changelog-feed"></div>
+      <p class="dx-cl-status" role="status" hidden></p>
+      <div class="dx-cl-more" hidden><button type="button">Show older updates</button></div>
+    </div>
+  </main>
+
+  <aside class="dx-toc" id="dx-toc" aria-label="On this page" hidden>
+    <p class="dx-toc-title">
+      <svg class="dx-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.96 10.52C2.79 10.52 3.46 11.19 3.46 12.02C3.46 12.85 2.79 13.52 1.96 13.52C1.13 13.52 0.46 12.85 0.46 12.02C0.46 11.19 1.13 10.52 1.96 10.52Z"/><path d="M14.99 11.47C15.29 11.47 15.54 11.72 15.54 12.02C15.54 12.32 15.29 12.57 14.99 12.57H7.63C7.33 12.57 7.08 12.32 7.08 12.02C7.08 11.72 7.33 11.47 7.63 11.47H14.99Z"/><path d="M1.96 2.48C2.79 2.48 3.46 3.15 3.46 3.98C3.46 4.81 2.79 5.48 1.96 5.48C1.13 5.48 0.46 4.81 0.46 3.98C0.46 3.15 1.13 2.48 1.96 2.48Z"/><path d="M14.99 3.43C15.29 3.43 15.54 3.68 15.54 3.98C15.54 4.28 15.29 4.53 14.99 4.53H7.63C7.33 4.53 7.08 4.28 7.08 3.98C7.08 3.68 7.33 3.43 7.63 3.43H14.99Z"/></svg>
+      On this page
+    </p>
+    <div id="dx-toc-list"></div>
+  </aside>
 </div>

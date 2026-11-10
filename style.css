@@ -10556,11 +10556,13 @@ html.dx-home-ready .dx-main[data-dx-page="home"] { visibility: visible; animatio
 #tw-footer .site-footer__links a { display: inline-flex; padding: 4px 0; font-size: 14px; line-height: 20px; transition: color 0.15s; }
 #tw-footer .site-footer__links a:hover { color: var(--tf-weak) !important; }
 #tw-footer a:focus-visible, #tw-footer .site-footer__title:focus-visible { outline: 2px solid #3339f1; outline-offset: 2px; border-radius: 4px; }
+#tw-footer .site-footer__legal { display: flex; box-sizing: border-box; border-top: 1px solid var(--tf-line); color: var(--tf-weak); }
 
 /* Phone: centred logo and socials, link groups as accordions (data order). */
 @media screen and (max-width: 767px) {
   #tw-footer.site-footer { padding-top: 48px; margin-top: 64px; }
-  #tw-footer .site-footer__top { padding: 0 16px 48px; }
+  #tw-footer .site-footer__top { padding: 0 16px 32px; }
+  #tw-footer .site-footer__legal { flex-direction: column-reverse; gap: 12px; padding: 20px 16px 24px; font-size: 12px; line-height: 18px; }
   #tw-footer .site-footer__brand { align-items: center; margin-bottom: 40px; text-align: center; }
   #tw-footer .site-footer__intro { align-items: center; gap: 12px; }
   #tw-footer .site-footer__logo svg { width: 102px; height: 28px; }
@@ -10578,7 +10580,8 @@ html.dx-home-ready .dx-main[data-dx-page="home"] { visibility: visible; animatio
 /* Tablet: logo, tagline and socials centred over three link columns. */
 @media screen and (max-width: 1260px) and (min-width: 768px) {
   #tw-footer.site-footer { padding-top: 96px; }
-  #tw-footer .site-footer__top { padding: 0 20px 96px; }
+  #tw-footer .site-footer__top { padding: 0 20px 64px; }
+  #tw-footer .site-footer__legal { flex-direction: column-reverse; gap: 12px; margin: 0 20px; padding: 24px 0 32px; font-size: 14px; line-height: 20px; }
   #tw-footer .site-footer__brand { align-items: center; margin-bottom: 80px; text-align: center; }
   #tw-footer .site-footer__intro { align-items: center; gap: 16px; }
   #tw-footer .site-footer__logo svg { width: 130px; height: 36px; }
@@ -10590,7 +10593,8 @@ html.dx-home-ready .dx-main[data-dx-page="home"] { visibility: visible; animatio
 /* Desktop */
 @media screen and (min-width: 1261px) {
   #tw-footer.site-footer { padding-top: 96px; }
-  #tw-footer .site-footer__top { display: flex; gap: 80px; width: 1272px; max-width: calc(100% - 80px); margin: 0 auto; padding-bottom: 96px; }
+  #tw-footer .site-footer__top { display: flex; gap: 80px; width: 1272px; max-width: calc(100% - 80px); margin: 0 auto; padding-bottom: 64px; }
+  #tw-footer .site-footer__legal { align-items: flex-start; justify-content: space-between; gap: 24px; width: 1272px; max-width: calc(100% - 80px); margin: 0 auto; padding: 24px 0 32px; font-size: 14px; line-height: 20px; }
   #tw-footer .site-footer__brand { flex: 1; min-width: 0; }
   #tw-footer .site-footer__intro { gap: 16px; }
   #tw-footer .site-footer__logo svg { width: 130px; height: 36px; }
